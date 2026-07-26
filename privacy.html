@@ -1,5 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — MoneyForge</title>
 <meta name="description" content="MoneyForge privacy policy — what the local desktop app does and does not send off your machine.">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="Privacy Policy — MoneyForge">
 <style>
   :root {
     --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
@@ -85,6 +93,8 @@
   .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
 
 </style>
+</head>
+<body>
 
 <header>
   <div class="wrap">
@@ -114,6 +124,16 @@
     <li><strong>License activation.</strong> Verifying a purchase requires checking your license key. Depending on how you purchased, this is either a request to the payment provider's own license-check API, or (for Stripe purchases) verified entirely offline with no network call at all.</li>
   </ul>
 
+  <h2>Google user data (YouTube distribution)</h2>
+  <p>If you connect a YouTube channel to publish generated videos, MoneyForge requests two Google OAuth scopes: <code>youtube.readonly</code> (to confirm which channel you're connected as) and <code>youtube.upload</code> (to publish a video you generated to that channel).</p>
+  <ul>
+    <li><strong>Access &amp; storage.</strong> The OAuth access and refresh tokens Google issues are stored locally on your machine, in MoneyForge's local database. They are never transmitted to any MoneyForge server — there isn't one in this flow.</li>
+    <li><strong>Use.</strong> These tokens are used only to call the YouTube Data API directly from your machine — to confirm your connected channel and to upload the specific video you chose to publish. MoneyForge doesn't read, analyze, or store any other YouTube data (subscriptions, watch history, comments, recommendations, etc.).</li>
+    <li><strong>Sharing.</strong> This data is never shared with any third party, sold, or used for advertising.</li>
+    <li><strong>Retention &amp; deletion.</strong> Tokens persist locally only until you disconnect the account in MoneyForge's Distribution settings (which deletes them immediately) or until you revoke access directly from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions page</a> at any time.</li>
+  </ul>
+  <p>MoneyForge's use and transfer of information received from Google APIs to any other app will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+
   <h2>What we collect</h2>
   <p>We don't operate an account system for MoneyForge — there's no MoneyForge cloud database of your prompts, your generations, or your usage. The only information tied to a purchase is what your payment provider (Gumroad, LemonSqueezy, or Stripe) collects to process that purchase, governed by their own privacy policies.</p>
 
@@ -133,3 +153,5 @@
     localStorage.getItem('mf-theme') ||
     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
 </script>
+</body>
+</html>
