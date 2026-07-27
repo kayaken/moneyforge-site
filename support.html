@@ -8,6 +8,7 @@
 <meta name="application-name" content="MoneyForge">
 <meta property="og:site_name" content="MoneyForge">
 <meta property="og:title" content="Support — MoneyForge">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css">
 <style>
   :root {
     --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
@@ -51,6 +52,64 @@
   .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
 
   .fallback { margin-top: 32px; font-size: 14px; color: var(--text-faint); }
+
+  /* @n8n/chat theming (v1.30.2 custom properties, verified against the
+     shipped stylesheet — see docs/design-system.md before changing names).
+     --chat--window--width/height default to a fixed 400x600 "floating
+     popup" size regardless of embed mode; without overriding them the
+     widget renders far narrower than its .plate container. */
+  #mf-support-chat {
+    --chat--window--width: 100%;
+    --chat--window--height: 480px;
+    --chat--window--border: none;
+    --chat--window--border-radius: 0;
+    --chat--spacing: 1rem;
+    --chat--border-radius: 2px;
+    --chat--font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+    --chat--color--primary: var(--accent);
+    --chat--color--primary-shade-50: var(--accent);
+    --chat--color--secondary: var(--accent);
+    --chat--color-secondary-shade-50: var(--accent);
+    --chat--color-dark: var(--bg);
+    --chat--color-light: var(--text);
+    --chat--color-light-shade-50: var(--surface);
+    --chat--color-light-shade-100: var(--border);
+    --chat--color-medium: var(--border);
+
+    --chat--header--background: var(--surface);
+    --chat--header--color: var(--text);
+    --chat--header--border-bottom: 1px solid var(--border);
+    --chat--body--background: var(--surface);
+
+    --chat--message--bot--background: var(--bg);
+    --chat--message--bot--color: var(--text);
+    --chat--message--bot--border: 1px solid var(--border);
+    --chat--message--user--background: var(--accent);
+    --chat--message--user--color: #0F0B08;
+    --chat--message--user--border: none;
+
+    --chat--input--background: var(--bg);
+    --chat--input--text-color: var(--text);
+    --chat--input--border: 1px solid var(--border);
+    --chat--input--container--background: var(--bg);
+    --chat--input--container--border: 1px solid var(--border);
+    --chat--input--send--button--background: var(--accent);
+    --chat--input--send--button--color: #0F0B08;
+    --chat--input--send--button--background-hover: var(--accent);
+    --chat--input--send--button--color-hover: #0F0B08;
+
+    --chat--footer--background: var(--surface);
+    --chat--footer--border-top: 1px solid var(--border);
+    --chat--button--background--primary: var(--accent);
+    --chat--button--color--primary: #0F0B08;
+    --chat--button--background--primary--hover: var(--accent);
+    --chat--button--color--primary--hover: #0F0B08;
+
+    --chat--toggle--background: var(--accent);
+    --chat--toggle--color: #0F0B08;
+    --chat--toggle--hover--background: var(--accent);
+  }
 </style>
 </head>
 <body>
@@ -69,7 +128,7 @@
 
     <div class="plate">
       <div class="bl"></div><div class="br"></div>
-      <div id="mf-support-chat" style="min-height: 420px;"></div>
+      <div id="mf-support-chat" style="min-height: 480px;"></div>
     </div>
 
     <p class="fallback">
@@ -90,6 +149,20 @@
   createChat({
     webhookUrl: 'https://n8n.moneyforgestudio.com/webhook/d753b3a4-d5c0-4a19-9336-3908cba2d1c2/chat',
     target: '#mf-support-chat',
+    mode: 'fullscreen',
+    showWelcomeScreen: false,
+    initialMessages: [
+      'Hi! Ask me anything about MoneyForge — setup, generation issues, licensing, or your account.',
+    ],
+    i18n: {
+      en: {
+        title: 'MoneyForge Support',
+        subtitle: '',
+        footer: '',
+        getStarted: 'New Conversation',
+        inputPlaceholder: 'Type your question...',
+      },
+    },
   });
 </script>
 
