@@ -281,6 +281,10 @@
   .includes { text-align: left; list-style: none; margin: 0 0 36px; padding: 0; display: grid; gap: 12px; }
   .includes li { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; color: var(--text-dim); }
   .includes li::before { content: "◆"; color: var(--accent); font-size: 10px; margin-top: 5px; }
+  .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; max-width: 920px; margin: 0 auto; }
+  @media (max-width: 760px) { .price-grid { grid-template-columns: 1fr; } }
+  .price-grid .price-panel { max-width: none; margin: 0; padding: 36px 32px; }
+  .price-grid .price-big { font-size: 64px; }
   .ticket {
     display: inline-flex; flex-direction: column; align-items: center; gap: 4px;
     border: 1.5px dashed var(--accent); padding: 14px 26px;
@@ -405,23 +409,39 @@
   <section id="pricing">
     <div class="wrap">
       <div class="rule"><span>Pricing</span></div>
-      <div class="plate price-panel">
-        <div class="bl"></div><div class="br"></div>
-        <span class="eyebrow">Early Access</span>
-        <div class="price-big">$49</div>
-        <p class="price-note">One-time. Rises to <s>$79</s> at general availability — Early Access buyers keep $49 forever.</p>
-        <ul class="includes">
-          <li>Every media type: images, video, movies, music videos, faceless reels</li>
-          <li>No generation caps, no credits, ever</li>
-          <li>Free local voice cloning + optional ElevenLabs</li>
-          <li>Auto-distribution to all six supported platforms</li>
-          <li>Auto-scheduler for hands-off, cadence-based posting</li>
-          <li>Runs entirely on your own machine — nothing you generate leaves it unless you post it</li>
-        </ul>
-        <a class="btn" href="https://kaya855.gumroad.com/l/dzxnu" style="display:block; text-align:center; margin-top:8px;">Buy Early Access — $49</a>
-        <!-- TODO: set the exact one-time bundle price once this SKU is configured in Gumroad (pricing-messaging-assessment.md §6.2 modeled ~$139 against the $79 GA price — revisit at that point, not before) -->
-        <p class="team-note">Need more than one seat? Add extra seats as a one-time bundle — never a subscription.</p>
+      <div class="price-grid">
+        <div class="plate price-panel">
+          <div class="bl"></div><div class="br"></div>
+          <span class="eyebrow">Personal — Early Access</span>
+          <div class="price-big">$49</div>
+          <p class="price-note">One-time. Rises to <s>$79</s> at general availability — Early Access buyers keep $49 forever.</p>
+          <ul class="includes">
+            <li>Every media type: images, video, movies, music videos, faceless reels</li>
+            <li>No generation caps, no credits, ever — standard-resolution output</li>
+            <li>Free local voice cloning + optional ElevenLabs</li>
+            <li>Auto-distribution to all six supported platforms</li>
+            <li>Auto-scheduler for hands-off, cadence-based posting</li>
+            <li>Runs entirely on your own machine — nothing you generate leaves it unless you post it</li>
+          </ul>
+          <a class="btn" href="https://kaya855.gumroad.com/l/dzxnu" style="display:block; text-align:center; margin-top:8px;">Buy Personal — $49</a>
+        </div>
+        <div class="plate price-panel">
+          <div class="bl"></div><div class="br"></div>
+          <span class="eyebrow">Pro</span>
+          <div class="price-big">$99</div>
+          <p class="price-note">One-time. Rises to <s>$129</s> at general availability — Early Access buyers keep $99 forever.</p>
+          <ul class="includes">
+            <li>Everything in Personal</li>
+            <li>4K &amp; 8K AI upscale (Real-ESRGAN) on images, reels, and lyric-card music videos</li>
+            <li>720p HD native video generation, not just a resize</li>
+            <li>4K video export / delivery-size bump</li>
+            <li>Still one-time — no credits, no recurring charge, ever</li>
+          </ul>
+          <a class="btn" href="https://kaya855.gumroad.com/l/bupjru" style="display:block; text-align:center; margin-top:8px;">Buy Pro — $99</a>
+        </div>
       </div>
+      <!-- TODO: set the exact one-time bundle price once this SKU is configured in Gumroad (pricing-messaging-assessment.md §6.2 modeled ~$139 against the $79 GA price — revisit at that point, not before) -->
+      <p class="team-note" style="text-align:center">Need more than one seat? Add extra seats as a one-time bundle — never a subscription.</p>
     </div>
   </section>
 
@@ -450,6 +470,10 @@
       <details class="faq" open>
         <summary>Is this a subscription?</summary>
         <p>No. MoneyForge is a one-time purchase — $49 once, no recurring charges of any kind. Each license activates on one device today; a multi-seat team option is on the roadmap but not available yet.</p>
+      </details>
+      <details class="faq">
+        <summary>What does Pro add?</summary>
+        <p>Pro is a one-time $99 upgrade on top of everything Personal includes. It unlocks real 4K/8K AI upscale (Real-ESRGAN) for images, reels, and lyric-card music videos; native 720p HD video generation instead of Personal's standard resolution; and a 4K video export option. Still no credits, no subscription — same one-time model as Personal, just a higher ceiling.</p>
       </details>
       <details class="faq">
         <summary>Does my data go to the cloud?</summary>
