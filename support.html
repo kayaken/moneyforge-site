@@ -98,6 +98,11 @@
     --chat--input--border: 1px solid var(--border);
     --chat--input--container--background: var(--bg);
     --chat--input--container--border: 1px solid var(--border);
+    /* Defaults to 0 in the shipped widget CSS, while the messages list uses
+       --chat--spacing (1rem) — left unset, the input container sits flush
+       against its edges while the message bubbles above it are inset,
+       making the two areas look misaligned. Match them explicitly. */
+    --chat--input--container--padding: var(--chat--spacing);
     --chat--input--send--button--background: var(--accent);
     --chat--input--send--button--color: #0F0B08;
     --chat--input--send--button--background-hover: var(--accent);
@@ -114,6 +119,16 @@
     --chat--toggle--color: #0F0B08;
     --chat--toggle--hover--background: var(--accent);
   }
+
+  /* @n8n/chat ships no config option to disable its "Powered by n8n"
+     footer (confirmed against v1.30.2's real option surface and an n8n
+     staff/moderator statement that it's not a togglable setting) — the
+     only removal path is hiding the element directly. Not scoped to
+     .chat-get-started-footer specifically since showWelcomeScreen is
+     false here (that screen never renders) yet the badge still shows,
+     meaning it also appears in the regular chat footer area — hide the
+     class wherever it lands inside our widget, not the page globally. */
+  #mf-support-chat .chat-powered-by { display: none; }
 </style>
 </head>
 <body>
