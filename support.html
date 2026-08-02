@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css">
+<link rel="stylesheet" href="vendor/chat-widget.css">
 <style>
   :root {
     --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
@@ -57,11 +57,12 @@
 
   .fallback { margin-top: 32px; font-size: 14px; color: var(--text-faint); }
 
-  /* @n8n/chat theming (v1.30.2 custom properties, verified against the
-     shipped stylesheet — see docs/design-system.md before changing names).
-     --chat--window--width/height default to a fixed 400x600 "floating
-     popup" size regardless of embed mode; without overriding them the
-     widget renders far narrower than its .plate container. */
+  /* Chat widget theming (self-hosted vendor/chat-widget.{css,js}, pinned
+     v1.30.2 — verified against the shipped stylesheet, see
+     docs/design-system.md before changing names). --chat--window--width/
+     height default to a fixed 400x600 "floating popup" size regardless of
+     embed mode; without overriding them the widget renders far narrower
+     than its .plate container. */
   #mf-support-chat {
     --chat--window--width: 100%;
     --chat--window--height: 480px;
@@ -120,10 +121,10 @@
     --chat--toggle--hover--background: var(--accent);
   }
 
-  /* @n8n/chat ships no config option to disable its "Powered by n8n"
-     footer (confirmed against v1.30.2's real option surface and an n8n
-     staff/moderator statement that it's not a togglable setting) — the
-     only removal path is hiding the element directly. Not scoped to
+  /* The chat widget vendor ships no config option to disable its own
+     attribution footer (confirmed against the real option surface and a
+     vendor staff/moderator statement that it's not a togglable setting) —
+     the only removal path is hiding the element directly. Not scoped to
      .chat-get-started-footer specifically since showWelcomeScreen is
      false here (that screen never renders) yet the badge still shows,
      meaning it also appears in the regular chat footer area — hide the
@@ -162,7 +163,7 @@
 </main>
 
 <script type="module">
-  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  import { createChat } from './vendor/chat-widget.js';
   // Tier1-WebWidget workflow's Chat Trigger node (published 2026-07-28) —
   // see docs/runbooks/vps-support-infra-setup.md Phase 4.
   createChat({
