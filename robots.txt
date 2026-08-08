@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_skeleton.html
+
+Sitemap: https://moneyforgestudio.com/sitemap.xml
