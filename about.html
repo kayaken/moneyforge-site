@@ -3,26 +3,126 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MoneyForge — About</title>
-<meta name="description" content="MoneyForge is a local desktop application that generates images, video, movies, music videos, and narrated shorts on your own computer, then publishes them to YouTube, TikTok, Instagram, Facebook, Pinterest, and X.">
+<title>About MoneyForge — Local AI Content Studio</title>
+<meta name="description" content="MoneyForge is a Windows desktop app that generates images, video, movies, music videos, and narrated shorts on your own GPU, then posts them to YouTube, Facebook, Instagram, and TikTok. One-time purchase, no credits.">
 <meta name="application-name" content="MoneyForge">
 <meta property="og:site_name" content="MoneyForge">
-<meta property="og:title" content="MoneyForge — About">
+<meta property="og:title" content="About MoneyForge">
+<meta property="og:description" content="A local AI content studio: generate on your own GPU, post to four platforms, pay once.">
+<link rel="canonical" href="https://moneyforgestudio.com/about.html">
 <link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
 <style>
-  body { font-family: Arial, Helvetica, sans-serif; max-width: 640px; margin: 60px auto; padding: 0 20px; color: #211A14; background: #F5F1EA; line-height: 1.6; }
-  h1 { font-size: 28px; margin-bottom: 4px; }
-  a { color: #A84E1C; }
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; }
+  .wordmark span { color: var(--accent); }
+  .back { color: var(--text-dim); text-decoration: none; font-size: 14px; }
+  .back:hover { color: var(--accent); }
+  main { padding: 48px 0 80px; }
+  h1 { font-size: 28px; margin: 0 0 8px; }
+  h2 { font-size: 18px; margin: 40px 0 8px; }
+  p.lede { color: var(--text-dim); margin-top: 0; }
+  a { color: var(--accent); }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+
+  .plate {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+    margin-top: 16px;
+  }
+  .plate::before, .plate::after,
+  .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 20px; }
+  .plate dt { color: var(--text-dim); }
+  .plate dd { margin: 0; }
+  @media (max-width: 520px) { .plate dl { grid-template-columns: 1fr; gap: 0; } .plate dd { margin-bottom: 10px; } }
+
+  .foot { margin-top: 48px; font-size: 14px; color: var(--text-faint); }
 </style>
 </head>
 <body>
-<h1>MoneyForge</h1>
-<p><strong>MoneyForge</strong> is a local desktop application that generates images, video, movies, music videos, and narrated shorts using your own computer's GPU.</p>
-<p>Once you've generated content, MoneyForge can publish it directly to YouTube, TikTok, Instagram, Facebook, Pinterest, and X, using accounts you connect yourself.</p>
-<p>MoneyForge is a one-time purchase — there are no subscriptions, credits, or generation caps.</p>
-<p><a href="index.html">Back to moneyforgestudio.com</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></p>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="index.html" style="text-decoration:none; color:var(--text)">MONEY<span>FORGE</span></a>
+    <a class="back" href="index.html">← Back</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>About MoneyForge</h1>
+    <p class="lede">A local AI content studio. Your GPU does the generating, you pay once, and nothing is metered.</p>
+
+    <p><strong>MoneyForge</strong> is a desktop application for Windows that generates images, video, multi-scene movies, music videos, and narrated faceless shorts on your own computer's graphics card. When the content is ready, it can caption it and post it to YouTube, Facebook, Instagram, and TikTok, using accounts you connect yourself. Pinterest support is built and waiting on Pinterest's developer approval; X support is planned.</p>
+
+    <h2>Why it exists</h2>
+    <p>Most AI video and short-form tools run in the cloud and charge per generation: credits, monthly caps, or "unlimited" plans with fair-use limits. That pricing follows from paying for someone else's GPU time. If you already own a capable GPU, the per-generation cost is close to zero, so MoneyForge is sold as a one-time license with no credits and no generation caps.</p>
+
+    <h2>What it does</h2>
+    <ul>
+      <li><strong>Images</strong> with multi-character face consistency, so the same cast stays recognizable across shots.</li>
+      <li><strong>Text-to-video and image-to-video</strong> through a full local video-generation pipeline.</li>
+      <li><strong>Movies</strong>: up to six shots chained into one continuous sequence.</li>
+      <li><strong>Music videos</strong> cut to a track's lyrics or beat.</li>
+      <li><strong>Faceless reels</strong>: AI-written scripts, narration, captions, and background music.</li>
+      <li><strong>Voice cloning</strong> locally for free, or through your own ElevenLabs account.</li>
+      <li><strong>Scheduling</strong>: pick a cadence and MoneyForge generates and posts on its own.</li>
+    </ul>
+
+    <h2>Your content stays on your machine</h2>
+    <p>Generation runs entirely on your computer. Nothing you create leaves it unless you choose to post it, or you turn on an optional cloud add-on such as premium voices. The app needs a network connection for license activation, first-time model downloads, and posting. See the <a href="privacy.html">Privacy Policy</a> for details.</p>
+
+    <h2>At a glance</h2>
+    <div class="plate">
+      <div class="bl"></div><div class="br"></div>
+      <dl>
+        <dt>Platform</dt><dd>Windows 10 / 11 desktop app</dd>
+        <dt>GPU</dt><dd>12GB VRAM recommended (RTX 3060 or better); 6GB for images only</dd>
+        <dt>Memory / disk</dt><dd>16GB RAM, 40GB free disk</dd>
+        <dt>Pricing</dt><dd>One-time license: Personal or Pro. See <a href="index.html#pricing">pricing</a></dd>
+        <dt>Posts to</dt><dd>YouTube, Facebook, Instagram, TikTok</dd>
+      </dl>
+    </div>
+
+    <h2>Contact</h2>
+    <p>Questions about setup, licensing, or your account go to the <a href="support.html">support page</a>, or email <a href="mailto:support@moneyforgestudio.com">support@moneyforgestudio.com</a>. For privacy and data requests, email <a href="mailto:privacy@moneyforgestudio.com">privacy@moneyforgestudio.com</a>.</p>
+
+    <p class="foot"><a href="index.html">Home</a> &middot; <a href="support.html">Support</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></p>
+  </div>
+</main>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
 </body>
 </html>
