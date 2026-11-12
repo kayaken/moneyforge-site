@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>音樂 MV — MoneyForge 使用手冊</title>
+<meta name="description" content="用 MoneyForge 為您的歌曲製作 MV：歌詞卡片或依節拍、歌詞切換的 AI 場景，支援單曲、播放清單與整張專輯。">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="音樂 MV">
+<meta property="og:description" content="用 MoneyForge 為您的歌曲製作 MV：歌詞卡片或依節拍、歌詞切換的 AI 場景，支援單曲、播放清單與整張專輯。">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/zh-tw/music-videos.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">使用手冊</a>
+      <a href="../../support.html" class="hide-sm">客服支援</a>
+      <a href="../music-videos.html" lang="en">English</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="目錄">
+    <p class="label">使用手冊</p>
+    <ol>
+      <li><a href="index.html">總覽</a></li>
+      <li><a href="getting-started.html">開始使用</a></li>
+      <li><a href="video-and-movies.html">影片與電影</a></li>
+      <li><a href="music-videos.html" aria-current="page">音樂 MV</a></li>
+      <li><a href="voices.html">聲音與聲音克隆</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">媒體類型</p>
+    <h1>音樂 MV</h1>
+    <p class="lede">上傳您的歌曲，MoneyForge 會依歌曲製作影片，並保留原本的音訊。可選擇快速的歌詞卡片，或 AI 生成的場景。</p>
+
+<p>請使用您擁有版權或已取得授權的音樂。</p>
+
+<h2>步驟 1：Audio Source（音訊來源）</h2>
+<p>在 Create 選擇 <span class="ui">Music video</span>，再選擇來源：</p>
+<ul>
+  <li><strong>單曲</strong>：<span class="ui">Audio track</span>（.mp3、.wav、.flac、.m4a、.ogg）。可另外加上 <span class="ui">.lrc file</span>（含時間軸的歌詞檔），或在 <span class="ui">Or paste plain lyrics</span> 貼上歌詞，一行一句。</li>
+  <li><strong>播放清單</strong>：一次選擇多個音訊檔，.lrc 檔會依檔名自動對應。</li>
+  <li><strong>專輯（ZIP）</strong>：內含編號曲目、對應的 .lrc 檔（選用）與 <code>album_art.jpg</code>（選用）的 .zip 檔。<span class="ui">Album art handling</span> 可選擇只當封面，或讓封面動起來作為第 1 首的開場。</li>
+</ul>
+
+<h2>步驟 2：Prompt &amp; Generation（描述與生成）</h2>
+<p><span class="ui">Prompt mode</span>：</p>
+<ul>
+  <li><strong>Single prompt</strong>：整首歌一個描述，場景依節拍切換。</li>
+  <li><strong>Lyrics-driven</strong>：每句歌詞一個場景，畫面依該句歌詞產生。沒有歌詞的歌曲會改用節拍切換。</li>
+</ul>
+<p><span class="ui">Generation mode</span>：</p>
+<div class="tablewrap"><table>
+<tr><th>模式</th><th>成果</th><th>速度</th></tr>
+<tr><td>Lyric cards（快速，靜態背景）</td><td>生成的背景圖，歌詞隨歌曲同步顯示。最高 8K。</td><td>數分鐘</td></tr>
+<tr><td>Full AI video（AI 生成場景，較慢）</td><td>AI 生成的動態畫面。<strong>每首歌最多 5 個場景</strong>，之後重複播放直到歌曲結束。480p，Pro 版可 720p。需要 12 GB 顯示卡與影片模型。</td><td>RTX 3060 12 GB 上每個場景約 1 小時以上</td></tr>
+</table></div>
+
+<h2>步驟 3：Album Options（播放清單與專輯）</h2>
+<p><span class="ui">Per-track</span> 為每首歌各做一支影片。<span class="ui">Full album (continuous)</span> 會再把全部接成一支長影片；勾選 <span class="ui">Show title card at each track boundary</span> 可在曲目之間顯示歌名。</p>
+
+<h2>教學：為一首歌製作 MV</h2>
+<ol>
+  <li>選擇 <span class="ui">Music video</span>，比例選 16:9（YouTube）或 9:16（Shorts、TikTok）。</li>
+  <li>上傳歌曲；有 .lrc 檔的話一起上傳。沒有的話可貼上歌詞，或不加歌詞。</li>
+  <li>第一版建議用 <span class="ui">Lyric cards</span>，搭配風格與描述氛圍的英文 prompt，例如 <em>"neon city at night, rain, cinematic"</em>。</li>
+  <li>想要有樣式的歌詞，請在 Advanced 開啟字幕（Captions）；選擇標示 🎤 的樣式，會逐字標亮。</li>
+  <li>滿意畫面風格後，可用相同描述改選 <span class="ui">Full AI video</span> 製作動態場景，建議放著過夜執行。</li>
+</ol>
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">小提示</span><p>.lrc 歌詞檔：許多音樂播放器和歌詞網站可匯出，也可用免費的 LRC 編輯器製作。格式像這樣：<code>[00:12.40] 第一句歌詞</code>。中文歌詞可以正常顯示。</p></div>
+
+    <nav class="pager" aria-label="Pages"><a href="video-and-movies.html"><small>← 上一頁</small>影片與電影</a><a href="voices.html" style="text-align:right"><small>下一頁 →</small>聲音與聲音克隆</a></nav>
+    <p class="foot"><a href="../../index.html">首頁</a> &middot; <a href="index.html">使用手冊</a> &middot; <a href="../../support.html">客服支援</a> &middot; <a href="../../privacy.html">隱私權政策</a> &middot; <a href="../../terms.html">服務條款</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>

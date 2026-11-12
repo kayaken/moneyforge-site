@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create basics — MoneyForge User Guide</title>
+<meta name="description" content="How the MoneyForge Create page works: templates, media types, aspect ratio, quality, styles, batch prompts and advanced options.">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="Create basics">
+<meta property="og:description" content="How the MoneyForge Create page works: templates, media types, aspect ratio, quality, styles, batch prompts and advanced options.">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/create-basics.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">User Guide</a>
+      <a href="../support.html" class="hide-sm">Support</a>
+      
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="Contents">
+    <p class="label">User Guide</p>
+    <ol>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="getting-started.html">Getting started</a></li>
+      <li><a href="create-basics.html" aria-current="page">Create basics</a></li>
+      <li><a href="images.html">Images &amp; styles</a></li>
+      <li><a href="characters.html">Characters</a></li>
+      <li><a href="video-and-movies.html">Video &amp; movies</a></li>
+      <li><a href="music-videos.html">Music videos</a></li>
+      <li><a href="reels.html">Reels</a></li>
+      <li><a href="voices.html">Voices &amp; cloning</a></li>
+      <li><a href="libraries.html">Libraries &amp; brand kits</a></li>
+      <li><a href="repurpose.html">Repurpose</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="distribution.html">Posting &amp; scheduling</a></li>
+      <li><a href="settings.html">Settings &amp; help</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">Making things</p>
+    <h1>Create basics</h1>
+    <p class="lede">Every image, video, movie, music video and reel starts on the Create page. The controls are shared; each media type adds its own card.</p>
+
+<h2>Step 1: pick a template or start from scratch</h2>
+<p>Create opens with <span class="ui">Featured templates</span>, filtered by tabs (All, Images, Videos, Music Videos, Movies, Reels). A template fills in the media type, style and sometimes a fixed aspect ratio (for example "Fixed 9:16 … Required by this template"). Click <span class="ui">✦ Start from scratch</span> to set everything yourself.</p>
+
+
+<h2>Step 2: the settings panel</h2>
+<div class="tablewrap"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Media type</td><td>Image, Video, Movie, Music video or Reel. Each one is explained on its own page in this guide.</td></tr>
+<tr><td>Aspect ratio</td><td>16:9 (YouTube), 9:16 (TikTok, Reels, Shorts), 1:1, 4:5, 3:4, 2:3, 3:2, 4:3.</td></tr>
+<tr><td>Image quality</td><td>For images, reels and lyric-card music videos: 720p, 1080p (default), 2K, 4K, 8K. 4K and 8K are upscaled to that full size after generation and need Pro.</td></tr>
+<tr><td>Video quality</td><td>For video, movie and AI music videos: 480p (default) or 720p. 720p needs Pro and works at 16:9, 1:1 or 9:16. <span class="ui">Export resolution</span> (Native, 1080p, 4K with Pro) resizes the finished video.</td></tr>
+<tr><td>Style preset</td><td>A look, such as Cinematic realism or Anime / manga. See <a href="images.html#styles">Styles</a>.</td></tr>
+<tr><td>Character</td><td>Tick up to 4 saved characters, or drag in a reference photo. See <a href="characters.html">Characters</a>.</td></tr>
+</table></div>
+
+<h2>Step 3: write the prompt</h2>
+<p>Describe what you want to see: subject, setting, lighting, camera. For example: <em>"a lone samurai on a misty mountain path at dawn, wide shot, soft light"</em>.</p>
+<p>Switch to <span class="ui">Batch ✦</span> to make many at once: paste one prompt per line into <span class="ui">Paste multiple prompts</span>, click <span class="ui">Split into rows</span>, or add rows with <span class="ui">+ Add row</span>.</p>
+<p>Click <span class="ui">Generate ✦</span>. The job goes into the queue on the Dashboard, and the result lands in the Gallery.</p>
+
+<h2>Advanced (collapsed by default)</h2>
+<ul>
+  <li><strong>GPU concurrency</strong> (image and reel only): <span class="ui">Off (safest)</span>, <span class="ui">Adaptive</span>, or <span class="ui">Fast (risky)</span>. Lets small jobs share the card at a slightly lower resolution. Video-type jobs always run alone.</li>
+  <li><strong>Captions</strong> and caption style (reels and music videos). Styles marked 🎤 highlight each word as it's spoken.</li>
+  <li><strong>Brand kit</strong>: your logo, watermark, intro and outro. See <a href="libraries.html#brand-kits">Brand kits</a>.</li>
+  <li><strong>Background music</strong> (reel, video, movie): pick a track from your library or <span class="ui">Auto-match by keyword</span>, and set <span class="ui">Music loudness (dB)</span>. Greyed out until your music library has at least one track.</li>
+  <li><strong>Auto-distribute on completion</strong>: post to connected accounts within about 5 minutes of the job finishing. See <a href="distribution.html">Posting &amp; scheduling</a>.</li>
+</ul>
+
+<h2>Watching progress</h2>
+<p>The Dashboard shows the queue, live progress for running jobs, and your 12 newest results. Each job has <span class="ui">Cancel</span> and, if something failed, <span class="ui">Retry failed</span>. A retried movie continues from the last finished scene rather than starting over.</p>
+
+
+    <nav class="pager" aria-label="Pages"><a href="getting-started.html"><small>← Previous</small>Getting started</a><a href="images.html" style="text-align:right"><small>Next →</small>Images &amp; styles</a></nav>
+    <p class="foot"><a href="../index.html">Home</a> &middot; <a href="index.html">User Guide</a> &middot; <a href="../support.html">Support</a> &middot; <a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms of Service</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>

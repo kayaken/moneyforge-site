@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video and movies — MoneyForge User Guide</title>
+<meta name="description" content="Make AI video clips and multi-scene movies in MoneyForge, including a step-by-step recipe for a 2-minute anime short.">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="Video and movies">
+<meta property="og:description" content="Make AI video clips and multi-scene movies in MoneyForge, including a step-by-step recipe for a 2-minute anime short.">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/video-and-movies.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">User Guide</a>
+      <a href="../support.html" class="hide-sm">Support</a>
+      <a href="zh-tw/video-and-movies.html" lang="zh-Hant-TW">中文</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="Contents">
+    <p class="label">User Guide</p>
+    <ol>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="getting-started.html">Getting started</a></li>
+      <li><a href="create-basics.html">Create basics</a></li>
+      <li><a href="images.html">Images &amp; styles</a></li>
+      <li><a href="characters.html">Characters</a></li>
+      <li><a href="video-and-movies.html" aria-current="page">Video &amp; movies</a></li>
+      <li><a href="music-videos.html">Music videos</a></li>
+      <li><a href="reels.html">Reels</a></li>
+      <li><a href="voices.html">Voices &amp; cloning</a></li>
+      <li><a href="libraries.html">Libraries &amp; brand kits</a></li>
+      <li><a href="repurpose.html">Repurpose</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="distribution.html">Posting &amp; scheduling</a></li>
+      <li><a href="settings.html">Settings &amp; help</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">Media type</p>
+    <h1>Video and movies</h1>
+    <p class="lede">A video is one clip of up to 7 seconds. A movie chains up to 6 five-second scenes into about 30 seconds of continuous footage.</p>
+
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">Before you start</span><p>Video needs a graphics card with 12 GB or more and the video models from the Setup page. It's the slowest thing MoneyForge makes: about 1 to 2 hours per 5 seconds of footage on an RTX 3060 12 GB, less on newer cards. Start with a short test before a long job.</p></div>
+
+<h2>Video (one clip)</h2>
+<ol>
+  <li>On Create choose <span class="ui">Video</span>.</li>
+  <li>Set <span class="ui">Length (seconds)</span>, up to 7.</li>
+  <li>Choose <span class="ui">Video quality</span>: 480p, or 720p with Pro.</li>
+  <li>Describe the scene <em>and the motion</em>: <em>"a red fox running through snow, camera tracking alongside, golden hour"</em>.</li>
+  <li>Click <span class="ui">Generate ✦</span>.</li>
+</ol>
+<p>To animate an existing image, use <span class="ui">Animate</span> in the Gallery instead.</p>
+
+<h2>Movie (several scenes)</h2>
+<p>A movie makes up to <strong>6 scenes of 5 seconds</strong>. Each scene starts from the last frame of the one before, so the footage flows.</p>
+<h3>Simple movie: one prompt</h3>
+<p>Choose <span class="ui">Movie</span>, set <span class="ui">Length (seconds)</span> up to 30, write one prompt and generate. The same prompt carries across every scene.</p>
+<h3>Multi-shot movie: a prompt per scene</h3>
+<ol>
+  <li>Tick <span class="ui">Multi-shot</span>.</li>
+  <li>Optionally type a <span class="ui">Premise</span>, set <span class="ui">Scenes</span> (2 to 6) and click <span class="ui">Generate script</span>. This needs a Gemini key or the free local AI model.</li>
+  <li>Edit each scene's <span class="ui">Visual prompt</span>, and pick which cast character appears in it.</li>
+  <li>Add scenes with <span class="ui">+ Add scene</span>, then generate.</li>
+</ol>
+
+<p>If a scene fails, <span class="ui">Retry failed</span> on the Dashboard resumes from the last finished scene.</p>
+<p>Want music under it? Tick <span class="ui">Background music</span> in Advanced (needs a track in your music library).</p>
+
+<h2 id="anime">Recipe: a 2-minute anime short</h2>
+<p>One movie is about 30 seconds, so a 2-minute film is four movies joined together. Keeping the same character and style across all four is what makes it look like one film.</p>
+<ol>
+  <li><strong>Design your hero.</strong> Make an Image with the <span class="ui">Anime / manga</span> style: <em>"anime girl with short silver hair, red jacket, front view, plain background"</em>. Generate a few and pick the best.</li>
+  <li><strong>Save the character.</strong> Download that image and create a character from it on the Characters page (front slot).</li>
+  <li><strong>Write four parts.</strong> Split your story into four 30-second parts, each with up to 6 scenes. For example: 1 arrival, 2 discovery, 3 conflict, 4 ending.</li>
+  <li><strong>Make part 1.</strong> On Create: <span class="ui">Movie</span>, 16:9 or 9:16, style <span class="ui">Anime / manga</span>, tick your character, tick <span class="ui">Multi-shot</span>, and write 6 scene prompts. Generate.</li>
+  <li><strong>Check, then repeat</strong> for parts 2 to 4 with the same character, style and aspect ratio. Use <span class="ui">Remix</span> on part 1 to keep every setting the same. If one scene looks wrong, fix just that scene with <span class="ui">Scenes</span> in the Gallery (see <a href="gallery.html#scenes">Gallery</a>).</li>
+  <li><strong>Join them.</strong> Download the four movies and put them in order in any video editor (for example CapCut, Clipchamp, which comes with Windows, or DaVinci Resolve). Add music and titles there.</li>
+</ol>
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">Time</span><p>Plan the time: 24 scenes of 5 seconds is about 24 to 48 hours of rendering on an RTX 3060 12 GB. Run one part at a time, overnight, and check each before starting the next.</p></div>
+<p>Want narration instead of music? A <a href="reels.html">reel</a> with the Talking object or Normal style is faster and adds voice and captions automatically.</p>
+
+    <nav class="pager" aria-label="Pages"><a href="characters.html"><small>← Previous</small>Characters</a><a href="music-videos.html" style="text-align:right"><small>Next →</small>Music videos</a></nav>
+    <p class="foot"><a href="../index.html">Home</a> &middot; <a href="index.html">User Guide</a> &middot; <a href="../support.html">Support</a> &middot; <a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms of Service</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>

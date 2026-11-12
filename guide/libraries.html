@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Libraries and brand kits — MoneyForge User Guide</title>
+<meta name="description" content="Add your own background music, sound effects, stock footage, whiteboard drawings and brand kits to MoneyForge.">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="Libraries and brand kits">
+<meta property="og:description" content="Add your own background music, sound effects, stock footage, whiteboard drawings and brand kits to MoneyForge.">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/libraries.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">User Guide</a>
+      <a href="../support.html" class="hide-sm">Support</a>
+      
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="Contents">
+    <p class="label">User Guide</p>
+    <ol>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="getting-started.html">Getting started</a></li>
+      <li><a href="create-basics.html">Create basics</a></li>
+      <li><a href="images.html">Images &amp; styles</a></li>
+      <li><a href="characters.html">Characters</a></li>
+      <li><a href="video-and-movies.html">Video &amp; movies</a></li>
+      <li><a href="music-videos.html">Music videos</a></li>
+      <li><a href="reels.html">Reels</a></li>
+      <li><a href="voices.html">Voices &amp; cloning</a></li>
+      <li><a href="libraries.html" aria-current="page">Libraries &amp; brand kits</a></li>
+      <li><a href="repurpose.html">Repurpose</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="distribution.html">Posting &amp; scheduling</a></li>
+      <li><a href="settings.html">Settings &amp; help</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">Your assets</p>
+    <h1>Libraries and brand kits</h1>
+    <p class="lede">Libraries hold your own media, reused across jobs. A checkbox on Create stays greyed out until its library has at least one item.</p>
+
+<p>Upload only media you own or are licensed to use.</p>
+<div class="tablewrap"><table>
+<tr><th>Library</th><th>Fields</th><th>Used by</th></tr>
+<tr><td>Background Music</td><td>Name, Audio file, Mood, Tags</td><td>Music under reels, videos and movies. <span class="ui">Auto-match by keyword</span> picks by tags and mood.</td></tr>
+<tr><td>Sound Effects</td><td>Name, Audio file, Tags</td><td>Effects at reel scene cuts and repurposed-clip starts.</td></tr>
+<tr><td>Stock Footage</td><td>Name, Video file, Tags</td><td>B-roll reels: scenes are matched to clips by tags.</td></tr>
+<tr><td>Whiteboard Assets</td><td>Name, SVG file, Tags</td><td>Per-scene drawings in whiteboard reels.</td></tr>
+</table></div>
+<p>Good tags make matching work: describe what's in the clip or the mood of the track (<em>"city, night, traffic"</em>, <em>"calm, piano"</em>).</p>
+
+<h2 id="brand-kits">Brand kits</h2>
+<p>A brand kit puts your branding on every reel, music video and repurposed clip. Open <span class="ui">Brand Kits</span> and set:</p>
+<ul>
+  <li><span class="ui">Logo</span> with <span class="ui">Watermark position</span> and <span class="ui">Watermark opacity</span>.</li>
+  <li><span class="ui">Watermark text</span> and its position (for example your @handle).</li>
+  <li><span class="ui">Intro clip</span> or <span class="ui">Intro text</span>, and <span class="ui">Outro clip</span> or <span class="ui">Outro text</span>.</li>
+</ul>
+<p>Choose the kit under <span class="ui">Brand kit</span> in Create's Advanced section.</p>
+
+
+    <nav class="pager" aria-label="Pages"><a href="voices.html"><small>← Previous</small>Voices &amp; cloning</a><a href="repurpose.html" style="text-align:right"><small>Next →</small>Repurpose</a></nav>
+    <p class="foot"><a href="../index.html">Home</a> &middot; <a href="index.html">User Guide</a> &middot; <a href="../support.html">Support</a> &middot; <a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms of Service</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>

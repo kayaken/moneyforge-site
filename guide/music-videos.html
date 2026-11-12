@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Music videos — MoneyForge User Guide</title>
+<meta name="description" content="Make a music video for your song in MoneyForge: lyric cards or AI-generated scenes cut to the beat or the lyrics, for one song, a playlist or an album.">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="Music videos">
+<meta property="og:description" content="Make a music video for your song in MoneyForge: lyric cards or AI-generated scenes cut to the beat or the lyrics, for one song, a playlist or an album.">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/music-videos.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">User Guide</a>
+      <a href="../support.html" class="hide-sm">Support</a>
+      <a href="zh-tw/music-videos.html" lang="zh-Hant-TW">中文</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="Contents">
+    <p class="label">User Guide</p>
+    <ol>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="getting-started.html">Getting started</a></li>
+      <li><a href="create-basics.html">Create basics</a></li>
+      <li><a href="images.html">Images &amp; styles</a></li>
+      <li><a href="characters.html">Characters</a></li>
+      <li><a href="video-and-movies.html">Video &amp; movies</a></li>
+      <li><a href="music-videos.html" aria-current="page">Music videos</a></li>
+      <li><a href="reels.html">Reels</a></li>
+      <li><a href="voices.html">Voices &amp; cloning</a></li>
+      <li><a href="libraries.html">Libraries &amp; brand kits</a></li>
+      <li><a href="repurpose.html">Repurpose</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="distribution.html">Posting &amp; scheduling</a></li>
+      <li><a href="settings.html">Settings &amp; help</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">Media type</p>
+    <h1>Music videos</h1>
+    <p class="lede">Upload your song and MoneyForge builds a video around it, keeping your real audio. Choose fast lyric cards or AI-generated scenes.</p>
+
+<p>Use music you own or have the rights to. The music video is the only media type that keeps your song's own audio.</p>
+
+<h2>Step 1: Audio Source</h2>
+<p>On Create choose <span class="ui">Music video</span>. Then pick a source:</p>
+<ul>
+  <li><strong>Single track</strong>: <span class="ui">Audio track</span> (.mp3, .wav, .flac, .m4a, .ogg). Optionally add an <span class="ui">.lrc file</span> (lyrics with timings) or <span class="ui">paste plain lyrics</span>, one line per lyric.</li>
+  <li><strong>Playlist</strong>: several audio files at once, with optional .lrc files matched by file name.</li>
+  <li><strong>Album (ZIP)</strong>: a .zip with numbered tracks, optional matching .lrc files and an optional <code>album_art.jpg</code>. <span class="ui">Album art handling</span>: use it as the cover only, or animate it as the opening of track 1.</li>
+</ul>
+
+
+<h2>Step 2: Prompt &amp; Generation</h2>
+<p><span class="ui">Prompt mode</span>:</p>
+<ul>
+  <li><strong>Single prompt</strong>: one description for the whole song; scene changes land on the beat.</li>
+  <li><strong>Lyrics-driven</strong>: one scene per lyric line, drawn from that line's words. Songs without lyrics fall back to beat cuts.</li>
+</ul>
+<p><span class="ui">Generation mode</span>:</p>
+<div class="tablewrap"><table>
+<tr><th>Mode</th><th>What you get</th><th>Speed</th></tr>
+<tr><td>Lyric cards (fast, static background)</td><td>A generated background with your lyrics on screen in time with the song. Up to 8K.</td><td>Minutes</td></tr>
+<tr><td>Full AI video (generated scenes, slow)</td><td>AI-generated moving scenes. <strong>Up to 5 scenes per song</strong>, which repeat to cover the rest of the song. 480p, or 720p with Pro. Needs a 12 GB card and the video models.</td><td>About an hour or more per scene on an RTX 3060 12 GB</td></tr>
+</table></div>
+
+<h2>Step 3: Album Options (playlists and albums)</h2>
+<p><span class="ui">Per-track</span> makes one video per song. <span class="ui">Full album (continuous)</span> also joins them into one long video; tick <span class="ui">Show title card at each track boundary</span> to add song titles between tracks.</p>
+
+<h2>Recipe: a music video for one song</h2>
+<ol>
+  <li>Choose <span class="ui">Music video</span>, aspect 16:9 (YouTube) or 9:16 (Shorts, TikTok).</li>
+  <li>Upload the song and its .lrc file if you have one. No .lrc? Paste the lyrics, or skip lyrics.</li>
+  <li>For a first version, use <span class="ui">Lyric cards</span> with a style and a prompt that sets the mood, such as <em>"neon city at night, rain, cinematic"</em>.</li>
+  <li>Add captions in Advanced if you want the lyrics styled; choose a 🎤 style for word-by-word highlighting.</li>
+  <li>Happy with the look? Try <span class="ui">Full AI video</span> with the same prompt for moving scenes, and leave it running overnight.</li>
+</ol>
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">Tip</span><p>Getting an .lrc file: many music players and lyrics sites export them, or you can make one with a free LRC editor. Lines look like <code>[00:12.40] first lyric line</code>.</p></div>
+
+    <nav class="pager" aria-label="Pages"><a href="video-and-movies.html"><small>← Previous</small>Video &amp; movies</a><a href="reels.html" style="text-align:right"><small>Next →</small>Reels</a></nav>
+    <p class="foot"><a href="../index.html">Home</a> &middot; <a href="index.html">User Guide</a> &middot; <a href="../support.html">Support</a> &middot; <a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms of Service</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>

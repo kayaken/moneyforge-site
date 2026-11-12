@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started — MoneyForge User Guide</title>
+<meta name="description" content="Install MoneyForge, finish the Setup page, sign in for the first time and activate your license.">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="Getting started">
+<meta property="og:description" content="Install MoneyForge, finish the Setup page, sign in for the first time and activate your license.">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/getting-started.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">User Guide</a>
+      <a href="../support.html" class="hide-sm">Support</a>
+      <a href="zh-tw/getting-started.html" lang="zh-Hant-TW">中文</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="Contents">
+    <p class="label">User Guide</p>
+    <ol>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="getting-started.html" aria-current="page">Getting started</a></li>
+      <li><a href="create-basics.html">Create basics</a></li>
+      <li><a href="images.html">Images &amp; styles</a></li>
+      <li><a href="characters.html">Characters</a></li>
+      <li><a href="video-and-movies.html">Video &amp; movies</a></li>
+      <li><a href="music-videos.html">Music videos</a></li>
+      <li><a href="reels.html">Reels</a></li>
+      <li><a href="voices.html">Voices &amp; cloning</a></li>
+      <li><a href="libraries.html">Libraries &amp; brand kits</a></li>
+      <li><a href="repurpose.html">Repurpose</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="distribution.html">Posting &amp; scheduling</a></li>
+      <li><a href="settings.html">Settings &amp; help</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">Step 1</p>
+    <h1>Getting started</h1>
+    <p class="lede">From the downloaded installer to your first finished image, in about an hour (most of it is downloads).</p>
+
+<h2>Before you install</h2>
+<ul>
+  <li>Windows 10 or 11, 64-bit.</li>
+  <li>An NVIDIA graphics card. 12 GB of video memory is recommended (RTX 3060 12 GB or better). 6 GB is enough for images only.</li>
+  <li>16 GB of RAM, and about 40 GB free disk space plus the models: about 11 GB for images and about 64 GB more for video.</li>
+  <li>An up-to-date NVIDIA driver. Setup tells you if yours is too old.</li>
+</ul>
+
+<h2>1. Run the installer</h2>
+<ol>
+  <li>Download <code>MoneyForge_Setup.exe</code> from your Gumroad receipt email ("View content") or your <a href="https://gumroad.com/library" rel="noopener">Gumroad library</a>.</li>
+  <li>Run it. If Windows SmartScreen appears, click <span class="ui">More info</span>, then <span class="ui">Run anyway</span>.</li>
+  <li>Keep <span class="ui">Start MoneyForge automatically on Windows startup (recommended)</span> ticked. MoneyForge runs in the background as a Windows service and opens in your web browser.</li>
+  <li>When the installer finishes, it opens the Setup page in your browser.</li>
+</ol>
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">Updating</span><p>Installing a newer version over an older one keeps your account, password, license, keys and everything you've made. You don't need to uninstall first.</p></div>
+
+<h2>2. Sign in for the first time</h2>
+<p>The sign-in screen is a local account on your own computer. It is <strong>not</strong> your Gumroad account, and MoneyForge never sends email.</p>
+<ol>
+  <li>Sign in with username <code>admin</code> and password <code>moneyforge</code>.</li>
+  <li>MoneyForge asks you to choose a new password. Do it now.</li>
+</ol>
+<p>Forgot your password later? Use the <span class="ui">reset it</span> link on the sign-in screen. After too many wrong attempts sign-in pauses for up to 15 minutes (restarting the computer also clears it).</p>
+
+
+<h2>3. Finish the Setup page</h2>
+<p>Open <span class="ui">Setup</span> in the left sidebar. It detects your graphics card, driver and drives by itself. Work through the cards in order:</p>
+<ol>
+  <li><strong>1. Generation Engine.</strong> Choose a drive under <span class="ui">Install on</span> and click <span class="ui">Install generation engine</span>. About 3 to 4 GB, 20 to 40 minutes. If it's interrupted, click it again to resume.</li>
+  <li><strong>2. Character Consistency Module.</strong> Click install. You need this for <a href="characters.html">characters</a>.</li>
+  <li><strong>3. Model files.</strong> Click <span class="ui">Download image models</span> (about 11 GB). If your card has 12 GB or more, also click <span class="ui">Download video models</span> (about 64 GB). Video, movie and AI music videos need these.</li>
+  <li><strong>4. Local AI Text Model.</strong> Only if you've installed the free Ollama app: click <span class="ui">Download local AI model</span>. It scores images, writes scripts, translates, checks reel scripts and picks Repurpose segments without any cloud service. Reels and Repurpose need either this or a Gemini key.</li>
+</ol>
+
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">Check</span><p>Video models are large. Check that <span class='ui'>Download video models</span> finished before you try video, movie or AI music videos. If a video job fails straight away, this is the first thing to check.</p></div>
+
+<h2>4. Activate your license</h2>
+<ol>
+  <li>Copy your license key from your Gumroad library page.</li>
+  <li>Open <span class="ui">Settings</span>, paste it into <span class="ui">License key</span>, and click <span class="ui">Activate</span>.</li>
+</ol>
+<p>Each license works on one computer. To move it, click <span class="ui">Deactivate this machine</span> in Settings on the old computer first.</p>
+
+<h2>5. Make your first image</h2>
+<p>On the Dashboard, the welcome box offers <span class="ui">Forge your first image →</span>. Or open <span class="ui">Create</span>, click <span class="ui">✦ Start from scratch</span>, type a prompt and click <span class="ui">Generate ✦</span>. The Dashboard shows progress; the result appears in the Gallery. Next: <a href="create-basics.html">Create basics</a>.</p>
+
+<h2>Getting help</h2>
+<p>On the Setup page, click <span class="ui">Copy system info</span> and paste it into an email to <a href="mailto:support@moneyforgestudio.com">support@moneyforgestudio.com</a>. It lists your graphics card, memory, drives and install status, and contains no passwords, license key or personal files.</p>
+
+    <nav class="pager" aria-label="Pages"><a href="index.html"><small>← Previous</small>Overview</a><a href="create-basics.html" style="text-align:right"><small>Next →</small>Create basics</a></nav>
+    <p class="foot"><a href="../index.html">Home</a> &middot; <a href="index.html">User Guide</a> &middot; <a href="../support.html">Support</a> &middot; <a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms of Service</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>

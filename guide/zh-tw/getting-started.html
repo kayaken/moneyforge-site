@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>開始使用 — MoneyForge 使用手冊</title>
+<meta name="description" content="安裝 MoneyForge、完成 Setup 頁面、第一次登入並啟用授權。">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="開始使用">
+<meta property="og:description" content="安裝 MoneyForge、完成 Setup 頁面、第一次登入並啟用授權。">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/zh-tw/getting-started.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">使用手冊</a>
+      <a href="../../support.html" class="hide-sm">客服支援</a>
+      <a href="../getting-started.html" lang="en">English</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="目錄">
+    <p class="label">使用手冊</p>
+    <ol>
+      <li><a href="index.html">總覽</a></li>
+      <li><a href="getting-started.html" aria-current="page">開始使用</a></li>
+      <li><a href="video-and-movies.html">影片與電影</a></li>
+      <li><a href="music-videos.html">音樂 MV</a></li>
+      <li><a href="voices.html">聲音與聲音克隆</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">第一步</p>
+    <h1>開始使用</h1>
+    <p class="lede">從下載安裝檔到完成第一張圖片，大約一小時（大部分時間在下載）。</p>
+
+<h2>安裝前確認</h2>
+<ul>
+  <li>Windows 10 或 11（64 位元）。</li>
+  <li>NVIDIA 顯示卡，建議 12 GB 顯示記憶體（RTX 3060 12 GB 或更好）。只做圖片的話 6 GB 即可。</li>
+  <li>16 GB 記憶體；約 40 GB 可用空間，另加模型：圖片約 11 GB，影片另需約 64 GB。</li>
+  <li>最新的 NVIDIA 驅動程式。若版本太舊，Setup 頁面會提示您。</li>
+</ul>
+
+<h2>1. 執行安裝程式</h2>
+<ol>
+  <li>從 Gumroad 收據信件（「View content」）或 <a href="https://gumroad.com/library" rel="noopener">Gumroad 資料庫</a>下載 <code>MoneyForge_Setup.exe</code>。</li>
+  <li>執行安裝。若出現 Windows SmartScreen，請按 <span class="ui">More info（其他資訊）</span>，再按 <span class="ui">Run anyway（仍要執行）</span>。</li>
+  <li>保持勾選自動啟動 MoneyForge。MoneyForge 會以 Windows 服務在背景執行，並在瀏覽器中開啟。</li>
+  <li>安裝完成後，瀏覽器會自動開啟 Setup 頁面。</li>
+</ol>
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">更新版本</span><p>直接把新版本安裝在舊版本上即可，帳號、密碼、授權、API 金鑰和您製作的內容都會保留，不需要先解除安裝。</p></div>
+
+<h2>2. 第一次登入</h2>
+<p>登入畫面是您電腦上的本機帳號，<strong>不是</strong> Gumroad 帳號，MoneyForge 也不會寄送任何 Email。</p>
+<ol>
+  <li>使用帳號 <code>admin</code>、密碼 <code>moneyforge</code> 登入。</li>
+  <li>系統會要求您設定新密碼，請立即設定。</li>
+</ol>
+<p>忘記密碼時，請點登入畫面上的 <span class="ui">reset it</span> 連結。輸入錯誤太多次會暫停登入最多 15 分鐘（重新開機也可解除）。</p>
+
+<h2>3. 完成 Setup 頁面</h2>
+<p>點左側選單的 <span class="ui">Setup</span>。它會自動偵測顯示卡、驅動程式和磁碟。請依序完成：</p>
+<ol>
+  <li><strong>1. Generation Engine（生成引擎）</strong>：在 <span class="ui">Install on</span> 選擇磁碟，按 <span class="ui">Install generation engine</span>。約 3 到 4 GB，需 20 到 40 分鐘；中斷時再按一次即可續傳。</li>
+  <li><strong>2. Character Consistency Module（角色一致性模組）</strong>：按下安裝。使用角色功能時需要。</li>
+  <li><strong>3. Model files（模型檔）</strong>：按 <span class="ui">Download image models</span>（約 11 GB）。顯示卡 12 GB 以上時，再按 <span class="ui">Download video models</span>（約 64 GB）。影片、電影與 AI MV 都需要它。</li>
+  <li><strong>4. Local AI Text Model（本機 AI 文字模型）</strong>：若已安裝免費的 Ollama 程式，按 <span class="ui">Download local AI model</span>。它可在本機評分圖片、撰寫腳本、翻譯並檢查 Reel 腳本，不需任何雲端服務。製作 Reel 需要它或 Gemini 金鑰（二擇一）。</li>
+</ol>
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">請確認</span><p>影片模型很大。製作影片、電影或 AI MV 之前，請先確認 <span class='ui'>Download video models</span> 已經下載完成。影片任務一開始就失敗時，請先檢查這一項。</p></div>
+
+<h2>4. 啟用授權</h2>
+<ol>
+  <li>從 Gumroad 資料庫頁面複製您的授權金鑰（license key）。</li>
+  <li>開啟 <span class="ui">Settings</span>，貼到 <span class="ui">License key</span>，按 <span class="ui">Activate</span>。</li>
+</ol>
+<p>每個授權可用於一台電腦。要換電腦時，請先在舊電腦的 Settings 按 <span class="ui">Deactivate this machine</span>。</p>
+
+<h2>5. 製作第一張圖片</h2>
+<p>在 Dashboard 的歡迎視窗按 <span class="ui">Forge your first image →</span>；或開啟 <span class="ui">Create</span>，按 <span class="ui">✦ Start from scratch</span>，輸入描述（prompt，建議用英文），再按 <span class="ui">Generate ✦</span>。Dashboard 會顯示進度，完成的作品會出現在 Gallery。</p>
+
+<h2>需要協助</h2>
+<p>在 Setup 頁面按 <span class="ui">Copy system info</span>，貼到 Email 寄給 <a href="mailto:support@moneyforgestudio.com">support@moneyforgestudio.com</a>（可用中文）。內容包含顯示卡、記憶體、磁碟與安裝狀態，不含密碼、授權金鑰或個人檔案。</p>
+
+    <nav class="pager" aria-label="Pages"><a href="index.html"><small>← 上一頁</small>總覽</a><a href="video-and-movies.html" style="text-align:right"><small>下一頁 →</small>影片與電影</a></nav>
+    <p class="foot"><a href="../../index.html">首頁</a> &middot; <a href="index.html">使用手冊</a> &middot; <a href="../../support.html">客服支援</a> &middot; <a href="../../privacy.html">隱私權政策</a> &middot; <a href="../../terms.html">服務條款</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>

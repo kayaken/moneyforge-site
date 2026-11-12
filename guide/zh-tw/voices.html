@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>聲音與聲音克隆 — MoneyForge 使用手冊</title>
+<meta name="description" content="在 MoneyForge 選擇旁白聲音：免費的 Windows 系統語音、ElevenLabs 聲音庫，以及用 ElevenLabs 克隆自己的聲音。">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="聲音與聲音克隆">
+<meta property="og:description" content="在 MoneyForge 選擇旁白聲音：免費的 Windows 系統語音、ElevenLabs 聲音庫，以及用 ElevenLabs 克隆自己的聲音。">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/zh-tw/voices.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">使用手冊</a>
+      <a href="../../support.html" class="hide-sm">客服支援</a>
+      <a href="../voices.html" lang="en">English</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="目錄">
+    <p class="label">使用手冊</p>
+    <ol>
+      <li><a href="index.html">總覽</a></li>
+      <li><a href="getting-started.html">開始使用</a></li>
+      <li><a href="video-and-movies.html">影片與電影</a></li>
+      <li><a href="music-videos.html">音樂 MV</a></li>
+      <li><a href="voices.html" aria-current="page">聲音與聲音克隆</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">聲音</p>
+    <h1>聲音與聲音克隆</h1>
+    <p class="lede">免費的系統語音可直接使用。想要自然的聲音或克隆自己的聲音，請加入 ElevenLabs 金鑰。</p>
+
+<h2>免費的 Windows 系統語音</h2>
+<p>開啟 <span class="ui">Voices</span>，在 <span class="ui">Your Windows system voices (free, offline)</span> 對任一語音按 <span class="ui">+ Add</span>。Windows 可在「設定 → 時間與語言 → 語音 → 新增語音」加入更多語音，包括中文語音。</p>
+
+<h2>加入 ElevenLabs 金鑰</h2>
+<p>ElevenLabs 是另外付費的語音服務。自然語音、聲音庫與聲音克隆都使用您自己的 ElevenLabs 帳號。</p>
+<ol>
+  <li>到 elevenlabs.io 註冊帳號，在 ElevenLabs 的設定中複製 API 金鑰。</li>
+  <li>在 MoneyForge 開啟 <span class="ui">Settings</span> → <span class="ui">ElevenLabs API Key</span>，貼上後按 <span class="ui">Save key</span>。</li>
+</ol>
+<p>設定金鑰後，旁白文字（以及您上傳的聲音樣本）會傳送到 ElevenLabs 處理。</p>
+
+<h2>瀏覽 ElevenLabs 聲音庫</h2>
+<p>在 Voices 頁面，<span class="ui">Browse ElevenLabs voice library</span> 可搜尋數千種社群聲音，並依性別、年齡、口音篩選。按 <span class="ui">+ Add</span> 即可使用，不需要錄音。</p>
+
+<h2 id="clone">克隆自己的聲音</h2>
+<p>聲音克隆需要 ElevenLabs <strong>Starter 方案以上</strong>。</p>
+<ol>
+  <li><strong>錄製 1 到 2 分鐘</strong>自然說話的聲音：安靜的房間，沒有音樂或回音，手機或耳機麥克風靠近嘴巴。存成 .mp3 或 .wav。</li>
+  <li>在 Voices 頁面的 <span class="ui">Clone a new voice</span>，輸入 <span class="ui">Name</span>（名稱）。</li>
+  <li><span class="ui">Voice engine</span>：選擇 ElevenLabs。</li>
+  <li><span class="ui">Audio samples</span>：選擇您的錄音檔（可選多個檔案）。</li>
+  <li><span class="ui">Whose voice is this?</span>：確認這是您自己的聲音，或已取得說話者的同意。每次都必須確認；未經同意克隆他人聲音在許多地區是違法的。</li>
+  <li>建立聲音。它會出現在清單中，以及 Create 頁面所有的 Voice 選單裡。</li>
+</ol>
+<p>使用方式：在 Reel 的 <span class="ui">Voice</span> 選擇它，或把它設為角色的 <span class="ui">Default voice</span>。中文旁白請在 <span class="ui">Narration language</span> 選擇 Chinese。</p>
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">1.0.2 版</span><p>1.0.2 版的安裝程式尚未提供免費的本機聲音克隆（不需 ElevenLabs），選項會顯示「not available in this version yet」。目前請使用 ElevenLabs 進行聲音克隆。</p></div>
+
+    <nav class="pager" aria-label="Pages"><a href="music-videos.html"><small>← 上一頁</small>音樂 MV</a><span></span></nav>
+    <p class="foot"><a href="../../index.html">首頁</a> &middot; <a href="index.html">使用手冊</a> &middot; <a href="../../support.html">客服支援</a> &middot; <a href="../../privacy.html">隱私權政策</a> &middot; <a href="../../terms.html">服務條款</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>
