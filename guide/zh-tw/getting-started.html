@@ -127,9 +127,18 @@
     <ol>
       <li><a href="index.html">總覽</a></li>
       <li><a href="getting-started.html" aria-current="page">開始使用</a></li>
+      <li><a href="create-basics.html">Create 基礎</a></li>
+      <li><a href="images.html">圖片與風格</a></li>
+      <li><a href="characters.html">角色</a></li>
       <li><a href="video-and-movies.html">影片與電影</a></li>
       <li><a href="music-videos.html">音樂 MV</a></li>
+      <li><a href="reels.html">Reels</a></li>
       <li><a href="voices.html">聲音與聲音克隆</a></li>
+      <li><a href="libraries.html">素材庫與品牌套件</a></li>
+      <li><a href="repurpose.html">Repurpose 影片再利用</a></li>
+      <li><a href="gallery.html">Gallery 作品庫</a></li>
+      <li><a href="distribution.html">發佈與排程</a></li>
+      <li><a href="settings.html">設定與說明</a></li>
     </ol>
   </nav>
 
@@ -150,7 +159,7 @@
 <ol>
   <li>從 Gumroad 收據信件（「View content」）或 <a href="https://gumroad.com/library" rel="noopener">Gumroad 資料庫</a>下載 <code>MoneyForge_Setup.exe</code>。</li>
   <li>執行安裝。若出現 Windows SmartScreen，請按 <span class="ui">More info（其他資訊）</span>，再按 <span class="ui">Run anyway（仍要執行）</span>。</li>
-  <li>保持勾選自動啟動 MoneyForge。MoneyForge 會以 Windows 服務在背景執行，並在瀏覽器中開啟。</li>
+  <li>保持勾選 <span class="ui">Start MoneyForge automatically on Windows startup (recommended)</span>。MoneyForge 會以 Windows 服務在背景執行，並在瀏覽器中開啟。</li>
   <li>安裝完成後，瀏覽器會自動開啟 Setup 頁面。</li>
 </ol>
 <div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">更新版本</span><p>直接把新版本安裝在舊版本上即可，帳號、密碼、授權、API 金鑰和您製作的內容都會保留，不需要先解除安裝。</p></div>
@@ -163,11 +172,12 @@
 </ol>
 <p>忘記密碼時，請點登入畫面上的 <span class="ui">reset it</span> 連結。輸入錯誤太多次會暫停登入最多 15 分鐘（重新開機也可解除）。</p>
 
+
 <h2>3. 等待自動設定完成</h2>
 <p>安裝程式中的 <span class="ui">Download the AI models automatically after install</span>（安裝後自動下載 AI 模型）預設為勾選，請保持勾選。第一次登入後，MoneyForge 會依序自動下載所需的一切：</p>
 <ol>
   <li><strong>生成引擎</strong>：約 4 GB，通常需 20 到 40 分鐘。</li>
-  <li><strong>角色模組</strong>：約 1 GB，使用<a href="../characters.html">角色</a>功能時需要。</li>
+  <li><strong>角色模組</strong>：約 1 GB，使用<a href="characters.html">角色</a>功能時需要。</li>
   <li><strong>圖片模型</strong>：約 11 GB。完成後即可開始製作圖片，其餘項目會在背景繼續下載。</li>
   <li><strong>本機 AI 文字模型</strong>：約 5 GB。它在您的電腦上評分圖片、撰寫腳本、翻譯、檢查 Reel 腳本並挑選 Repurpose 片段，不需雲端服務或金鑰。</li>
   <li><strong>影片模型</strong>：約 64 GB，僅限 12 GB 以上的顯示卡。影片、電影與 AI MV 都需要它。</li>
@@ -179,6 +189,7 @@
   <li>若某個步驟失敗（例如長時間斷網），Setup 頁面會說明原因。MoneyForge 下次啟動時會自動重試，您也可以按 <span class="ui">Resume</span>。</li>
   <li>MoneyForge 會自動選擇空間足夠的磁碟（若都不夠，則選可用空間最多的）。若要自行選擇磁碟或逐步安裝，請展開 Setup 頁面底部的 <span class="ui">Manual setup</span>。</li>
 </ul>
+
 <div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">請確認</span><p>影片模型很大。製作影片、電影或 AI MV 之前，請先確認 <span class='ui'>Download video models</span> 已經下載完成。影片任務一開始就失敗時，請先檢查這一項。</p></div>
 
 <h2>4. 啟用授權</h2>
@@ -189,12 +200,12 @@
 <p>每個授權可用於一台電腦。要換電腦時，請先在舊電腦的 Settings 按 <span class="ui">Deactivate this machine</span>。</p>
 
 <h2>5. 製作第一張圖片</h2>
-<p>在 Dashboard 的歡迎視窗按 <span class="ui">Forge your first image →</span>；或開啟 <span class="ui">Create</span>，按 <span class="ui">✦ Start from scratch</span>，輸入描述（prompt，建議用英文），再按 <span class="ui">Generate ✦</span>。Dashboard 會顯示進度，完成的作品會出現在 Gallery。</p>
+<p>在 Dashboard 的歡迎視窗按 <span class="ui">Forge your first image →</span>；或開啟 <span class="ui">Create</span>，按 <span class="ui">✦ Start from scratch</span>，輸入描述（prompt，建議用英文），再按 <span class="ui">Generate ✦</span>。Dashboard 會顯示進度，完成的作品會出現在 Gallery。下一步：<a href="create-basics.html">Create 基礎</a>。</p>
 
 <h2>需要協助</h2>
 <p>在 Setup 頁面按 <span class="ui">Copy system info</span>，貼到 Email 寄給 <a href="mailto:support@moneyforgestudio.com">support@moneyforgestudio.com</a>（可用中文）。內容包含顯示卡、記憶體、磁碟與安裝狀態，不含密碼、授權金鑰或個人檔案。</p>
 
-    <nav class="pager" aria-label="Pages"><a href="index.html"><small>← 上一頁</small>總覽</a><a href="video-and-movies.html" style="text-align:right"><small>下一頁 →</small>影片與電影</a></nav>
+    <nav class="pager" aria-label="Pages"><a href="index.html"><small>← 上一頁</small>總覽</a><a href="create-basics.html" style="text-align:right"><small>下一頁 →</small>Create 基礎</a></nav>
     <p class="foot"><a href="../../index.html">首頁</a> &middot; <a href="index.html">使用手冊</a> &middot; <a href="../../support.html">客服支援</a> &middot; <a href="../../privacy.html">隱私權政策</a> &middot; <a href="../../terms.html">服務條款</a></p>
   </main>
 </div>

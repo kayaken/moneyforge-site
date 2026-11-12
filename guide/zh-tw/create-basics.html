@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create 基礎 — MoneyForge 使用手冊</title>
+<meta name="description" content="MoneyForge Create 頁面的使用方式：範本、媒體類型、畫面比例、畫質、風格、批次描述與進階選項。">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="Create 基礎">
+<meta property="og:description" content="MoneyForge Create 頁面的使用方式：範本、媒體類型、畫面比例、畫質、風格、批次描述與進階選項。">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/zh-tw/create-basics.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">使用手冊</a>
+      <a href="../../support.html" class="hide-sm">客服支援</a>
+      <a href="../create-basics.html" lang="en">English</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="目錄">
+    <p class="label">使用手冊</p>
+    <ol>
+      <li><a href="index.html">總覽</a></li>
+      <li><a href="getting-started.html">開始使用</a></li>
+      <li><a href="create-basics.html" aria-current="page">Create 基礎</a></li>
+      <li><a href="images.html">圖片與風格</a></li>
+      <li><a href="characters.html">角色</a></li>
+      <li><a href="video-and-movies.html">影片與電影</a></li>
+      <li><a href="music-videos.html">音樂 MV</a></li>
+      <li><a href="reels.html">Reels</a></li>
+      <li><a href="voices.html">聲音與聲音克隆</a></li>
+      <li><a href="libraries.html">素材庫與品牌套件</a></li>
+      <li><a href="repurpose.html">Repurpose 影片再利用</a></li>
+      <li><a href="gallery.html">Gallery 作品庫</a></li>
+      <li><a href="distribution.html">發佈與排程</a></li>
+      <li><a href="settings.html">設定與說明</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">開始製作</p>
+    <h1>Create 基礎</h1>
+    <p class="lede">所有圖片、影片、電影、音樂 MV 和 Reel 都從 Create 頁面開始。基本控制項共用，每種媒體類型再加上各自的設定卡。</p>
+
+<h2>步驟 1：選擇範本或從頭開始</h2>
+<p>Create 頁面一開始會顯示 <span class="ui">Featured templates</span>（精選範本），可用分頁篩選（All、Images、Videos、Music Videos、Movies、Reels）。範本會自動填入媒體類型、風格，有時也會固定畫面比例（例如「Fixed 9:16 … Required by this template」）。按 <span class="ui">✦ Start from scratch</span> 可自行設定所有項目。</p>
+
+
+<h2>步驟 2：設定面板</h2>
+<div class="tablewrap"><table>
+<tr><th>設定</th><th>用途</th></tr>
+<tr><td>Media type（媒體類型）</td><td>Image、Video、Movie、Music video 或 Reel。本手冊每一種都有獨立章節說明。</td></tr>
+<tr><td>Aspect ratio（畫面比例）</td><td>16:9（YouTube）、9:16（TikTok、Reels、Shorts）、1:1、4:5、3:4、2:3、3:2、4:3。</td></tr>
+<tr><td>Image quality（圖片畫質）</td><td>適用於圖片、Reel 與歌詞卡片 MV：720p、1080p（預設）、2K、4K、8K。4K 與 8K 會在生成後放大到該尺寸，需要 Pro。</td></tr>
+<tr><td>Video quality（影片畫質）</td><td>適用於影片、電影與 AI MV：480p（預設）或 720p。720p 需要 Pro，可用於 16:9、1:1 或 9:16。<span class="ui">Export resolution</span>（Native、1080p，Pro 版可選 4K）會調整完成影片的尺寸。</td></tr>
+<tr><td>Style preset（風格）</td><td>一種視覺風格，例如 Cinematic realism 或 Anime / manga。請見<a href="images.html#styles">風格</a>。</td></tr>
+<tr><td>Character（角色）</td><td>最多勾選 4 位已儲存的角色，或直接拖入一張參考照片。請見<a href="characters.html">角色</a>。</td></tr>
+</table></div>
+
+<h2>步驟 3：撰寫描述（prompt）</h2>
+<p>描述您想看到的畫面：主體、場景、光線、鏡頭。描述建議用英文，例如：<em>"a lone samurai on a misty mountain path at dawn, wide shot, soft light"</em>（黎明時分霧中山路上的孤獨武士，遠景，柔和光線）。</p>
+<p>切換到 <span class="ui">Batch ✦</span> 可一次製作多個：在 <span class="ui">Paste multiple prompts</span> 每行貼上一個描述，按 <span class="ui">Split into rows</span>；或用 <span class="ui">+ Add row</span> 逐列新增。</p>
+<p>按 <span class="ui">Generate ✦</span>。任務會進入 Dashboard 的佇列，完成的作品會出現在 Gallery。</p>
+
+<h2>Advanced（進階，預設收合）</h2>
+<ul>
+  <li><strong>GPU concurrency</strong>（僅圖片與 Reel）：<span class="ui">Off (safest)</span>、<span class="ui">Adaptive</span> 或 <span class="ui">Fast (risky)</span>。讓小型任務以略低的解析度共用顯示卡。影片類任務一律單獨執行。</li>
+  <li><strong>Captions</strong>（字幕）與字幕樣式（Reel 與音樂 MV）。標示 🎤 的樣式會在念到每個字時標亮。</li>
+  <li><strong>Brand kit</strong>（品牌套件）：您的 Logo、浮水印、片頭與片尾。請見<a href="libraries.html#brand-kits">品牌套件</a>。</li>
+  <li><strong>Background music</strong>（背景音樂，適用於 Reel、影片、電影）：從音樂庫挑選曲目，或用 <span class="ui">Auto-match by keyword</span> 依關鍵字自動配對，並設定 <span class="ui">Music loudness (dB)</span>。音樂庫至少有一首曲目後才能勾選。</li>
+  <li><strong>Auto-distribute on completion</strong>：任務完成後約 5 分鐘內自動發佈到已連結的帳號。請見<a href="distribution.html">發佈與排程</a>。</li>
+</ul>
+
+<h2>查看進度</h2>
+<p>Dashboard 會顯示佇列、執行中任務的即時進度，以及最新的 12 個作品。每個任務都有 <span class="ui">Cancel</span>；若有失敗，還有 <span class="ui">Retry failed</span>。重試的電影會從最後完成的場景繼續，不必重頭開始。</p>
+
+
+    <nav class="pager" aria-label="Pages"><a href="getting-started.html"><small>← 上一頁</small>開始使用</a><a href="images.html" style="text-align:right"><small>下一頁 →</small>圖片與風格</a></nav>
+    <p class="foot"><a href="../../index.html">首頁</a> &middot; <a href="index.html">使用手冊</a> &middot; <a href="../../support.html">客服支援</a> &middot; <a href="../../privacy.html">隱私權政策</a> &middot; <a href="../../terms.html">服務條款</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>

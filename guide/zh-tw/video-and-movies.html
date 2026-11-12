@@ -127,9 +127,18 @@
     <ol>
       <li><a href="index.html">總覽</a></li>
       <li><a href="getting-started.html">開始使用</a></li>
+      <li><a href="create-basics.html">Create 基礎</a></li>
+      <li><a href="images.html">圖片與風格</a></li>
+      <li><a href="characters.html">角色</a></li>
       <li><a href="video-and-movies.html" aria-current="page">影片與電影</a></li>
       <li><a href="music-videos.html">音樂 MV</a></li>
+      <li><a href="reels.html">Reels</a></li>
       <li><a href="voices.html">聲音與聲音克隆</a></li>
+      <li><a href="libraries.html">素材庫與品牌套件</a></li>
+      <li><a href="repurpose.html">Repurpose 影片再利用</a></li>
+      <li><a href="gallery.html">Gallery 作品庫</a></li>
+      <li><a href="distribution.html">發佈與排程</a></li>
+      <li><a href="settings.html">設定與說明</a></li>
     </ol>
   </nav>
 
@@ -138,14 +147,14 @@
     <h1>影片與電影</h1>
     <p class="lede">Video 是單一片段，最長 7 秒。Movie 把最多 6 個 5 秒場景串成約 30 秒的連續畫面。</p>
 
-<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">開始之前</span><p>影片需要 12 GB 以上的顯示卡，以及 Setup 頁面的影片模型。這是 MoneyForge 最耗時的功能：在 RTX 3060 12 GB 上每 5 秒畫面約需 1 到 2 小時，較新的顯示卡會更快。正式製作前，請先做一段短的測試。</p></div>
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">開始之前</span><p>影片需要 12 GB 以上的顯示卡，以及自動設定下載的影片模型。這是 MoneyForge 最耗時的功能：在 RTX 3060 12 GB 上每 5 秒畫面約需 1 到 2 小時，較新的顯示卡會更快。正式製作前，請先做一段短的測試。</p></div>
 
 <h2>Video（單一片段）</h2>
 <ol>
   <li>在 Create 選擇 <span class="ui">Video</span>。</li>
   <li>設定 <span class="ui">Length (seconds)</span>，最多 7 秒。</li>
   <li>選擇 <span class="ui">Video quality</span>：480p，或 Pro 版的 720p。</li>
-  <li>描述畫面<em>和動作</em>（建議用英文），例如 <em>"a red fox running through snow, camera tracking alongside, golden hour"</em>。</li>
+  <li>描述畫面<em>和動作</em>（建議用英文），例如 <em>"a red fox running through snow, camera tracking alongside, golden hour"</em>（紅狐在雪中奔跑，鏡頭跟拍，黃金時刻）。</li>
   <li>按 <span class="ui">Generate ✦</span>。</li>
 </ol>
 <p>想讓一張現有的圖片動起來，請在 Gallery 對圖片按 <span class="ui">Animate</span>。</p>
@@ -161,21 +170,24 @@
   <li>修改每個場景的 <span class="ui">Visual prompt</span>，並選擇該場景出現的角色。</li>
   <li>可用 <span class="ui">+ Add scene</span> 增加場景，然後生成。</li>
 </ol>
+
 <p>某個場景失敗時，在 Dashboard 按 <span class="ui">Retry failed</span>，會從最後完成的場景繼續，不必重頭開始。</p>
+<p>想加上配樂？在 Advanced 勾選 <span class="ui">Background music</span>（音樂庫需要至少一首曲目）。</p>
 
 <h2 id="anime">教學：製作 2 分鐘動畫短片</h2>
 <p>一部 Movie 約 30 秒，所以 2 分鐘的影片就是 4 部 Movie 接在一起。4 部都使用同一個角色與風格，看起來才會像同一部作品。</p>
 <ol>
-  <li><strong>設計主角。</strong>用 <span class="ui">Image</span> 搭配 <span class="ui">Anime / manga</span> 風格製作圖片，例如 <em>"anime girl with short silver hair, red jacket, front view, plain background"</em>。多生成幾張，挑最滿意的一張。</li>
+  <li><strong>設計主角。</strong>用 <span class="ui">Image</span> 搭配 <span class="ui">Anime / manga</span> 風格製作圖片，例如 <em>"anime girl with short silver hair, red jacket, front view, plain background"</em>（銀色短髮、紅色外套的動畫少女，正面，素色背景）。多生成幾張，挑最滿意的一張。</li>
   <li><strong>建立角色。</strong>下載這張圖片，到 Characters 頁面建立角色（放在 Front 欄位）。</li>
   <li><strong>把故事分成四段。</strong>每段約 30 秒、最多 6 個場景，例如：1 登場、2 發現、3 衝突、4 結局。</li>
   <li><strong>製作第 1 段。</strong>在 Create 選擇 <span class="ui">Movie</span>、16:9 或 9:16、風格 <span class="ui">Anime / manga</span>，勾選您的角色，勾選 <span class="ui">Multi-shot</span>，寫好 6 個場景描述後生成。</li>
-  <li><strong>確認後重複</strong>製作第 2 到 4 段，使用相同的角色、風格和比例。在 Gallery 對第 1 段按 <span class="ui">Remix</span>，就能沿用所有設定。若某個場景不理想，可在 Gallery 用 <span class="ui">Scenes</span> 只重做那一個場景。</li>
+  <li><strong>確認後重複</strong>製作第 2 到 4 段，使用相同的角色、風格和比例。在 Gallery 對第 1 段按 <span class="ui">Remix</span>，就能沿用所有設定。若某個場景不理想，可在 Gallery 用 <span class="ui">Scenes</span> 只重做那一個場景（請見 <a href="gallery.html#scenes">Gallery</a>）。</li>
   <li><strong>合併。</strong>下載 4 部影片，用任何剪輯軟體依序排好（例如 CapCut、Windows 內建的 Clipchamp，或 DaVinci Resolve），再加上音樂和字幕。</li>
 </ol>
 <div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">時間</span><p>請預留時間：24 個 5 秒場景，在 RTX 3060 12 GB 上約需 24 到 48 小時。建議每晚製作一段，確認後再做下一段。</p></div>
+<p>想要旁白而不是配樂？用 Talking object 或 Normal 風格製作 <a href="reels.html">Reel</a> 會更快，並自動加上旁白與字幕。</p>
 
-    <nav class="pager" aria-label="Pages"><a href="getting-started.html"><small>← 上一頁</small>開始使用</a><a href="music-videos.html" style="text-align:right"><small>下一頁 →</small>音樂 MV</a></nav>
+    <nav class="pager" aria-label="Pages"><a href="characters.html"><small>← 上一頁</small>角色</a><a href="music-videos.html" style="text-align:right"><small>下一頁 →</small>音樂 MV</a></nav>
     <p class="foot"><a href="../../index.html">首頁</a> &middot; <a href="index.html">使用手冊</a> &middot; <a href="../../support.html">客服支援</a> &middot; <a href="../../privacy.html">隱私權政策</a> &middot; <a href="../../terms.html">服務條款</a></p>
   </main>
 </div>
