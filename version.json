@@ -1,5 +1,1 @@
-{
-  "latest_version": "1.0.0",
-  "notes": "Bug fixes and improvements.",
-  "download_url": "https://kaya855.gumroad.com/l/dzxnu"
-}
+{"latest_version":"1.0.3","notes":"Setup is now automatic: the AI models, including a free local AI text model for reels and Repurpose, download by themselves with one progress bar. Also fixes music-video beat cuts, face detection and background removal, and adds an ElevenLabs key in Settings.","download_url":"https://kaya855.gumroad.com/l/dzxnu"}
