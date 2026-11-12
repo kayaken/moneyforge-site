@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoneyForge 使用手册</title>
+<meta name="description" content="MoneyForge 每项功能的逐步教学：图片、角色、视频、电影、音乐 MV、Reels、声音、视频再利用与发布。">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="MoneyForge 使用手册">
+<meta property="og:description" content="MoneyForge 每项功能的逐步教学：图片、角色、视频、电影、音乐 MV、Reels、声音、视频再利用与发布。">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/zh-cn/">
+<link rel="alternate" hreflang="en" href="https://moneyforgestudio.com/guide/">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://moneyforgestudio.com/guide/zh-tw/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://moneyforgestudio.com/guide/zh-cn/">
+<link rel="alternate" hreflang="x-default" href="https://moneyforgestudio.com/guide/">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">使用手册</a>
+      <a href="../../support.html" class="hide-sm">客服支持</a>
+      <a href="../index.html" lang="en">English</a>
+      <a href="../zh-tw/index.html" lang="zh-Hant-TW">繁體中文</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="目录">
+    <p class="label">使用手册</p>
+    <ol>
+      <li><a href="index.html" aria-current="page">总览</a></li>
+      <li><a href="getting-started.html">开始使用</a></li>
+      <li><a href="create-basics.html">Create 基础</a></li>
+      <li><a href="images.html">图片与风格</a></li>
+      <li><a href="characters.html">角色</a></li>
+      <li><a href="video-and-movies.html">视频与电影</a></li>
+      <li><a href="music-videos.html">音乐 MV</a></li>
+      <li><a href="reels.html">Reels</a></li>
+      <li><a href="voices.html">声音与声音克隆</a></li>
+      <li><a href="libraries.html">素材库与品牌套件</a></li>
+      <li><a href="repurpose.html">Repurpose 视频再利用</a></li>
+      <li><a href="gallery.html">Gallery 作品库</a></li>
+      <li><a href="distribution.html">发布与定时发布</a></li>
+      <li><a href="settings.html">设置与说明</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">使用手册</p>
+    <h1>MoneyForge 使用手册</h1>
+    <p class="lede">MoneyForge 能做的一切，逐步说明，并先列出实际限制，让您不会在长时间生成后才发现意外。</p>
+
+<p>MoneyForge 的界面为英文，因此本手册中的按钮与字段名称保留英文，方便您对照画面操作。</p>
+
+<h2>从这里开始</h2>
+<p>第一次使用 MoneyForge？请先阅读<a href="getting-started.html">开始使用</a>，内容包括安装、自动设置、第一次登录与激活授权。接着用<a href="create-basics.html">Create 基础</a>制作第一张图片。</p>
+
+<div class="cards">
+  <a href="getting-started.html"><strong>开始使用</strong><span>安装、登录、自动设置、授权激活</span></a>
+  <a href="create-basics.html"><strong>Create 基础</strong><span>模板、媒体类型、画质、批量</span></a>
+  <a href="images.html"><strong>图片与风格</strong><span>描述、画面比例、放大、风格</span></a>
+  <a href="characters.html"><strong>角色</strong><span>让同一张脸出现在图片与视频中</span></a>
+  <a href="video-and-movies.html"><strong>视频与电影</strong><span>短片、多场景电影、2 分钟动画制作</span></a>
+  <a href="music-videos.html"><strong>音乐 MV</strong><span>歌词卡片或 AI 场景，配合您的歌曲</span></a>
+  <a href="reels.html"><strong>Reels</strong><span>附脚本、旁白与字幕的短视频</span></a>
+  <a href="voices.html"><strong>声音与声音克隆</strong><span>系统语音、ElevenLabs、克隆自己的声音</span></a>
+  <a href="libraries.html"><strong>素材库与品牌套件</strong><span>音乐、音效、视频素材、Logo</span></a>
+  <a href="repurpose.html"><strong>Repurpose 视频再利用</strong><span>把长视频变成多个短片</span></a>
+  <a href="gallery.html"><strong>Gallery 作品库</strong><span>重制、动画化、修正单一场景、平台版本</span></a>
+  <a href="distribution.html"><strong>发布与定时发布</strong><span>关联账号、自动发布、定时发布系列</span></a>
+  <a href="settings.html"><strong>设置与疑难排解</strong><span>密钥、备份、常见问题</span></a>
+</div>
+
+<h2>先了解这些限制</h2>
+<p>MoneyForge 完全在您自己的显卡上运行，每个任务的规模受限于一张显卡的能力。以下为 1.0.3 版的实际限制：</p>
+
+<div class="tablewrap"><table>
+<tr><th>项目</th><th>限制</th><th>说明</th></tr>
+<tr><td>视频（Video，单一片段）</td><td>最长 7 秒</td><td>更长的内容请使用 Movie。</td></tr>
+<tr><td>电影（Movie）</td><td>每个任务最多 6 个场景、每场景 5 秒（约 30 秒）</td><td>更长的视频：分次制作多部，再用剪辑软件合并。</td></tr>
+<tr><td>音乐 MV 的 Full AI video 模式</td><td>每首歌最多 5 个 AI 场景</td><td>场景会重复播放直到歌曲结束。Lyric cards 模式没有场景数限制。</td></tr>
+<tr><td>同一任务的角色数</td><td>最多 4 位</td><td>从已保存的角色中挑选。</td></tr>
+<tr><td>显卡</td><td>视频、电影、AI MV 需 12 GB VRAM；图片 6 GB 即可</td><td>只有 12 GB 以上的显卡才会下载视频模型。</td></tr>
+<tr><td>生成时间</td><td>在 RTX 3060 12 GB 上，每 5 秒 AI 视频约需 1 到 2 小时</td><td>较新的显卡会更快。图片只需数秒到数分钟。</td></tr>
+<tr><td>同时运行的任务</td><td>视频类任务一次只运行一个</td><td>打开 GPU concurrency 后，图片与 Reel 任务可共用显卡。</td></tr>
+</table></div>
+
+
+<h2>Personal 与 Pro</h2>
+<p>两种授权都包含所有媒体类型（图片、视频、电影、音乐 MV、Reel）、角色与批量描述。<strong>Pro</strong> 另外提供 4K 与 8K 图片放大、720p 视频和 4K 视频导出。需要 Pro 的选项会显示锁头图标。新安装的程序在激活授权前，会以 7 天试用版运行。</p>
+
+    <nav class="pager" aria-label="Pages"><span></span><a href="getting-started.html" style="text-align:right"><small>下一页 →</small>开始使用</a></nav>
+    <p class="foot"><a href="../../index.html">首页</a> &middot; <a href="index.html">使用手册</a> &middot; <a href="../../support.html">客服支持</a> &middot; <a href="../../privacy.html">隐私政策</a> &middot; <a href="../../terms.html">服务条款</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>

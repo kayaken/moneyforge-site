@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>视频与电影 — MoneyForge 使用手册</title>
+<meta name="description" content="用 MoneyForge 制作 AI 视频片段与多场景电影，并一步步完成 2 分钟动画短片。">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="视频与电影">
+<meta property="og:description" content="用 MoneyForge 制作 AI 视频片段与多场景电影，并一步步完成 2 分钟动画短片。">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/zh-cn/video-and-movies.html">
+<link rel="alternate" hreflang="en" href="https://moneyforgestudio.com/guide/video-and-movies.html">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://moneyforgestudio.com/guide/zh-tw/video-and-movies.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://moneyforgestudio.com/guide/zh-cn/video-and-movies.html">
+<link rel="alternate" hreflang="x-default" href="https://moneyforgestudio.com/guide/video-and-movies.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">使用手册</a>
+      <a href="../../support.html" class="hide-sm">客服支持</a>
+      <a href="../video-and-movies.html" lang="en">English</a>
+      <a href="../zh-tw/video-and-movies.html" lang="zh-Hant-TW">繁體中文</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="目录">
+    <p class="label">使用手册</p>
+    <ol>
+      <li><a href="index.html">总览</a></li>
+      <li><a href="getting-started.html">开始使用</a></li>
+      <li><a href="create-basics.html">Create 基础</a></li>
+      <li><a href="images.html">图片与风格</a></li>
+      <li><a href="characters.html">角色</a></li>
+      <li><a href="video-and-movies.html" aria-current="page">视频与电影</a></li>
+      <li><a href="music-videos.html">音乐 MV</a></li>
+      <li><a href="reels.html">Reels</a></li>
+      <li><a href="voices.html">声音与声音克隆</a></li>
+      <li><a href="libraries.html">素材库与品牌套件</a></li>
+      <li><a href="repurpose.html">Repurpose 视频再利用</a></li>
+      <li><a href="gallery.html">Gallery 作品库</a></li>
+      <li><a href="distribution.html">发布与定时发布</a></li>
+      <li><a href="settings.html">设置与说明</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">媒体类型</p>
+    <h1>视频与电影</h1>
+    <p class="lede">Video 是单一片段，最长 7 秒。Movie 把最多 6 个 5 秒场景串成约 30 秒的连续画面。</p>
+
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">开始之前</span><p>视频需要 12 GB 以上的显卡，以及自动设置下载的视频模型。这是 MoneyForge 最耗时的功能：在 RTX 3060 12 GB 上每 5 秒画面约需 1 到 2 小时，较新的显卡会更快。正式制作前，请先做一段短的测试。</p></div>
+
+<h2>Video（单一片段）</h2>
+<ol>
+  <li>在 Create 选择 <span class="ui">Video</span>。</li>
+  <li>设置 <span class="ui">Length (seconds)</span>，最多 7 秒。</li>
+  <li>选择 <span class="ui">Video quality</span>：480p，或 Pro 版的 720p。</li>
+  <li>描述画面<em>和动作</em>（建议用英文），例如 <em>"a red fox running through snow, camera tracking alongside, golden hour"</em>（红狐在雪中奔跑，镜头跟拍，黄金时刻）。</li>
+  <li>点击 <span class="ui">Generate ✦</span>。</li>
+</ol>
+<p>想让一张现有的图片动起来，请在 Gallery 对图片点击 <span class="ui">Animate</span>。</p>
+
+<h2>Movie（多场景）</h2>
+<p>一部 Movie 最多 <strong>6 个场景、每场景 5 秒</strong>。每个场景都从上一个场景的最后一格开始，画面因此连贯。</p>
+<h3>简易电影：一个描述</h3>
+<p>选择 <span class="ui">Movie</span>，<span class="ui">Length (seconds)</span> 最多 30，输入一个描述后生成。所有场景使用同一个描述。</p>
+<h3>多镜头电影：每个场景各自的描述</h3>
+<ol>
+  <li>勾选 <span class="ui">Multi-shot</span>。</li>
+  <li>可输入 <span class="ui">Premise</span>（故事前提），设置 <span class="ui">Scenes</span>（2 到 6），点击 <span class="ui">Generate script</span> 自动生成脚本。这需要 Gemini 密钥或免费的本地 AI 模型。</li>
+  <li>修改每个场景的 <span class="ui">Visual prompt</span>，并选择该场景出现的角色。</li>
+  <li>可用 <span class="ui">+ Add scene</span> 增加场景，然后生成。</li>
+</ol>
+
+<p>某个场景失败时，在 Dashboard 点击 <span class="ui">Retry failed</span>，会从最后完成的场景继续，不必重头开始。</p>
+<p>想加上配乐？在 Advanced 勾选 <span class="ui">Background music</span>（音乐库需要至少一首曲目）。</p>
+
+<h2 id="anime">教学：制作 2 分钟动画短片</h2>
+<p>一部 Movie 约 30 秒，所以 2 分钟的视频就是 4 部 Movie 接在一起。4 部都使用同一个角色与风格，看起来才会像同一部作品。</p>
+<ol>
+  <li><strong>设计主角。</strong>用 <span class="ui">Image</span> 搭配 <span class="ui">Anime / manga</span> 风格制作图片，例如 <em>"anime girl with short silver hair, red jacket, front view, plain background"</em>（银色短发、红色外套的动画少女，正面，纯色背景）。多生成几张，挑最满意的一张。</li>
+  <li><strong>创建角色。</strong>下载这张图片，到 Characters 页面创建角色（放在 Front 字段）。</li>
+  <li><strong>把故事分成四段。</strong>每段约 30 秒、最多 6 个场景，例如：1 登场、2 发现、3 冲突、4 结局。</li>
+  <li><strong>制作第 1 段。</strong>在 Create 选择 <span class="ui">Movie</span>、16:9 或 9:16、风格 <span class="ui">Anime / manga</span>，勾选您的角色，勾选 <span class="ui">Multi-shot</span>，写好 6 个场景描述后生成。</li>
+  <li><strong>确认后重复</strong>制作第 2 到 4 段，使用相同的角色、风格和比例。在 Gallery 对第 1 段点击 <span class="ui">Remix</span>，就能沿用所有设置。若某个场景不理想，可在 Gallery 用 <span class="ui">Scenes</span> 只重做那一个场景（请见 <a href="gallery.html#scenes">Gallery</a>）。</li>
+  <li><strong>合并。</strong>下载 4 部视频，用任何剪辑软件按顺序排好（例如剪映（CapCut）、Windows 内置的 Clipchamp，或 DaVinci Resolve），再加上音乐和字幕。</li>
+</ol>
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">时间</span><p>请预留时间：24 个 5 秒场景，在 RTX 3060 12 GB 上约需 24 到 48 小时。建议每晚制作一段，确认后再做下一段。</p></div>
+<p>想要旁白而不是配乐？用 Talking object 或 Normal 风格制作 <a href="reels.html">Reel</a> 会更快，并自动加上旁白与字幕。</p>
+
+    <nav class="pager" aria-label="Pages"><a href="characters.html"><small>← 上一页</small>角色</a><a href="music-videos.html" style="text-align:right"><small>下一页 →</small>音乐 MV</a></nav>
+    <p class="foot"><a href="../../index.html">首页</a> &middot; <a href="index.html">使用手册</a> &middot; <a href="../../support.html">客服支持</a> &middot; <a href="../../privacy.html">隐私政策</a> &middot; <a href="../../terms.html">服务条款</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>

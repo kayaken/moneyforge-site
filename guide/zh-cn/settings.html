@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>设置与疑难排解 — MoneyForge 使用手册</title>
+<meta name="description" content="MoneyForge Settings 说明（授权、API 密钥、备份、垃圾桶），以及常见问题的解决方法。">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="设置与疑难排解">
+<meta property="og:description" content="MoneyForge Settings 说明（授权、API 密钥、备份、垃圾桶），以及常见问题的解决方法。">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/zh-cn/settings.html">
+<link rel="alternate" hreflang="en" href="https://moneyforgestudio.com/guide/settings.html">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://moneyforgestudio.com/guide/zh-tw/settings.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://moneyforgestudio.com/guide/zh-cn/settings.html">
+<link rel="alternate" hreflang="x-default" href="https://moneyforgestudio.com/guide/settings.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">使用手册</a>
+      <a href="../../support.html" class="hide-sm">客服支持</a>
+      <a href="../settings.html" lang="en">English</a>
+      <a href="../zh-tw/settings.html" lang="zh-Hant-TW">繁體中文</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="目录">
+    <p class="label">使用手册</p>
+    <ol>
+      <li><a href="index.html">总览</a></li>
+      <li><a href="getting-started.html">开始使用</a></li>
+      <li><a href="create-basics.html">Create 基础</a></li>
+      <li><a href="images.html">图片与风格</a></li>
+      <li><a href="characters.html">角色</a></li>
+      <li><a href="video-and-movies.html">视频与电影</a></li>
+      <li><a href="music-videos.html">音乐 MV</a></li>
+      <li><a href="reels.html">Reels</a></li>
+      <li><a href="voices.html">声音与声音克隆</a></li>
+      <li><a href="libraries.html">素材库与品牌套件</a></li>
+      <li><a href="repurpose.html">Repurpose 视频再利用</a></li>
+      <li><a href="gallery.html">Gallery 作品库</a></li>
+      <li><a href="distribution.html">发布与定时发布</a></li>
+      <li><a href="settings.html" aria-current="page">设置与说明</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">参考资料</p>
+    <h1>设置与疑难排解</h1>
+    <p class="lede">密钥、授权、备份，以及最常遇到的问题的解决方法。</p>
+
+<h2>Settings（设置）</h2>
+<ul>
+  <li><strong>License</strong>（授权）：<span class="ui">Activate</span> 激活密钥；换到新电脑前，先点击 <span class="ui">Deactivate this machine</span>。</li>
+  <li><strong>Change password</strong>：修改 MoneyForge 登录密码。</li>
+  <li><strong>Google Gemini API Key（可选）</strong>：更好的图片评分、多角色一致性、脚本、翻译，以及定时发布系列的安全检查。自动设置下载的免费本地 AI 模型不需密钥即可处理大部分项目。加入密钥后，相关内容会发送到 Google。</li>
+  <li><strong>ElevenLabs API Key（可选）</strong>：自然语音、声音库与声音克隆。请见<a href="voices.html">声音</a>。</li>
+  <li><strong>Data &amp; Backup</strong>（数据与备份）：<span class="ui">Backup now</span>、<span class="ui">Show in folder</span>、<span class="ui">Restore</span>。</li>
+  <li><strong>Trash</strong>（垃圾桶）：<span class="ui">Restore all</span>（全部还原）或 <span class="ui">Empty trash permanently</span>（永久清空）。</li>
+  <li><strong>System</strong>（系统）：版本号与 <span class="ui">Run system check</span>（运行系统检查）。</li>
+</ul>
+<p>程序内的 <span class="ui">Help</span> 页面也会回答最常见的问题。</p>
+
+<h2>疑难排解</h2>
+<h3>出现“No GPU detected”或一切都非常慢</h3>
+<p>更新 NVIDIA 驱动程序并重启电脑，再打开 Setup。若 Setup 仍显示没有显卡，请点击 <span class="ui">Copy system info</span> 并发送给客服。</p>
+<h3>视频、电影或 AI MV 一开始就失败</h3>
+<p>检查 Setup → <span class="ui">Model files</span>：视频模型（约 64 GB）必须完整下载。只有 12 GB 以上的显卡才会下载视频模型。</p>
+<h3>某个选项无法勾选（灰色）</h3>
+<p>背景音乐、音效、视频素材和白板选项，需要对应的素材库至少有一个项目。有锁头图标的选项需要 Pro。</p>
+<h3>“Generate script”显示没有设置 AI 文本服务</h3>
+<p>本地 AI 文本模型尚未下载完成。请在 Setup 页面查看进度，或在 Settings 加入免费的 Gemini 密钥。</p>
+<h3>Reel 被拒绝，显示“reels need an AI text check”</h3>
+<p>原因相同：本地 AI 文本模型尚未就绪。请让它在 Setup 页面下载完成（若已关闭自动设置，请展开 <span class="ui">Manual setup</span> 并使用 <span class="ui">Install local AI model server</span>），或在 Settings 加入免费的 Gemini 密钥。</p>
+<h3>旁白听起来像机器人</h3>
+<p>那是 Windows 系统语音。没有设置 ElevenLabs 密钥，或所选的 ElevenLabs 声音无法使用时，就会改用系统语音。请在 Settings 加入密钥。</p>
+<h3>电影比我设置的短</h3>
+<p>每个电影任务最多制作 6 个 5 秒场景（约 30 秒）。请见<a href="video-and-movies.html#anime">制作较长的视频</a>。</p>
+<h3>无法登录</h3>
+<p>新安装时请使用 <code>admin</code> / <code>moneyforge</code>，或点 <span class="ui">reset it</span> 链接。Gumroad 的账号密码在这里无法使用。尝试太多次后，请等 15 分钟或重启电脑。</p>
+
+<h2>联系客服</h2>
+<p>请发送邮件至 <a href="mailto:support@moneyforgestudio.com">support@moneyforgestudio.com</a>（可用中文），附上 Setup → <span class="ui">Copy system info</span> 的内容，并简单说明您做了什么、发生了什么。也可以使用<a href="../../support.html">客服页面</a>上的在线对话。</p>
+
+    <nav class="pager" aria-label="Pages"><a href="distribution.html"><small>← 上一页</small>发布与定时发布</a><span></span></nav>
+    <p class="foot"><a href="../../index.html">首页</a> &middot; <a href="index.html">使用手册</a> &middot; <a href="../../support.html">客服支持</a> &middot; <a href="../../privacy.html">隐私政策</a> &middot; <a href="../../terms.html">服务条款</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>

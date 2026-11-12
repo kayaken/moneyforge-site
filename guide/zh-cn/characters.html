@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>角色 — MoneyForge 使用手册</title>
+<meta name="description" content="用参考照片在 MoneyForge 创建角色，让同一张脸出现在图片、视频、电影与 Reel 中。">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="角色">
+<meta property="og:description" content="用参考照片在 MoneyForge 创建角色，让同一张脸出现在图片、视频、电影与 Reel 中。">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/zh-cn/characters.html">
+<link rel="alternate" hreflang="en" href="https://moneyforgestudio.com/guide/characters.html">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://moneyforgestudio.com/guide/zh-tw/characters.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://moneyforgestudio.com/guide/zh-cn/characters.html">
+<link rel="alternate" hreflang="x-default" href="https://moneyforgestudio.com/guide/characters.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">使用手册</a>
+      <a href="../../support.html" class="hide-sm">客服支持</a>
+      <a href="../characters.html" lang="en">English</a>
+      <a href="../zh-tw/characters.html" lang="zh-Hant-TW">繁體中文</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="目录">
+    <p class="label">使用手册</p>
+    <ol>
+      <li><a href="index.html">总览</a></li>
+      <li><a href="getting-started.html">开始使用</a></li>
+      <li><a href="create-basics.html">Create 基础</a></li>
+      <li><a href="images.html">图片与风格</a></li>
+      <li><a href="characters.html" aria-current="page">角色</a></li>
+      <li><a href="video-and-movies.html">视频与电影</a></li>
+      <li><a href="music-videos.html">音乐 MV</a></li>
+      <li><a href="reels.html">Reels</a></li>
+      <li><a href="voices.html">声音与声音克隆</a></li>
+      <li><a href="libraries.html">素材库与品牌套件</a></li>
+      <li><a href="repurpose.html">Repurpose 视频再利用</a></li>
+      <li><a href="gallery.html">Gallery 作品库</a></li>
+      <li><a href="distribution.html">发布与定时发布</a></li>
+      <li><a href="settings.html">设置与说明</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">一致性</p>
+    <h1>角色</h1>
+    <p class="lede">角色能让同一张脸出现在每张图片、每个场景和每个视频中，系列作品或故事因此成立。</p>
+
+<p>角色功能需要角色模块（<span class="ui">Character Consistency Module</span>），自动设置会帮您安装。</p>
+
+<h2>创建角色</h2>
+<ol>
+  <li>打开 <span class="ui">Characters</span>，点击 <span class="ui">+ New character</span>。</li>
+  <li>输入 <span class="ui">Name</span>（名称），可选填 <span class="ui">Description</span>（说明），也可选择 <span class="ui">Default voice</span>（此角色在 Reel 中担任旁白时使用的声音）。</li>
+  <li>在四个字段上传参考照片：<span class="ui">Front</span>（正面）、<span class="ui">Side</span>（侧面）、<span class="ui">Three-Quarter</span>（四分之三侧面）、<span class="ui">Back</span>（背面）。至少需要正面照片，512×512 像素以上。</li>
+</ol>
+<p>MoneyForge 会自动找出脸部、裁剪并抠除背景。第一次上传照片时会一并下载抠图模型（约 1 GB），可能需要几分钟；之后上传只需数秒。</p>
+
+
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">获得好效果的技巧</span><ul>
+<li>使用清楚、光线充足的照片，脸部占画面的比例要够大。</li>
+<li>每张照片只有一个人。不要戴墨镜、避免浓重阴影或用手遮脸。</li>
+<li>动画或插画角色：先生成一张正面图片，再把它当作角色照片。</li>
+<li>只使用当事人同意的照片。</li>
+</ul></div>
+
+<h2>使用角色</h2>
+<p>在 Create 的 <span class="ui">Character</span> 勾选角色。一个任务最多可放 4 位角色。在多场景电影或 Reel 中，每个场景可以使用阵容中不同的角色。</p>
+<p>也可以直接把一张照片拖进 Create，不必另外保存角色（“Face will be extracted”）。</p>
+<p>2 位以上角色同时出现时，在 Settings 加入 Gemini 密钥可让角色外观最一致。</p>
+
+<h2>“Reprocess reference photos”</h2>
+<p>若角色上出现这个按钮，表示它的照片是由旧版本处理的。点击一次即可更新。</p>
+
+    <nav class="pager" aria-label="Pages"><a href="images.html"><small>← 上一页</small>图片与风格</a><a href="video-and-movies.html" style="text-align:right"><small>下一页 →</small>视频与电影</a></nav>
+    <p class="foot"><a href="../../index.html">首页</a> &middot; <a href="index.html">使用手册</a> &middot; <a href="../../support.html">客服支持</a> &middot; <a href="../../privacy.html">隐私政策</a> &middot; <a href="../../terms.html">服务条款</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>

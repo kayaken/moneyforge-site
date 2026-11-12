@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>音乐 MV — MoneyForge 使用手册</title>
+<meta name="description" content="用 MoneyForge 为您的歌曲制作 MV：歌词卡片或按节拍、歌词切换的 AI 场景，支持单曲、播放列表与整张专辑。">
+<meta name="application-name" content="MoneyForge">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="音乐 MV">
+<meta property="og:description" content="用 MoneyForge 为您的歌曲制作 MV：歌词卡片或按节拍、歌词切换的 AI 场景，支持单曲、播放列表与整张专辑。">
+<link rel="canonical" href="https://moneyforgestudio.com/guide/zh-cn/music-videos.html">
+<link rel="alternate" hreflang="en" href="https://moneyforgestudio.com/guide/music-videos.html">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://moneyforgestudio.com/guide/zh-tw/music-videos.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://moneyforgestudio.com/guide/zh-cn/music-videos.html">
+<link rel="alternate" hreflang="x-default" href="https://moneyforgestudio.com/guide/music-videos.html">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--text); }
+  .wordmark span { color: var(--accent); }
+  .hlinks a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 18px; }
+  .hlinks a:hover, .hlinks a[aria-current] { color: var(--accent); }
+
+  .layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding: 40px 0 80px; }
+  nav.toc { font-size: 14px; position: sticky; top: 16px; align-self: start; }
+  nav.toc .label { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                   text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  nav.toc ol { list-style: none; margin: 0 0 20px; padding: 0; }
+  nav.toc li { margin: 0; }
+  nav.toc a { display: block; padding: 4px 0 4px 10px; border-left: 2px solid var(--border);
+              color: var(--text-dim); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a[aria-current] { border-left-color: var(--accent); color: var(--text); font-weight: 600; }
+
+  main { min-width: 0; max-width: 720px; }
+  .eyebrow { font-family: Consolas, "Courier New", monospace; font-size: 12px; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code, kbd { font-family: Consolas, "Courier New", monospace; font-size: 0.92em;
+              background: var(--surface); border: 1px solid var(--border); padding: 0 4px; border-radius: 2px; }
+  .ui { font-weight: 600; }
+
+  .plate { position: relative; background: var(--surface); border: 1px solid var(--border);
+           padding: 18px 22px; margin: 18px 0; }
+  .plate::before, .plate::after, .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate > :first-child { margin-top: 0; }
+  .plate > :last-child { margin-bottom: 0; }
+  .plate .tag { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.12em;
+                text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { font-family: Consolas, "Courier New", monospace; font-size: 11px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+
+  figure { margin: 20px 0; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+  .cards a { display: block; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+             text-decoration: none; color: var(--text); }
+  .cards a:hover { border-color: var(--accent); }
+  .cards strong { display: block; margin-bottom: 2px; }
+  .cards span { font-size: 13px; color: var(--text-dim); }
+
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px;
+           border-top: 1px solid var(--border); font-size: 14px; }
+  .pager a { text-decoration: none; }
+  .pager small { display: block; color: var(--text-faint); font-family: Consolas, "Courier New", monospace;
+                 font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .foot { margin-top: 40px; font-size: 14px; color: var(--text-faint); }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    nav.toc { position: static; }
+    nav.toc ol { columns: 2; column-gap: 16px; }
+    .hlinks a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="../../index.html">MONEY<span>FORGE</span></a>
+    <div class="hlinks">
+      <a href="index.html" aria-current="page">使用手册</a>
+      <a href="../../support.html" class="hide-sm">客服支持</a>
+      <a href="../music-videos.html" lang="en">English</a>
+      <a href="../zh-tw/music-videos.html" lang="zh-Hant-TW">繁體中文</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="目录">
+    <p class="label">使用手册</p>
+    <ol>
+      <li><a href="index.html">总览</a></li>
+      <li><a href="getting-started.html">开始使用</a></li>
+      <li><a href="create-basics.html">Create 基础</a></li>
+      <li><a href="images.html">图片与风格</a></li>
+      <li><a href="characters.html">角色</a></li>
+      <li><a href="video-and-movies.html">视频与电影</a></li>
+      <li><a href="music-videos.html" aria-current="page">音乐 MV</a></li>
+      <li><a href="reels.html">Reels</a></li>
+      <li><a href="voices.html">声音与声音克隆</a></li>
+      <li><a href="libraries.html">素材库与品牌套件</a></li>
+      <li><a href="repurpose.html">Repurpose 视频再利用</a></li>
+      <li><a href="gallery.html">Gallery 作品库</a></li>
+      <li><a href="distribution.html">发布与定时发布</a></li>
+      <li><a href="settings.html">设置与说明</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="eyebrow">媒体类型</p>
+    <h1>音乐 MV</h1>
+    <p class="lede">上传您的歌曲，MoneyForge 会根据歌曲制作视频，并保留原本的音频。可选择快速的歌词卡片，或 AI 生成的场景。</p>
+
+<p>请使用您拥有版权或已获得授权的音乐。音乐 MV 是唯一会保留歌曲原始音频的媒体类型。</p>
+
+<h2>步骤 1：Audio Source（音频来源）</h2>
+<p>在 Create 选择 <span class="ui">Music video</span>，再选择来源：</p>
+<ul>
+  <li><strong>单曲</strong>：<span class="ui">Audio track</span>（.mp3、.wav、.flac、.m4a、.ogg）。可另外加上 <span class="ui">.lrc file</span>（含时间轴的歌词文件），或在 <span class="ui">paste plain lyrics</span> 粘贴歌词，一行一句。</li>
+  <li><strong>播放列表</strong>：一次选择多个音频文件，.lrc 文件会按文件名自动对应。</li>
+  <li><strong>专辑（ZIP）</strong>：内含编号曲目、对应的 .lrc 文件（可选）与 <code>album_art.jpg</code>（可选）的 .zip 文件。<span class="ui">Album art handling</span> 可选择只当封面，或让封面动起来作为第 1 首的开场。</li>
+</ul>
+
+
+<h2>步骤 2：Prompt &amp; Generation（描述与生成）</h2>
+<p><span class="ui">Prompt mode</span>：</p>
+<ul>
+  <li><strong>Single prompt</strong>：整首歌一个描述，场景按节拍切换。</li>
+  <li><strong>Lyrics-driven</strong>：每句歌词一个场景，画面根据该句歌词生成。没有歌词的歌曲会改用节拍切换。</li>
+</ul>
+<p><span class="ui">Generation mode</span>：</p>
+<div class="tablewrap"><table>
+<tr><th>模式</th><th>成果</th><th>速度</th></tr>
+<tr><td>Lyric cards（快速，静态背景）</td><td>生成的背景图，歌词随歌曲同步显示。最高 8K。</td><td>数分钟</td></tr>
+<tr><td>Full AI video（AI 生成场景，较慢）</td><td>AI 生成的动态画面。<strong>每首歌最多 5 个场景</strong>，之后重复播放直到歌曲结束。480p，Pro 版可 720p。需要 12 GB 显卡与视频模型。</td><td>RTX 3060 12 GB 上每个场景约 1 小时以上</td></tr>
+</table></div>
+
+<h2>步骤 3：Album Options（播放列表与专辑）</h2>
+<p><span class="ui">Per-track</span> 为每首歌各做一个视频。<span class="ui">Full album (continuous)</span> 会再把全部接成一个长视频；勾选 <span class="ui">Show title card at each track boundary</span> 可在曲目之间显示歌名。</p>
+
+<h2>教学：为一首歌制作 MV</h2>
+<ol>
+  <li>选择 <span class="ui">Music video</span>，比例选 16:9（YouTube）或 9:16（Shorts、TikTok）。</li>
+  <li>上传歌曲；有 .lrc 文件的话一起上传。没有的话可粘贴歌词，或不加歌词。</li>
+  <li>第一版建议用 <span class="ui">Lyric cards</span>，搭配风格与描述氛围的英文 prompt，例如 <em>"neon city at night, rain, cinematic"</em>（夜晚的霓虹城市、雨、电影感）。</li>
+  <li>想要有样式的歌词，请在 Advanced 打开字幕（Captions）；选择标有 🎤 的样式，会逐字高亮。</li>
+  <li>满意画面风格后，可用相同描述改选 <span class="ui">Full AI video</span> 制作动态场景，建议放着过夜运行。</li>
+</ol>
+<div class="plate"><div class="bl"></div><div class="br"></div><span class="tag">小提示</span><p>.lrc 歌词文件：许多音乐播放器和歌词网站可导出，也可用免费的 LRC 编辑器制作。格式像这样：<code>[00:12.40] 第一句歌词</code>。中文歌词可以正常显示。</p></div>
+
+    <nav class="pager" aria-label="Pages"><a href="video-and-movies.html"><small>← 上一页</small>视频与电影</a><a href="reels.html" style="text-align:right"><small>下一页 →</small>Reels</a></nav>
+    <p class="foot"><a href="../../index.html">首页</a> &middot; <a href="index.html">使用手册</a> &middot; <a href="../../support.html">客服支持</a> &middot; <a href="../../privacy.html">隐私政策</a> &middot; <a href="../../terms.html">服务条款</a></p>
+  </main>
+</div>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>
