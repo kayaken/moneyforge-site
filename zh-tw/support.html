@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>客服 — MoneyForge</title>
+<meta name="description" content="MoneyForge 客服：與客服助手線上對話，或直接寄信給我們，中文即可。">
+<meta name="application-name" content="MoneyForge">
+<link rel="alternate" hreflang="en" href="https://moneyforgestudio.com/support.html">
+<link rel="alternate" hreflang="zh-CN" href="https://moneyforgestudio.com/zh-cn/support.html">
+<link rel="alternate" hreflang="zh-TW" href="https://moneyforgestudio.com/zh-tw/support.html">
+<link rel="alternate" hreflang="x-default" href="https://moneyforgestudio.com/support.html">
+<meta property="og:site_name" content="MoneyForge">
+<meta property="og:title" content="客服 — MoneyForge">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="../vendor/chat-widget.css">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", "Source Han Sans TC", sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; }
+  .wordmark span { color: var(--accent); }
+  .back { color: var(--text-dim); text-decoration: none; font-size: 14px; }
+  .back:hover { color: var(--accent); }
+  main { padding: 48px 0 80px; }
+  h1 { font-size: 28px; margin: 0 0 8px; }
+  p.lede { color: var(--text-dim); margin-top: 0; }
+  a { color: var(--accent); }
+
+  .plate {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 32px 36px;
+  }
+  .plate::before, .plate::after,
+  .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+
+  .fallback { margin-top: 32px; font-size: 14px; color: var(--text-faint); }
+
+  /* Chat widget theming (self-hosted vendor/chat-widget.{css,js}, pinned
+     v1.30.2 — verified against the shipped stylesheet, see
+     docs/design-system.md before changing names). --chat--window--width/
+     height default to a fixed 400x600 "floating popup" size regardless of
+     embed mode; without overriding them the widget renders far narrower
+     than its .plate container. */
+  #mf-support-chat {
+    --chat--window--width: 100%;
+    --chat--window--height: 480px;
+    --chat--window--border: none;
+    --chat--window--border-radius: 0;
+    --chat--spacing: 1rem;
+    --chat--border-radius: 2px;
+    --chat--font-family: -apple-system, "Segoe UI", Helvetica, Arial, "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", "Source Han Sans TC", sans-serif;
+
+    --chat--color--primary: var(--accent);
+    --chat--color--primary-shade-50: var(--accent);
+    --chat--color--secondary: var(--accent);
+    --chat--color-secondary-shade-50: var(--accent);
+    --chat--color-dark: var(--bg);
+    --chat--color-light: var(--text);
+    --chat--color-light-shade-50: var(--surface);
+    --chat--color-light-shade-100: var(--border);
+    --chat--color-medium: var(--border);
+
+    --chat--header--background: var(--surface);
+    --chat--header--color: var(--text);
+    --chat--header--border-bottom: 1px solid var(--border);
+    --chat--body--background: var(--surface);
+
+    --chat--message--bot--background: var(--bg);
+    --chat--message--bot--color: var(--text);
+    --chat--message--bot--border: 1px solid var(--border);
+    --chat--message--user--background: var(--accent);
+    --chat--message--user--color: #0F0B08;
+    --chat--message--user--border: none;
+
+    --chat--input--background: var(--bg);
+    --chat--input--text-color: var(--text);
+    --chat--input--border: 1px solid var(--border);
+    --chat--input--container--background: var(--bg);
+    --chat--input--container--border: 1px solid var(--border);
+    /* Defaults to 0 in the shipped widget CSS, while the messages list uses
+       --chat--spacing (1rem) — left unset, the input container sits flush
+       against its edges while the message bubbles above it are inset,
+       making the two areas look misaligned. Match them explicitly. */
+    --chat--input--container--padding: var(--chat--spacing);
+    --chat--input--send--button--background: var(--accent);
+    --chat--input--send--button--color: #0F0B08;
+    --chat--input--send--button--background-hover: var(--accent);
+    --chat--input--send--button--color-hover: #0F0B08;
+
+    --chat--footer--background: var(--surface);
+    --chat--footer--border-top: 1px solid var(--border);
+    --chat--button--background--primary: var(--accent);
+    --chat--button--color--primary: #0F0B08;
+    --chat--button--background--primary--hover: var(--accent);
+    --chat--button--color--primary--hover: #0F0B08;
+
+    --chat--toggle--background: var(--accent);
+    --chat--toggle--color: #0F0B08;
+    --chat--toggle--hover--background: var(--accent);
+  }
+
+  /* The chat widget vendor ships no config option to disable its own
+     attribution footer (confirmed against the real option surface and a
+     vendor staff/moderator statement that it's not a togglable setting) —
+     the only removal path is hiding the element directly. Not scoped to
+     .chat-get-started-footer specifically since showWelcomeScreen is
+     false here (that screen never renders) yet the badge still shows,
+     meaning it also appears in the regular chat footer area — hide the
+     class wherever it lands inside our widget, not the page globally. */
+  #mf-support-chat .chat-powered-by { display: none; }
+</style>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e38a5fd4d5424fdfbf06c1cb4d2fab78"}'></script>
+<style>
+  .display, .section-h, .hero h1 { line-height: 1.2; }
+  .eyebrow, .feat .tag, .rule span, .cmp-cell .who, .hero-stat .l,
+  .spec-table td:first-child { font-size: 13px; letter-spacing: 0.04em; }
+  .cmp-cell .price small { white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="index.html" style="text-decoration:none; color:var(--text)">MONEY<span>FORGE</span></a>
+    <span style="display:inline-flex;gap:20px;align-items:center"><span class="langs" style="display:inline-flex;gap:6px;align-items:center"><a href="../support.html" lang="en" hreflang="en" title="English" aria-label="English" style="display:inline-flex;align-items:center;padding:3px;border:1px solid transparent;opacity:0.55" onclick="try{localStorage.setItem('mf-lang','en')}catch(e){}"><svg viewBox="0 0 30 20" width="24" height="16" aria-hidden="true" style="display:block;border-radius:2px"><rect width="30" height="20" fill="#B22234"/><path d="M0 2.31H30M0 5.38H30M0 8.46H30M0 11.54H30M0 14.62H30M0 17.69H30" stroke="#FFFFFF" stroke-width="1.54"/><rect width="13" height="10.77" fill="#3C3B6E"/></svg></a><a href="../zh-cn/support.html" lang="zh-CN" hreflang="zh-CN" title="简体中文" aria-label="简体中文" style="display:inline-flex;align-items:center;padding:3px;border:1px solid transparent;opacity:0.55" onclick="try{localStorage.setItem('mf-lang','zh-cn')}catch(e){}"><svg viewBox="0 0 30 20" width="24" height="16" aria-hidden="true" style="display:block;border-radius:2px"><rect width="30" height="20" fill="#EE1C25"/><path fill="#FFDE00" d="M5.00 2.00L5.67 4.07L7.85 4.07L6.09 5.35L6.76 7.43L5.00 6.15L3.24 7.43L3.91 5.35L2.15 4.07L4.33 4.07ZM9.14 2.51L9.62 1.97L9.25 1.34L9.91 1.63L10.39 1.08L10.33 1.80L11.00 2.09L10.29 2.25L10.22 2.97L9.85 2.35ZM11.01 4.14L11.66 3.82L11.56 3.10L12.07 3.62L12.72 3.30L12.38 3.95L12.88 4.47L12.17 4.34L11.83 4.99L11.73 4.27ZM11.04 6.73L11.76 6.70L11.96 6.00L12.21 6.68L12.94 6.66L12.37 7.10L12.62 7.79L12.01 7.38L11.44 7.83L11.64 7.13ZM9.22 8.38L9.90 8.63L10.35 8.06L10.32 8.79L11.00 9.05L10.30 9.24L10.26 9.96L9.87 9.36L9.16 9.55L9.62 8.98Z"/></svg></a><a href="support.html" lang="zh-TW" hreflang="zh-TW" title="繁體中文" aria-label="繁體中文" aria-current="true" style="display:inline-flex;align-items:center;padding:3px;border:1px solid var(--accent);opacity:1" onclick="try{localStorage.setItem('mf-lang','zh-tw')}catch(e){}"><svg viewBox="0 0 30 20" width="24" height="16" aria-hidden="true" style="display:block;border-radius:2px"><rect width="30" height="20" fill="#FE0000"/><rect width="15" height="10" fill="#000095"/><path fill="#FFFFFF" d="M7.50 1.25L8.04 2.97L9.38 1.75L8.98 3.52L10.75 3.12L9.53 4.46L11.25 5.00L9.53 5.54L10.75 6.88L8.98 6.48L9.38 8.25L8.04 7.03L7.50 8.75L6.96 7.03L5.63 8.25L6.02 6.48L4.25 6.88L5.47 5.54L3.75 5.00L5.47 4.46L4.25 3.12L6.02 3.52L5.62 1.75L6.96 2.97Z"/><circle cx="7.5" cy="5" r="2.1" fill="#000095"/><circle cx="7.5" cy="5" r="1.8" fill="#FFFFFF"/></svg></a></span><a class="back" href="index.html">← 返回首頁</a></span>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>客服</h1>
+    <p class="lede">在下方與客服助手對話（直接用中文提問即可），或者寄信給我們。</p>
+    <p>想知道某個功能怎麼用？<a href="../guide/zh-tw/">使用手冊</a>一步步介紹每個功能（另有<a href="../guide/zh-cn/">簡體中文版</a>）。</p>
+
+    <div class="plate">
+      <div class="bl"></div><div class="br"></div>
+      <div id="mf-support-chat" style="min-height: 480px;"></div>
+    </div>
+
+    <p class="fallback">
+      想用 Email？請寫信到
+      <a href="mailto:support@moneyforgestudio.com">support@moneyforgestudio.com</a>
+      （一般問題）或
+      <a href="mailto:privacy@moneyforgestudio.com">privacy@moneyforgestudio.com</a>
+      （隱私/資料問題）。兩個信箱都會自動分類處理，
+      需要人工處理的問題會由真人跟進。
+    </p>
+  </div>
+</main>
+
+<script type="module">
+  import { createChat } from '../vendor/chat-widget.js';
+  // Tier1-WebWidget workflow's Chat Trigger node (published 2026-07-28) —
+  // see docs/runbooks/vps-support-infra-setup.md Phase 4.
+  createChat({
+    webhookUrl: 'https://n8n.moneyforgestudio.com/webhook/d753b3a4-d5c0-4a19-9336-3908cba2d1c2/chat',
+    target: '#mf-support-chat',
+    mode: 'fullscreen',
+    showWelcomeScreen: false,
+    initialMessages: [
+      '你好！關於 MoneyForge 的安裝、生成問題、授權或帳戶，都可以問我，直接用中文就行。',
+    ],
+    i18n: {
+      en: {
+        title: 'MoneyForge 客服',
+        subtitle: '',
+        footer: '',
+        getStarted: '新對話',
+        inputPlaceholder: '輸入你的問題…',
+      },
+    },
+  });
+</script>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+</body>
+</html>
