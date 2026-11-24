@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>发布与定时发布 — MoneyForge 使用手册</title>
-<meta name="description" content="把 YouTube、Facebook、Instagram 和 TikTok 关联到 MoneyForge，发布完成的视频，并设置自动定时发布的 Reel 系列。">
+<meta name="description" content="从 MoneyForge 把完成的视频发布到 YouTube、设置自动定时发布的 Reel 系列，并在其他平台开放前自行上传。">
 <meta name="application-name" content="MoneyForge">
 <meta property="og:site_name" content="MoneyForge">
 <meta property="og:title" content="发布与定时发布">
-<meta property="og:description" content="把 YouTube、Facebook、Instagram 和 TikTok 关联到 MoneyForge，发布完成的视频，并设置自动定时发布的 Reel 系列。">
+<meta property="og:description" content="从 MoneyForge 把完成的视频发布到 YouTube、设置自动定时发布的 Reel 系列，并在其他平台开放前自行上传。">
 <link rel="canonical" href="https://moneyforgestudio.com/guide/zh-cn/distribution.html">
 <link rel="alternate" hreflang="en" href="https://moneyforgestudio.com/guide/distribution.html">
 <link rel="alternate" hreflang="zh-Hant-TW" href="https://moneyforgestudio.com/guide/zh-tw/distribution.html">
@@ -151,23 +151,35 @@
   <main>
     <p class="eyebrow">发布</p>
     <h1>发布与定时发布</h1>
-    <p class="lede">关联您自己的账号一次之后，就能从 Gallery 发布、在任务完成时自动发布，或让系列按计划自动生成并发布。</p>
+    <p class="lede">MoneyForge 的所有内容都在您的电脑上制作。关联您的 YouTube 频道一次之后，就能从 Gallery 发布、在任务完成时自动发布，或让系列按计划自动生成并发布。其他平台会在各自批准 MoneyForge 后陆续开放。</p>
+
+<h2>发布状态</h2>
+<p>要在 MoneyForge 里直接发布，需要各平台批准 MoneyForge 的发布权限，因此会一个平台一个平台陆续开放。平台开放之前，Distribution 页面会显示“coming soon（即将推出）”卡片。</p>
+<div class="tablewrap"><table>
+<tr><th>平台</th><th>状态</th><th>说明</th></tr>
+<tr><td>YouTube</td><td>可使用</td><td>可上传为公开、不公开或私人。YouTube 限制 MoneyForge 每天可上传的视频数量；达到上限时，请第二天再试，或到 YouTube Studio 自行上传文件。</td></tr>
+<tr><td>Pinterest</td><td>有限预览</td><td>在 Pinterest 给予 MoneyForge 完整权限之前，Pin 只有您自己看得到。</td></tr>
+<tr><td>Facebook</td><td>即将推出</td><td>将发布到您管理的 Facebook 公共主页。</td></tr>
+<tr><td>Instagram</td><td>即将推出</td><td>将需要关联到 Facebook 公共主页的专业账号（商业或创作者账号）。</td></tr>
+<tr><td>Threads</td><td>即将推出</td><td></td></tr>
+<tr><td>TikTok</td><td>即将推出</td><td></td></tr>
+<tr><td>X</td><td>不提供</td><td>X 会向应用程序开发者收取每条帖子的费用，因此 MoneyForge 不发帖到 X。</td></tr>
+</table></div>
 
 <h2>关联账号</h2>
-<p>打开 <span class="ui">Distribution</span>，逐一关联各平台。登录是在平台自己的页面上进行，MoneyForge 不会看到您的密码。</p>
-<div class="tablewrap"><table>
-<tr><th>平台</th><th>说明</th></tr>
-<tr><td>YouTube</td><td>可上传为公开、不公开或私人。</td></tr>
-<tr><td>Facebook</td><td>发布到您管理的 Facebook 公共主页。</td></tr>
-<tr><td>Instagram</td><td>需要关联到 Facebook 公共主页的专业账号（商业或创作者账号），并需要公开隧道（见下方）。Instagram 没有私人或草稿帖子。</td></tr>
-<tr><td>TikTok</td><td>测试时可把帖子设为“Only Me（仅自己）”。</td></tr>
-<tr><td>Pinterest</td><td>正在等待 Pinterest 的开发者审核。</td></tr>
-<tr><td>X</td><td>通过 API 发帖时，X 会向账号收取每则帖子的费用。</td></tr>
-</table></div>
+<p>打开 <span class="ui">Distribution</span>，关联已开放的平台。登录是在平台自己的页面上进行，MoneyForge 不会看到您的密码。</p>
 <figure><img src="../img/distribution.png" alt="Distribution 页面上已关联的账号" width="1440" height="900" loading="lazy"><figcaption>Distribution 页面上已关联的账号</figcaption></figure>
 
+<h2>在开放之前自行上传</h2>
+<p>尚未开放的平台，请自行上传文件，只需一分钟：</p>
+<ol>
+  <li>如果视频是为其他画面比例制作的，请先在 Gallery 使用 <span class="ui">Repurpose</span> → <span class="ui">Create platform variant</span>（请见 <a href="gallery.html">Gallery</a>）。</li>
+  <li>在 Gallery 对该作品点击 <span class="ui">Download</span>。</li>
+  <li>打开该平台的 App 或网站，把文件上传为新帖子。</li>
+</ol>
+
 <h2>公开隧道（Public tunnel）</h2>
-<p>Instagram（以及 Pinterest 视频）会从网址抓取您的视频，因此 MoneyForge 需要一个连到您电脑的临时公开链接。在 Distribution 发布到 Instagram 之前先点击 <span class="ui">Start tunnel</span>，完成后点击 <span class="ui">Stop tunnel</span>。启动前请先更改默认的 admin 密码。</p>
+<p>Pinterest 视频会从网址抓取，因此 MoneyForge 需要一个连到您电脑的临时公开链接。在 Distribution 发布视频到 Pinterest 之前先点击 <span class="ui">Start tunnel</span>，完成后点击 <span class="ui">Stop tunnel</span>。启动前请先更改默认的 admin 密码。</p>
 
 <h2>发布</h2>
 <ul>
@@ -177,7 +189,7 @@
 
 <h2>定时发布系列（Auto-scheduler）</h2>
 <p>系列会自动撰写、生成并发布 Reel。在 <span class="ui">Auto-scheduler</span> 点击 <span class="ui">+ New series</span>，设置主题类别、<span class="ui">Series name</span>（系列名称）、可选的 <span class="ui">Topic</span>（题目）、<span class="ui">Cadence</span>（频率：Twice daily、Daily、3x per week、Weekly）、<span class="ui">Aspect ratio</span>、<span class="ui">Voice</span>、<span class="ui">Narration language</span> 与 <span class="ui">Auto-post to</span>（自动发布到）。系列可随时暂停、继续或删除。</p>
-<p>每个定时发布的 Reel 都会先通过内容安全检查，这需要 Gemini 密钥或免费的本地 AI 模型；两者都没有时，定时发布的 Reel 会被略过，而不会未经检查就发布。系列运行时，您的电脑必须保持开机。</p>
+<p>每个定时发布的 Reel 都会先通过内容安全检查，这需要 Gemini 密钥或免费的本地 AI 模型；两者都没有时，定时发布的 Reel 会被略过，而不会未经检查就发布。系列运行时，您的电脑必须保持开机。调度上传也会计入 YouTube 每日的上传上限（见上方“发布状态”），上传较多的日子，调度的帖子可能要等到第二天。</p>
 
     <nav class="pager" aria-label="Pages"><a href="gallery.html"><small>← 上一页</small>Gallery 作品库</a><a href="settings.html" style="text-align:right"><small>下一页 →</small>设置与说明</a></nav>
     <p class="foot"><a href="../../zh-cn/">首页</a> &middot; <a href="./">使用手册</a> &middot; <a href="../../zh-cn/support.html">客服支持</a> &middot; <a href="../../privacy.html">隐私政策</a> &middot; <a href="../../terms.html">服务条款</a></p>

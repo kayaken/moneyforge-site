@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Posting and scheduling — MoneyForge User Guide</title>
-<meta name="description" content="Connect YouTube, Facebook, Instagram and TikTok to MoneyForge, post finished videos, and set up auto-scheduled reel series.">
+<meta name="description" content="Post finished videos to YouTube from MoneyForge, set up auto-scheduled reel series, and upload to other platforms yourself until they switch on.">
 <meta name="application-name" content="MoneyForge">
 <meta property="og:site_name" content="MoneyForge">
 <meta property="og:title" content="Posting and scheduling">
-<meta property="og:description" content="Connect YouTube, Facebook, Instagram and TikTok to MoneyForge, post finished videos, and set up auto-scheduled reel series.">
+<meta property="og:description" content="Post finished videos to YouTube from MoneyForge, set up auto-scheduled reel series, and upload to other platforms yourself until they switch on.">
 <link rel="canonical" href="https://moneyforgestudio.com/guide/distribution.html">
 <link rel="alternate" hreflang="en" href="https://moneyforgestudio.com/guide/distribution.html">
 <link rel="alternate" hreflang="zh-Hant-TW" href="https://moneyforgestudio.com/guide/zh-tw/distribution.html">
@@ -151,23 +151,35 @@
   <main>
     <p class="eyebrow">Publishing</p>
     <h1>Posting and scheduling</h1>
-    <p class="lede">Connect your own accounts once, then post from the Gallery, auto-post when a job finishes, or let a series generate and post on a schedule.</p>
+    <p class="lede">MoneyForge makes everything on your PC. Connect your YouTube channel once, then post from the Gallery, auto-post when a job finishes, or let a series generate and post on a schedule. Other platforms switch on as each one approves MoneyForge.</p>
 
-<h2>Connect accounts</h2>
-<p>Open <span class="ui">Distribution</span> and connect each platform. You sign in on the platform's own page; MoneyForge never sees your password.</p>
+<h2>Posting status</h2>
+<p>Posting from inside MoneyForge needs each platform to approve MoneyForge's posting access, so it is switching on one platform at a time. Until a platform is ready, the Distribution page shows a "coming soon" card for it.</p>
 <div class="tablewrap"><table>
-<tr><th>Platform</th><th>Notes</th></tr>
-<tr><td>YouTube</td><td>Public, Unlisted or Private uploads.</td></tr>
-<tr><td>Facebook</td><td>Posts to a Facebook Page you manage.</td></tr>
-<tr><td>Instagram</td><td>Professional (business or creator) account linked to a Facebook Page. Needs the public tunnel (below). Instagram has no private or draft posts.</td></tr>
-<tr><td>TikTok</td><td>Posts can be set to "Only Me" while you test.</td></tr>
-<tr><td>Pinterest</td><td>Waiting on Pinterest's developer approval.</td></tr>
-<tr><td>X</td><td>X charges the account for each post made through its API.</td></tr>
+<tr><th>Platform</th><th>Status</th><th>Notes</th></tr>
+<tr><td>YouTube</td><td>Ready</td><td>Public, Unlisted or Private uploads. YouTube limits how many videos MoneyForge can upload each day. If the limit is reached, try again the next day or upload the file in YouTube Studio.</td></tr>
+<tr><td>Pinterest</td><td>Limited preview</td><td>Pins are visible only to you until Pinterest grants MoneyForge full access.</td></tr>
+<tr><td>Facebook</td><td>Coming soon</td><td>Will post to a Facebook Page you manage.</td></tr>
+<tr><td>Instagram</td><td>Coming soon</td><td>Will need a Professional (business or creator) account linked to a Facebook Page.</td></tr>
+<tr><td>Threads</td><td>Coming soon</td><td></td></tr>
+<tr><td>TikTok</td><td>Coming soon</td><td></td></tr>
+<tr><td>X</td><td>Not offered</td><td>X charges the app maker for every post, so MoneyForge doesn't post to X.</td></tr>
 </table></div>
+
+<h2>Connect an account</h2>
+<p>Open <span class="ui">Distribution</span> and connect a platform that is ready. You sign in on the platform's own page; MoneyForge never sees your password.</p>
 <figure><img src="img/distribution.png" alt="Connected accounts on the Distribution page" width="1440" height="900" loading="lazy"><figcaption>Connected accounts on the Distribution page</figcaption></figure>
 
+<h2>Upload it yourself in the meantime</h2>
+<p>For a platform that isn't ready yet, upload the file yourself. It takes a minute:</p>
+<ol>
+  <li>If the video was made for another shape, use <span class="ui">Repurpose</span> → <span class="ui">Create platform variant</span> in the Gallery first (see <a href="gallery.html">Gallery</a>).</li>
+  <li>Click <span class="ui">Download</span> on the item in the Gallery.</li>
+  <li>Open the platform's app or website and upload the file as a new post.</li>
+</ol>
+
 <h2>Public tunnel</h2>
-<p>Instagram (and Pinterest videos) fetch your video from a web address, so MoneyForge needs a temporary public link to your computer. On Distribution, click <span class="ui">Start tunnel</span> before posting to Instagram, and <span class="ui">Stop tunnel</span> when you're done. Change the default admin password before you start it.</p>
+<p>Pinterest videos are fetched from a web address, so MoneyForge needs a temporary public link to your computer. On Distribution, click <span class="ui">Start tunnel</span> before posting a video to Pinterest, and <span class="ui">Stop tunnel</span> when you're done. Change the default admin password before you start it.</p>
 
 <h2>Post</h2>
 <ul>
@@ -177,7 +189,7 @@
 
 <h2>Auto-scheduler series</h2>
 <p>A series writes, generates and posts reels on its own. Under <span class="ui">Auto-scheduler</span> click <span class="ui">+ New series</span> and set the niche, <span class="ui">Series name</span>, optional <span class="ui">Topic</span>, <span class="ui">Cadence</span> (Twice daily, Daily, 3x per week, Weekly), <span class="ui">Aspect ratio</span>, <span class="ui">Voice</span>, <span class="ui">Narration language</span> and <span class="ui">Auto-post to</span>. Pause, resume or delete a series at any time.</p>
-<p>Every scheduled reel passes a content-safety check first. It needs a Gemini key or the free local AI model; without one, scheduled reels are skipped rather than posted unchecked. Your computer must be on for a series to run.</p>
+<p>Every scheduled reel passes a content-safety check first. It needs a Gemini key or the free local AI model; without one, scheduled reels are skipped rather than posted unchecked. Your computer must be on for a series to run. Scheduled uploads count toward YouTube's daily upload limit (see Posting status above), so on a busy day a scheduled post may have to wait until the next day.</p>
 
     <nav class="pager" aria-label="Pages"><a href="gallery.html"><small>← Previous</small>Gallery</a><a href="settings.html" style="text-align:right"><small>Next →</small>Settings &amp; help</a></nav>
     <p class="foot"><a href="../">Home</a> &middot; <a href="./">User Guide</a> &middot; <a href="../support.html">Support</a> &middot; <a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms of Service</a></p>
