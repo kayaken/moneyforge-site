@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Posting and scheduling — MoneyForge User Guide</title>
-<meta name="description" content="Post finished videos to YouTube from MoneyForge, set up auto-scheduled reel series, and upload to other platforms yourself until they switch on.">
+<meta name="description" content="Post or schedule finished videos to YouTube from MoneyForge, get suggested posting times, set up reel series that post at a set time, and upload to other platforms yourself until they switch on.">
 <meta name="application-name" content="MoneyForge">
 <meta property="og:site_name" content="MoneyForge">
 <meta property="og:title" content="Posting and scheduling">
-<meta property="og:description" content="Post finished videos to YouTube from MoneyForge, set up auto-scheduled reel series, and upload to other platforms yourself until they switch on.">
+<meta property="og:description" content="Post or schedule finished videos to YouTube from MoneyForge, get suggested posting times, set up reel series that post at a set time, and upload to other platforms yourself until they switch on.">
 <link rel="canonical" href="https://moneyforgestudio.com/guide/distribution.html">
 <link rel="alternate" hreflang="en" href="https://moneyforgestudio.com/guide/distribution.html">
 <link rel="alternate" hreflang="zh-Hant-TW" href="https://moneyforgestudio.com/guide/zh-tw/distribution.html">
@@ -187,8 +187,27 @@
   <li>Automatically: tick platforms under <span class="ui">Auto-distribute on completion</span> on Create. Posts go out within about 5 minutes of the job finishing.</li>
 </ul>
 
+<h2>Schedule a post</h2>
+<p>In the <span class="ui">Distribute</span> window, under <span class="ui">When</span>, choose <span class="ui">Schedule</span> and pick a date and time. YouTube (up to a year ahead) and Facebook (up to 29 days ahead) publish it themselves at that time, so your computer can be off by then. Times must be at least 15 minutes away.</p>
+<ul>
+  <li>A scheduled YouTube video stays private until its publish time, then goes public.</li>
+  <li>Facebook can only schedule public posts. Set <span class="ui">Privacy</span> to Public, or choose <span class="ui">Post now</span>.</li>
+  <li>Platforms that can't schedule post straight away. The window lists which ones.</li>
+  <li>Scheduled posts show as <span class="ui">Scheduled</span> with their time under Recent distribution jobs on the Distribution page.</li>
+</ul>
+
+<h2>Suggested times</h2>
+<p><span class="ui">Suggest a time</span> offers three upcoming times. YouTube and Facebook don't share "when your audience is online" with other apps, so these are MoneyForge's own estimate:</p>
+<ul>
+  <li>General starting points: weekday afternoons for YouTube (before the evening viewing peak), weekday mornings and lunchtime for Facebook, later mornings at weekends.</li>
+  <li>Your own results: once a YouTube channel has at least 8 videos posted from MoneyForge, the weekday where they did best is suggested first ("Your last 12 videos did best on Thursdays").</li>
+  <li>Spacing: times within 2 hours of another scheduled post are skipped.</li>
+</ul>
+<p>If most of your viewers live in another country, set <span class="ui">Settings</span> → <span class="ui">Audience time zone</span>. Suggestions are then picked in their time zone and still shown in yours.</p>
+
 <h2>Auto-scheduler series</h2>
-<p>A series writes, generates and posts reels on its own. Under <span class="ui">Auto-scheduler</span> click <span class="ui">+ New series</span> and set the niche, <span class="ui">Series name</span>, optional <span class="ui">Topic</span>, <span class="ui">Cadence</span> (Twice daily, Daily, 3x per week, Weekly), <span class="ui">Aspect ratio</span>, <span class="ui">Voice</span>, <span class="ui">Narration language</span> and <span class="ui">Auto-post to</span>. Pause, resume or delete a series at any time.</p>
+<p>A series writes, generates and posts reels on its own. Under <span class="ui">Auto-scheduler</span> click <span class="ui">+ New series</span> and set the niche, <span class="ui">Series name</span>, optional <span class="ui">Topic</span>, <span class="ui">Aspect ratio</span>, <span class="ui">Voice</span> and <span class="ui">Narration language</span>, then <span class="ui">How often</span> (Twice daily, Daily, 3x per week, Weekly), an optional <span class="ui">Post at</span> time, and where to post. Pause, resume or delete a series at any time.</p>
+<p>With <span class="ui">Post at</span> set (for example 21:00, or use <span class="ui">Suggest a time</span>), MoneyForge starts making each reel about 2 hours early. YouTube and Facebook then publish it exactly at that time; other platforms post when the time arrives. Leave <span class="ui">Post at</span> empty to post each reel as soon as it's ready.</p>
 <p>Every scheduled reel passes a content-safety check first. It needs a Gemini key or the free local AI model; without one, scheduled reels are skipped rather than posted unchecked. Your computer must be on for a series to run. Scheduled uploads count toward YouTube's daily upload limit (see Posting status above), so on a busy day a scheduled post may have to wait until the next day.</p>
 
     <nav class="pager" aria-label="Pages"><a href="gallery.html"><small>← Previous</small>Gallery</a><a href="settings.html" style="text-align:right"><small>Next →</small>Settings &amp; help</a></nav>

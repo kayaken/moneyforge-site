@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>發佈與排程 — MoneyForge 使用手冊</title>
-<meta name="description" content="從 MoneyForge 把完成的影片發佈到 YouTube、設定自動排程的 Reel 系列，並在其他平台開放前自行上傳。">
+<meta name="description" content="從 MoneyForge 把完成的影片發佈或排程到 YouTube、取得建議發佈時間、設定在固定時間發佈的 Reel 系列，並在其他平台開放前自行上傳。">
 <meta name="application-name" content="MoneyForge">
 <meta property="og:site_name" content="MoneyForge">
 <meta property="og:title" content="發佈與排程">
-<meta property="og:description" content="從 MoneyForge 把完成的影片發佈到 YouTube、設定自動排程的 Reel 系列，並在其他平台開放前自行上傳。">
+<meta property="og:description" content="從 MoneyForge 把完成的影片發佈或排程到 YouTube、取得建議發佈時間、設定在固定時間發佈的 Reel 系列，並在其他平台開放前自行上傳。">
 <link rel="canonical" href="https://moneyforgestudio.com/guide/zh-tw/distribution.html">
 <link rel="alternate" hreflang="en" href="https://moneyforgestudio.com/guide/distribution.html">
 <link rel="alternate" hreflang="zh-Hant-TW" href="https://moneyforgestudio.com/guide/zh-tw/distribution.html">
@@ -187,8 +187,27 @@
   <li>自動發佈：在 Create 的 <span class="ui">Auto-distribute on completion</span> 勾選平台。任務完成後約 5 分鐘內就會發佈。</li>
 </ul>
 
+<h2>排程發佈</h2>
+<p>在 <span class="ui">Distribute</span> 視窗的 <span class="ui">When</span>（時間）選擇 <span class="ui">Schedule</span>（排程），再選日期與時間。YouTube（最多一年後）和 Facebook（最多 29 天後）會在該時間自行發佈，所以到時候電腦關機也沒關係。時間至少要在 15 分鐘之後。</p>
+<ul>
+  <li>排程的 YouTube 影片在發佈時間之前會保持私人，時間到了才公開。</li>
+  <li>Facebook 只能排程公開貼文。請把 <span class="ui">Privacy</span> 設為 Public，或改選 <span class="ui">Post now</span>（立即發佈）。</li>
+  <li>不支援排程的平台會立即發佈，視窗會列出是哪些平台。</li>
+  <li>排程中的貼文會在 Distribution 頁面的最近發佈任務中顯示為 <span class="ui">Scheduled</span> 和發佈時間。</li>
+</ul>
+
+<h2>建議時間</h2>
+<p><span class="ui">Suggest a time</span>（建議時間）會提供三個即將到來的時間。YouTube 和 Facebook 不會把「觀眾何時在線上」提供給其他應用程式，所以這些是 MoneyForge 自己的估計：</p>
+<ul>
+  <li>一般起點：YouTube 是平日下午（晚間觀看高峰之前），Facebook 是平日早上和午餐時間，週末則稍晚的上午。</li>
+  <li>您自己的成績：當一個 YouTube 頻道已從 MoneyForge 發佈至少 8 支影片，表現最好的星期幾會優先建議（例如「您最近 12 支影片在星期四表現最好」）。</li>
+  <li>間隔：與另一則排程貼文相距不到 2 小時的時間會被略過。</li>
+</ul>
+<p>如果您的觀眾大多住在其他國家，請到 <span class="ui">Settings</span> → <span class="ui">Audience time zone</span>（觀眾時區）設定。建議時間就會以觀眾的時區挑選，同時仍以您的時間顯示。</p>
+
 <h2>自動排程系列（Auto-scheduler）</h2>
-<p>系列會自動撰寫、生成並發佈 Reel。在 <span class="ui">Auto-scheduler</span> 按 <span class="ui">+ New series</span>，設定主題類別、<span class="ui">Series name</span>（系列名稱）、可選的 <span class="ui">Topic</span>（題目）、<span class="ui">Cadence</span>（頻率：Twice daily、Daily、3x per week、Weekly）、<span class="ui">Aspect ratio</span>、<span class="ui">Voice</span>、<span class="ui">Narration language</span> 與 <span class="ui">Auto-post to</span>（自動發佈到）。系列可隨時暫停、繼續或刪除。</p>
+<p>系列會自動撰寫、生成並發佈 Reel。在 <span class="ui">Auto-scheduler</span> 按 <span class="ui">+ New series</span>，設定主題類別、<span class="ui">Series name</span>（系列名稱）、可選的 <span class="ui">Topic</span>（題目）、<span class="ui">Aspect ratio</span>、<span class="ui">Voice</span>、<span class="ui">Narration language</span>，再設定 <span class="ui">How often</span>（頻率：Twice daily、Daily、3x per week、Weekly）、可選的 <span class="ui">Post at</span>（發佈時間）以及要發佈到哪裡。系列可隨時暫停、繼續或刪除。</p>
+<p>設定了 <span class="ui">Post at</span>（例如 21:00，或按 <span class="ui">Suggest a time</span>）之後，MoneyForge 會提早約 2 小時開始製作每支 Reel。YouTube 和 Facebook 會在該時間準時發佈，其他平台則在時間到了才發佈。<span class="ui">Post at</span> 留空時，每支 Reel 一做好就發佈。</p>
 <p>每支排程的 Reel 都會先通過內容安全檢查，這需要 Gemini 金鑰或免費的本機 AI 模型；兩者都沒有時，排程的 Reel 會被略過，而不會未經檢查就發佈。系列執行時，您的電腦必須保持開機。排程上傳也會計入 YouTube 每日的上傳上限（見上方「發佈狀態」），上傳較多的日子，排程的貼文可能要等到隔天。</p>
 
     <nav class="pager" aria-label="Pages"><a href="gallery.html"><small>← 上一頁</small>Gallery 作品庫</a><a href="settings.html" style="text-align:right"><small>下一頁 →</small>設定與說明</a></nav>

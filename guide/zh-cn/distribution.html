@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>发布与定时发布 — MoneyForge 使用手册</title>
-<meta name="description" content="从 MoneyForge 把完成的视频发布到 YouTube、设置自动定时发布的 Reel 系列，并在其他平台开放前自行上传。">
+<meta name="description" content="从 MoneyForge 把完成的视频发布或调度到 YouTube、获得建议发布时间、设置在固定时间发布的 Reel 系列，并在其他平台开放前自行上传。">
 <meta name="application-name" content="MoneyForge">
 <meta property="og:site_name" content="MoneyForge">
 <meta property="og:title" content="发布与定时发布">
-<meta property="og:description" content="从 MoneyForge 把完成的视频发布到 YouTube、设置自动定时发布的 Reel 系列，并在其他平台开放前自行上传。">
+<meta property="og:description" content="从 MoneyForge 把完成的视频发布或调度到 YouTube、获得建议发布时间、设置在固定时间发布的 Reel 系列，并在其他平台开放前自行上传。">
 <link rel="canonical" href="https://moneyforgestudio.com/guide/zh-cn/distribution.html">
 <link rel="alternate" hreflang="en" href="https://moneyforgestudio.com/guide/distribution.html">
 <link rel="alternate" hreflang="zh-Hant-TW" href="https://moneyforgestudio.com/guide/zh-tw/distribution.html">
@@ -187,8 +187,27 @@
   <li>自动发布：在 Create 的 <span class="ui">Auto-distribute on completion</span> 勾选平台。任务完成后约 5 分钟内就会发布。</li>
 </ul>
 
+<h2>调度发布</h2>
+<p>在 <span class="ui">Distribute</span> 窗口的 <span class="ui">When</span>（时间）选择 <span class="ui">Schedule</span>（调度），再选日期与时间。YouTube（最多一年后）和 Facebook（最多 29 天后）会在该时间自行发布，所以到时候电脑关机也没关系。时间至少要在 15 分钟之后。</p>
+<ul>
+  <li>调度的 YouTube 视频在发布时间之前会保持私人，时间到了才公开。</li>
+  <li>Facebook 只能调度公开帖子。请把 <span class="ui">Privacy</span> 设为 Public，或改选 <span class="ui">Post now</span>（立即发布）。</li>
+  <li>不支持调度的平台会立即发布，窗口会列出是哪些平台。</li>
+  <li>调度中的帖子会在 Distribution 页面的最近发布任务中显示为 <span class="ui">Scheduled</span> 和发布时间。</li>
+</ul>
+
+<h2>建议时间</h2>
+<p><span class="ui">Suggest a time</span>（建议时间）会提供三个即将到来的时间。YouTube 和 Facebook 不会把“观众何时在在线”提供给其他应用程序，所以这些是 MoneyForge 自己的估计：</p>
+<ul>
+  <li>一般起点：YouTube 是平日下午（晚间观看高峰之前），Facebook 是平日早上和午餐时间，周末则稍晚的上午。</li>
+  <li>您自己的成绩：当一个 YouTube 频道已从 MoneyForge 发布至少 8 支视频，表现最好的星期几会优先建议（例如“您最近 12 支视频在星期四表现最好”）。</li>
+  <li>间隔：与另一则调度帖子相距不到 2 小时的时间会被略过。</li>
+</ul>
+<p>如果您的观众大多住在其他国家，请到 <span class="ui">Settings</span> → <span class="ui">Audience time zone</span>（观众时区）设置。建议时间就会以观众的时区挑选，同时仍以您的时间显示。</p>
+
 <h2>定时发布系列（Auto-scheduler）</h2>
-<p>系列会自动撰写、生成并发布 Reel。在 <span class="ui">Auto-scheduler</span> 点击 <span class="ui">+ New series</span>，设置主题类别、<span class="ui">Series name</span>（系列名称）、可选的 <span class="ui">Topic</span>（题目）、<span class="ui">Cadence</span>（频率：Twice daily、Daily、3x per week、Weekly）、<span class="ui">Aspect ratio</span>、<span class="ui">Voice</span>、<span class="ui">Narration language</span> 与 <span class="ui">Auto-post to</span>（自动发布到）。系列可随时暂停、继续或删除。</p>
+<p>系列会自动撰写、生成并发布 Reel。在 <span class="ui">Auto-scheduler</span> 点击 <span class="ui">+ New series</span>，设置主题类别、<span class="ui">Series name</span>（系列名称）、可选的 <span class="ui">Topic</span>（题目）、<span class="ui">Aspect ratio</span>、<span class="ui">Voice</span>、<span class="ui">Narration language</span>，再设置 <span class="ui">How often</span>（频率：Twice daily、Daily、3x per week、Weekly）、可选的 <span class="ui">Post at</span>（发布时间）以及要发布到哪里。系列可随时暂停、继续或删除。</p>
+<p>设置了 <span class="ui">Post at</span>（例如 21:00，或点击 <span class="ui">Suggest a time</span>）之后，MoneyForge 会提早约 2 小时开始制作每个 Reel。YouTube 和 Facebook 会在该时间准时发布，其他平台则在时间到了才发布。<span class="ui">Post at</span> 留空时，每个 Reel 一做好就发布。</p>
 <p>每个定时发布的 Reel 都会先通过内容安全检查，这需要 Gemini 密钥或免费的本地 AI 模型；两者都没有时，定时发布的 Reel 会被略过，而不会未经检查就发布。系列运行时，您的电脑必须保持开机。调度上传也会计入 YouTube 每日的上传上限（见上方“发布状态”），上传较多的日子，调度的帖子可能要等到第二天。</p>
 
     <nav class="pager" aria-label="Pages"><a href="gallery.html"><small>← 上一页</small>Gallery 作品库</a><a href="settings.html" style="text-align:right"><small>下一页 →</small>设置与说明</a></nav>
