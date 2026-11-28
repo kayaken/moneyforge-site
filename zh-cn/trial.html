@@ -86,6 +86,8 @@
   .show-dots { display: inline-flex; gap: 6px; }
   .show-dots button { width: 8px; height: 8px; padding: 0; border: 1px solid var(--text-faint); background: transparent; cursor: pointer; }
   .show-dots button[aria-current="true"] { background: var(--accent); border-color: var(--accent); }
+  .see-all { display: inline-block; margin-top: 8px; font-size: 13px; color: var(--accent); text-decoration: none; }
+  .see-all:hover { text-decoration: underline; }
   .showcase figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
   @media (max-width: 720px) { .hero { grid-template-columns: 1fr; gap: 24px; } .showcase { max-width: 240px; } }
   .phone-note { display: none; }
@@ -132,7 +134,7 @@
       </div>
       <figure class="showcase" aria-label="用 MoneyForge 制作的示例">
         <div class="frame">
-          <video class="slide on" src="../media/trial-reel.mp4" poster="../media/trial-reel.jpg" autoplay muted loop playsinline preload="auto" data-label="配音短视频" data-cap="画面和字幕在一台 4GB 显卡笔记本上完成。" aria-label="配音短视频"></video>
+          <video class="slide on" src="../media/trial-reel.mp4" poster="../media/trial-reel.jpg" muted loop playsinline preload="auto" data-label="配音短视频" data-cap="画面和字幕在一台 4GB 显卡笔记本上完成。" aria-label="配音短视频"></video>
           <video class="slide" src="../media/trial-whiteboard.mp4" poster="../media/trial-whiteboard.jpg" muted loop playsinline preload="none" data-label="白板风格" data-cap="每一幕都用粗墨线画出。" aria-label="白板风格"></video>
           <video class="slide" src="../media/trial-story.mp4" poster="../media/trial-story.jpg" muted loop playsinline preload="none" data-label="故事短视频" data-cap="旁白、音乐和字幕，一幕接一幕。" aria-label="故事短视频"></video>
           <video class="slide" src="../media/trial-aivideo.mp4" poster="../media/trial-aivideo.jpg" muted loop playsinline preload="none" data-label="AI 视频" data-cap="一句提示词生成真实动态画面。需要 12GB 显卡。" aria-label="AI 视频"></video>
@@ -149,6 +151,7 @@
           </span>
         </div>
         <figcaption id="showcaseCap">画面和字幕在一台 4GB 显卡笔记本上完成。</figcaption>
+        <a class="see-all" href="../styles.html">看全部风格 →</a>
       </figure>
     </div>
 
@@ -216,7 +219,7 @@
     var f=document.querySelector('.showcase');
     f.addEventListener('mouseenter',function(){held=true;});f.addEventListener('mouseleave',function(){held=false;});
     f.addEventListener('focusin',function(){held=true;});f.addEventListener('focusout',function(){held=false;});
-    vs[1].preload='metadata';start();})();
+    vs[1].preload='metadata';if(!still){var p0=vs[0].play();if(p0&&p0.catch)p0.catch(function(){});}start();})();
 </script>
 <script>
   // Per-post attribution (2026-11-28): promo posts link here with
