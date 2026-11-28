@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Styles — what MoneyForge makes</title>
+<meta name="description" content="Real outputs made with MoneyForge on a home PC: art styles, image templates, narrated shorts and caption styles.">
+<link rel="canonical" href="https://moneyforgestudio.com/styles.html">
+<link rel="alternate" hreflang="en" href="https://moneyforgestudio.com/styles.html">
+<link rel="alternate" hreflang="zh-CN" href="https://moneyforgestudio.com/zh-cn/styles.html">
+<link rel="alternate" hreflang="zh-TW" href="https://moneyforgestudio.com/zh-tw/styles.html">
+<link rel="alternate" hreflang="x-default" href="https://moneyforgestudio.com/styles.html">
+<meta property="og:title" content="Styles — what MoneyForge makes">
+<meta property="og:description" content="Real outputs made with MoneyForge on a home PC: art styles, image templates, narrated shorts and caption styles.">
+<meta property="og:image" content="https://moneyforgestudio.com/media/gallery/style-1.jpg">
+<link rel="icon" href="/media/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0;
+    --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  }
+  :root[data-theme="dark"] { --bg: #15100D; --surface: #1F1812; --border: #3A2E22; --accent: #E2793A; --text: #F2EAE0; --text-dim: #B8AC9E; --text-faint: #8A7E70; }
+  :root[data-theme="light"] { --bg: #F5F1EA; --surface: #EBE4D8; --border: #D2C6B0; --accent: #C15F26; --text: #211A14; --text-dim: #5C5044; --text-faint: #6F6152; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .wordmark { font-weight: 700; letter-spacing: 0.02em; }
+  .wordmark span { color: var(--accent); }
+  .back { color: var(--text-dim); text-decoration: none; font-size: 14px; }
+  .back:hover { color: var(--accent); }
+  main { padding: 48px 0 80px; }
+  h1 { font-size: 34px; line-height: 1.2; margin: 0 0 12px; }
+  h2 { font-size: 20px; margin: 44px 0 12px; }
+  p.lede { color: var(--text-dim); margin-top: 0; font-size: 18px; }
+  a { color: var(--accent); }
+  .small { font-size: 14px; color: var(--text-faint); }
+
+  .plate {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 28px 32px;
+    margin-top: 28px;
+  }
+  .plate::before, .plate::after,
+  .plate .bl, .plate .br { content: ""; position: absolute; width: 14px; height: 14px; }
+  .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate::after  { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .plate .bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .plate .br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+
+  .btn {
+    display: inline-block; background: var(--accent); color: #100C09;
+    font-weight: 600; font-size: 16px; letter-spacing: 0.01em;
+    padding: 13px 24px; text-decoration: none;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .hero { display: grid; grid-template-columns: 1fr 230px; gap: 40px; align-items: center; margin-bottom: 36px; }
+  .hero h1 { margin-top: 0; font-size: clamp(26px, 3.4vw, 30px); line-height: 1.2; text-wrap: balance; }
+  .showcase { margin: 0; }
+  .showcase .frame { position: relative; padding: 8px; border: 1px solid var(--border); background: var(--surface); }
+  .showcase .frame::before, .showcase .frame::after { content: ""; position: absolute; width: 14px; height: 14px; }
+  .showcase .frame::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .showcase .frame::after { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .showcase .frame .slide { position: absolute; inset: 8px; width: calc(100% - 16px); height: calc(100% - 16px); object-fit: cover; background: var(--bg); opacity: 0; transition: opacity .6s ease; }
+  .showcase .frame .slide.on { opacity: 1; }
+  .showcase .frame { aspect-ratio: 9 / 16; }
+  .show-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+  .show-label { font-size: 13px; color: var(--text); border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
+  .show-dots { display: inline-flex; gap: 6px; }
+  .show-dots button { width: 8px; height: 8px; padding: 0; border: 1px solid var(--text-faint); background: transparent; cursor: pointer; }
+  .show-dots button[aria-current="true"] { background: var(--accent); border-color: var(--accent); }
+  .showcase figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+  @media (max-width: 720px) { .hero { grid-template-columns: 1fr; gap: 24px; } .showcase { max-width: 240px; } }
+  .phone-note { display: none; }
+  @media (max-width: 720px), (pointer: coarse) { .phone-note { display: block; margin-top: 10px; } }
+  .cta-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-top: 18px; }
+
+  ul.checks { padding-left: 20px; margin: 8px 0 0; }
+  ul.checks li { margin: 4px 0; }
+  ol.steps { padding-left: 22px; }
+  ol.steps li { margin: 8px 0; }
+
+  table.spec { width: 100%; border-collapse: collapse; font-size: 15px; }
+  table.spec td { border-bottom: 1px solid var(--border); padding: 9px 4px; vertical-align: top; }
+  table.spec td:first-child { color: var(--text-dim); width: 42%; }
+</style>
+<style>
+  .wrap-wide { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .g-hero { padding: 40px 0 8px; }
+  .g-hero h1 { margin: 0 0 10px; text-wrap: balance; }
+  .g-hero .lede { max-width: 680px; }
+  .g-hero .btn { margin-top: 8px; }
+  .typed { font-family: 'Plex Mono', ui-monospace, monospace; font-size: 13px; color: var(--text-dim);
+           border-left: 2px solid var(--accent); padding: 4px 0 4px 10px; margin: 6px 0 18px; }
+  .typed b { color: var(--text-faint); font-weight: 400; margin-right: 6px; text-transform: uppercase; font-size: 11px; letter-spacing: .08em; }
+  .grid { display: grid; gap: 14px; }
+  .grid.styles { grid-template-columns: repeat(5, 1fr); }
+  @media (max-width: 900px) { .grid.styles { grid-template-columns: repeat(3, 1fr); } }
+  .grid.tiles { display: block; columns: 4 220px; column-gap: 14px; }
+  .grid.tiles .tile { break-inside: avoid; margin-bottom: 14px; display: block; }
+  .tile { position: relative; margin: 0; background: var(--surface); border: 1px solid var(--border); }
+  .tile::before, .tile::after { content: ""; position: absolute; width: 12px; height: 12px; z-index: 1; pointer-events: none; }
+  .tile::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+  .tile::after { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+  .tile .media { display: block; width: 100%; height: auto; background: var(--bg); }
+  .tile video.media { aspect-ratio: 9 / 16; object-fit: cover; }
+  .styles .tile .media { aspect-ratio: 1 / 1; object-fit: cover; }
+  .tile figcaption { padding: 10px 12px 12px; }
+  .tile .name { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; font-size: 14px; color: var(--text); }
+  .badge { font-family: 'Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .04em; color: var(--text-faint);
+           border: 1px solid var(--border); padding: 1px 5px; white-space: nowrap; }
+  .badge.big { color: var(--accent); border-color: var(--accent); }
+  .tile .said { font-size: 12.5px; color: var(--text-faint); margin-top: 6px; line-height: 1.45;
+                display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .tile .go { display: inline-block; margin-top: 8px; font-size: 12.5px; color: var(--accent); text-decoration: none; }
+  .tile .go:hover { text-decoration: underline; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 18px; }
+  .chips button { font: inherit; font-size: 13px; background: transparent; color: var(--text-dim); border: 1px solid var(--border);
+                  padding: 6px 12px; cursor: pointer; }
+  .chips button[aria-pressed="true"] { color: var(--bg); background: var(--accent); border-color: var(--accent); }
+  .note { font-size: 13px; color: var(--text-faint); margin: 4px 0 14px; }
+  .soon { font-size: 14px; color: var(--text-dim); border: 1px dashed var(--border); padding: 18px; }
+  .g-end { margin: 56px 0 24px; }
+  .ai-note { font-size: 12.5px; color: var(--text-faint); margin: 28px 0 0; }
+  [hidden] { display: none !important; }
+  @media (max-width: 560px) { .grid.styles { grid-template-columns: repeat(2, 1fr); gap: 10px; } .grid.tiles { columns: 2; column-gap: 10px; } .grid.tiles .tile { margin-bottom: 10px; }
+    .tile figcaption { padding: 8px; } .tile .said { display: none; } }
+</style>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e38a5fd4d5424fdfbf06c1cb4d2fab78"}'></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap-wide" style="display:flex;justify-content:space-between;align-items:center">
+    <a class="wordmark" href="./" style="text-decoration:none; color:var(--text)">MONEY<span>FORGE</span></a>
+    <span style="display:inline-flex;gap:20px;align-items:center"><span class="langs" style="display:inline-flex;gap:6px;align-items:center"><a href="styles.html" lang="en" hreflang="en" aria-label="en" aria-current="true" style="display:inline-flex;align-items:center;padding:3px;border:1px solid var(--accent);opacity:1" onclick="try{localStorage.setItem('mf-lang','en')}catch(e){}"><svg viewBox="0 0 30 20" width="24" height="16" aria-hidden="true" style="display:block;border-radius:2px"><rect width="30" height="20" fill="#B22234"/><path d="M0 2.31H30M0 5.38H30M0 8.46H30M0 11.54H30M0 14.62H30M0 17.69H30" stroke="#FFFFFF" stroke-width="1.54"/><rect width="13" height="10.77" fill="#3C3B6E"/></svg></a><a href="zh-cn/styles.html" lang="zh-CN" hreflang="zh-CN" aria-label="zh-cn" style="display:inline-flex;align-items:center;padding:3px;border:1px solid transparent;opacity:0.55" onclick="try{localStorage.setItem('mf-lang','zh-cn')}catch(e){}"><svg viewBox="0 0 30 20" width="24" height="16" aria-hidden="true" style="display:block;border-radius:2px"><rect width="30" height="20" fill="#EE1C25"/><path fill="#FFDE00" d="M5.00 2.00L5.67 4.07L7.85 4.07L6.09 5.35L6.76 7.43L5.00 6.15L3.24 7.43L3.91 5.35L2.15 4.07L4.33 4.07ZM9.14 2.51L9.62 1.97L9.25 1.34L9.91 1.63L10.39 1.08L10.33 1.80L11.00 2.09L10.29 2.25L10.22 2.97L9.85 2.35ZM11.01 4.14L11.66 3.82L11.56 3.10L12.07 3.62L12.72 3.30L12.38 3.95L12.88 4.47L12.17 4.34L11.83 4.99L11.73 4.27ZM11.04 6.73L11.76 6.70L11.96 6.00L12.21 6.68L12.94 6.66L12.37 7.10L12.62 7.79L12.01 7.38L11.44 7.83L11.64 7.13ZM9.22 8.38L9.90 8.63L10.35 8.06L10.32 8.79L11.00 9.05L10.30 9.24L10.26 9.96L9.87 9.36L9.16 9.55L9.62 8.98Z"/></svg></a><a href="zh-tw/styles.html" lang="zh-TW" hreflang="zh-TW" aria-label="zh-tw" style="display:inline-flex;align-items:center;padding:3px;border:1px solid transparent;opacity:0.55" onclick="try{localStorage.setItem('mf-lang','zh-tw')}catch(e){}"><svg viewBox="0 0 30 20" width="24" height="16" aria-hidden="true" style="display:block;border-radius:2px"><rect width="30" height="20" fill="#FE0000"/><rect width="15" height="10" fill="#000095"/><path fill="#FFFFFF" d="M7.50 1.25L8.04 2.97L9.38 1.75L8.98 3.52L10.75 3.12L9.53 4.46L11.25 5.00L9.53 5.54L10.75 6.88L8.98 6.48L9.38 8.25L8.04 7.03L7.50 8.75L6.96 7.03L5.63 8.25L6.02 6.48L4.25 6.88L5.47 5.54L3.75 5.00L5.47 4.46L4.25 3.12L6.02 3.52L5.62 1.75L6.96 2.97Z"/><circle cx="7.5" cy="5" r="2.1" fill="#000095"/><circle cx="7.5" cy="5" r="1.8" fill="#FFFFFF"/></svg></a></span><a class="back" href="./">← Back</a></span>
+  </div>
+</header>
+
+<main>
+  <div class="wrap-wide">
+    <section class="g-hero">
+      <h1>Every style, made on a home PC</h1>
+      <p class="lede">Real MoneyForge outputs, nothing touched up afterwards. Most were made on a laptop with a 4 GB NVIDIA card. Find a look you like, then try it free for 7 days.</p>
+      <a class="btn" href="trial.html?utm_source=site&amp;utm_campaign=gallery-top">Try it free for 7 days →</a>
+    </section>
+
+    <h2>One prompt, 10 art styles · all on a 4 GB card</h2>
+    <div class="typed"><b>Typed</b>an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk</div>
+    <div class="grid styles">
+<figure class="tile" data-g="styles"><img class="media" src="media/gallery/style-1.jpg" alt="Cinematic realism: an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk" loading="lazy"><figcaption><div class="name"><span>Cinematic realism</span></div></figcaption></figure>
+<figure class="tile" data-g="styles"><img class="media" src="media/gallery/style-2.jpg" alt="Anime / manga: an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk" loading="lazy"><figcaption><div class="name"><span>Anime / manga</span></div></figcaption></figure>
+<figure class="tile" data-g="styles"><img class="media" src="media/gallery/style-3.jpg" alt="Pixar 3D render: an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk" loading="lazy"><figcaption><div class="name"><span>Pixar 3D render</span></div></figcaption></figure>
+<figure class="tile" data-g="styles"><img class="media" src="media/gallery/style-4.jpg" alt="Hand-drawn cartoon: an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk" loading="lazy"><figcaption><div class="name"><span>Hand-drawn cartoon</span></div></figcaption></figure>
+<figure class="tile" data-g="styles"><img class="media" src="media/gallery/style-5.jpg" alt="Dark fantasy: an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk" loading="lazy"><figcaption><div class="name"><span>Dark fantasy</span></div></figcaption></figure>
+<figure class="tile" data-g="styles"><img class="media" src="media/gallery/style-7.jpg" alt="Comic book: an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk" loading="lazy"><figcaption><div class="name"><span>Comic book</span></div></figcaption></figure>
+<figure class="tile" data-g="styles"><img class="media" src="media/gallery/style-8.jpg" alt="Watercolor illustration: an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk" loading="lazy"><figcaption><div class="name"><span>Watercolor illustration</span></div></figcaption></figure>
+<figure class="tile" data-g="styles"><img class="media" src="media/gallery/style-16.jpg" alt="Webtoon poetic wash: an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk" loading="lazy"><figcaption><div class="name"><span>Webtoon poetic wash</span></div></figcaption></figure>
+<figure class="tile" data-g="styles"><img class="media" src="media/gallery/style-17.jpg" alt="Flat allegorical ink: an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk" loading="lazy"><figcaption><div class="name"><span>Flat allegorical ink</span></div></figcaption></figure>
+<figure class="tile" data-g="styles"><img class="media" src="media/gallery/style-18.jpg" alt="Storybook Painterly Realism: an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk" loading="lazy"><figcaption><div class="name"><span>Storybook Painterly Realism</span></div></figcaption></figure>
+    </div>
+
+    <h2>Templates, shorts and captions</h2>
+    <div class="chips" role="group"><button type="button" data-g="all" aria-pressed="true">All</button><button type="button" data-g="shorts" aria-pressed="false">Narrated shorts</button><button type="button" data-g="languages" aria-pressed="false">Languages</button><button type="button" data-g="images" aria-pressed="false">Image templates</button><button type="button" data-g="captions" aria-pressed="false">Caption styles</button><button type="button" data-g="video-only" aria-pressed="false">Video (12 GB)</button></div>
+    <p class="note" data-for="captions" hidden>Same short, same pictures: only the caption style changes.</p>
+    <p class="note" data-for="languages" hidden>One short, seven languages: narration and captions in each. Pick the language when you make a short.</p>
+    <p class="soon" data-for="video-only" hidden>Video and movie templates need a 12 GB card. Their samples are being made on our desktop and will appear here soon.</p>
+    <div class="grid tiles">
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-1.jpg" alt="Cinematic Portrait: A woman standing in golden hour light, city street behind her" loading="lazy"><figcaption><div class="name"><span>Cinematic Portrait</span><span class="badge">4 GB card</span></div><div class="said">Typed: “A woman standing in golden hour light, city street behind her”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-1">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="shorts"><video class="media" src="media/gallery/niche-scary.mp4" poster="media/gallery/niche-scary.jpg" muted loop playsinline preload="none" aria-label="Scary story"></video><figcaption><div class="name"><span>Scary story</span><span class="badge">4 GB card</span></div><div class="said">Typed: “The lighthouse had been empty for forty years. So who kept writing in the logbook? Last night, the light came back on.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-niche-scary">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="captions" data-more="1" hidden><video class="media" src="media/gallery/caption-1.mp4" poster="media/gallery/caption-1.jpg" muted loop playsinline preload="none" aria-label="Minimal White"></video><figcaption><div class="name"><span>Minimal White</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Some stories are made for rainy nights. This one starts with a single line.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-caption-1">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="languages" data-more="1" hidden><video class="media" src="media/gallery/lang-en.mp4" poster="media/gallery/lang-en.jpg" muted loop playsinline preload="none" aria-label="English"></video><figcaption><div class="name"><span>English</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Type one idea. MoneyForge writes it, draws it and reads it aloud. In your language, on your own PC.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-lang-en">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-2.jpg" alt="Anime / Chibi: A young warrior with silver hair and glowing eyes" loading="lazy"><figcaption><div class="name"><span>Anime / Chibi</span><span class="badge">4 GB card</span></div><div class="said">Typed: “A young warrior with silver hair and glowing eyes”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-2">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="shorts"><video class="media" src="media/gallery/niche-history.mp4" poster="media/gallery/niche-history.jpg" muted loop playsinline preload="none" aria-label="History"></video><figcaption><div class="name"><span>History</span><span class="badge">4 GB card</span></div><div class="said">Typed: “The Great Pyramid was the tallest building on Earth for almost four thousand years. Nothing built by people stood taller until the 1300s.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-niche-history">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="captions" data-more="1" hidden><video class="media" src="media/gallery/caption-2.mp4" poster="media/gallery/caption-2.jpg" muted loop playsinline preload="none" aria-label="Bold Yellow"></video><figcaption><div class="name"><span>Bold Yellow</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Some stories are made for rainy nights. This one starts with a single line.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-caption-2">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="languages"><video class="media" src="media/gallery/lang-es.mp4" poster="media/gallery/lang-es.jpg" muted loop playsinline preload="none" aria-label="Español"></video><figcaption><div class="name"><span>Español</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Escribe una idea. MoneyForge la escribe, la ilustra y la narra. En tu idioma, en tu propio PC.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-lang-es">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-3.jpg" alt="3D Pixar Character: A friendly chef with a big smile holding a wooden spoon" loading="lazy"><figcaption><div class="name"><span>3D Pixar Character</span><span class="badge">4 GB card</span></div><div class="said">Typed: “A friendly chef with a big smile holding a wooden spoon”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-3">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="shorts"><video class="media" src="media/gallery/niche-motivation.mp4" poster="media/gallery/niche-motivation.jpg" muted loop playsinline preload="none" aria-label="Motivation"></video><figcaption><div class="name"><span>Motivation</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Nobody sees the mornings you show up. They only see the day it pays off. Show up anyway.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-niche-motivation">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="captions"><video class="media" src="media/gallery/caption-3.mp4" poster="media/gallery/caption-3.jpg" muted loop playsinline preload="none" aria-label="MrBeast Caps"></video><figcaption><div class="name"><span>MrBeast Caps</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Some stories are made for rainy nights. This one starts with a single line.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-caption-3">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="languages" data-more="1" hidden><video class="media" src="media/gallery/lang-pt.mp4" poster="media/gallery/lang-pt.jpg" muted loop playsinline preload="none" aria-label="Português"></video><figcaption><div class="name"><span>Português</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Digite uma ideia. O MoneyForge escreve, ilustra e narra. No seu idioma, no seu próprio PC.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-lang-pt">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-4.jpg" alt="Neon Cyberpunk: A lone figure in a rain-soaked futuristic city at night" loading="lazy"><figcaption><div class="name"><span>Neon Cyberpunk</span><span class="badge">4 GB card</span></div><div class="said">Typed: “A lone figure in a rain-soaked futuristic city at night”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-4">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="shorts"><video class="media" src="media/gallery/niche-mythology.mp4" poster="media/gallery/niche-mythology.jpg" muted loop playsinline preload="none" aria-label="Mythology"></video><figcaption><div class="name"><span>Mythology</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Icarus was told: not too low, not too high. He flew toward the sun anyway. The sea kept only his feathers.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-niche-mythology">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="captions" data-more="1" hidden><video class="media" src="media/gallery/caption-4.mp4" poster="media/gallery/caption-4.jpg" muted loop playsinline preload="none" aria-label="Neon Glow"></video><figcaption><div class="name"><span>Neon Glow</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Some stories are made for rainy nights. This one starts with a single line.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-caption-4">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="languages" data-more="1" hidden><video class="media" src="media/gallery/lang-fr.mp4" poster="media/gallery/lang-fr.jpg" muted loop playsinline preload="none" aria-label="Français"></video><figcaption><div class="name"><span>Français</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Tapez une idée. MoneyForge l&#x27;écrit, l&#x27;illustre et la raconte. Dans votre langue, sur votre propre PC.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-lang-fr">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-5.jpg" alt="Professional Headshot: A confident business professional in a navy suit" loading="lazy"><figcaption><div class="name"><span>Professional Headshot</span><span class="badge">4 GB card</span></div><div class="said">Typed: “A confident business professional in a navy suit”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-5">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="shorts"><video class="media" src="media/gallery/niche-trivia.mp4" poster="media/gallery/niche-trivia.jpg" muted loop playsinline preload="none" aria-label="Trivia"></video><figcaption><div class="name"><span>Trivia</span><span class="badge">4 GB card</span></div><div class="said">Typed: “An octopus has three hearts. And its blood is blue. Follow for one strange fact a day.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-niche-trivia">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="captions" data-more="1" hidden><video class="media" src="media/gallery/caption-5.mp4" poster="media/gallery/caption-5.jpg" muted loop playsinline preload="none" aria-label="Lower Third Clean"></video><figcaption><div class="name"><span>Lower Third Clean</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Some stories are made for rainy nights. This one starts with a single line.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-caption-5">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="languages" data-more="1" hidden><video class="media" src="media/gallery/lang-de.mp4" poster="media/gallery/lang-de.jpg" muted loop playsinline preload="none" aria-label="Deutsch"></video><figcaption><div class="name"><span>Deutsch</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Tippe eine Idee ein. Die App schreibt, illustriert und erzählt sie. In deiner Sprache, auf deinem eigenen PC.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-lang-de">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-6.jpg" alt="Watercolor Portrait: A serene woman surrounded by flowers and soft light" loading="lazy"><figcaption><div class="name"><span>Watercolor Portrait</span><span class="badge">4 GB card</span></div><div class="said">Typed: “A serene woman surrounded by flowers and soft light”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-6">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="shorts"><video class="media" src="media/gallery/niche-fable.mp4" poster="media/gallery/niche-fable.jpg" muted loop playsinline preload="none" aria-label="Fable"></video><figcaption><div class="name"><span>Fable</span><span class="badge">4 GB card</span></div><div class="said">Typed: “The hare laughed at the slow tortoise. Halfway there, the hare took a nap. Slow and steady still wins.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-niche-fable">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="captions" data-more="1" hidden><video class="media" src="media/gallery/caption-6.mp4" poster="media/gallery/caption-6.jpg" muted loop playsinline preload="none" aria-label="Poetic Serif"></video><figcaption><div class="name"><span>Poetic Serif</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Some stories are made for rainy nights. This one starts with a single line.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-caption-6">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="languages"><video class="media" src="media/gallery/lang-ja.mp4" poster="media/gallery/lang-ja.jpg" muted loop playsinline preload="none" aria-label="日本語"></video><figcaption><div class="name"><span>日本語</span><span class="badge">4 GB card</span></div><div class="said">Typed: “アイデアをひとつ入力。 MoneyForgeが書いて、描いて、読み上げます。 あなたの言語で、あなたのPCで。”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-lang-ja">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-7.jpg" alt="Comic Book Hero: An original masked heroine in a green and silver suit leaping between rooftops at dusk" loading="lazy"><figcaption><div class="name"><span>Comic Book Hero</span><span class="badge">4 GB card</span></div><div class="said">Typed: “An original masked heroine in a green and silver suit leaping between rooftops at dusk”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-7">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="captions" data-more="1" hidden><video class="media" src="media/gallery/caption-7.mp4" poster="media/gallery/caption-7.jpg" muted loop playsinline preload="none" aria-label="Keyword Pop-in"></video><figcaption><div class="name"><span>Keyword Pop-in</span><span class="badge">4 GB card</span></div><div class="said">Typed: “Some stories are made for rainy nights. This one starts with a single line.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-caption-7">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="languages" data-more="1" hidden><video class="media" src="media/gallery/lang-ko.mp4" poster="media/gallery/lang-ko.jpg" muted loop playsinline preload="none" aria-label="한국어"></video><figcaption><div class="name"><span>한국어</span><span class="badge">4 GB card</span></div><div class="said">Typed: “아이디어 하나를 입력하세요. MoneyForge가 쓰고, 그리고, 읽어 줍니다. 당신의 언어로, 당신의 PC에서.”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-lang-ko">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-8.jpg" alt="Fantasy Landscape: A dragon soaring over ancient mountain ruins at sunset" loading="lazy"><figcaption><div class="name"><span>Fantasy Landscape</span><span class="badge">4 GB card</span></div><div class="said">Typed: “A dragon soaring over ancient mountain ruins at sunset”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-8">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-9.jpg" alt="Die-Cut Sticker: A cute kawaii cat holding a tiny coffee cup" loading="lazy"><figcaption><div class="name"><span>Die-Cut Sticker</span><span class="badge">4 GB card</span></div><div class="said">Typed: “A cute kawaii cat holding a tiny coffee cup”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-9">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-10.jpg" alt="Cosmetic Flatlay: A minimalist skincare collection on a marble surface" loading="lazy"><figcaption><div class="name"><span>Cosmetic Flatlay</span><span class="badge">4 GB card</span></div><div class="said">Typed: “A minimalist skincare collection on a marble surface”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-10">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-11.jpg" alt="Retro 16-Bit Sprite: A pixel art knight with a glowing sword" loading="lazy"><figcaption><div class="name"><span>Retro 16-Bit Sprite</span><span class="badge">4 GB card</span></div><div class="said">Typed: “A pixel art knight with a glowing sword”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-11">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-12.jpg" alt="Plushie / Amigurumi: A tiny crocheted bear sitting on a wooden shelf" loading="lazy"><figcaption><div class="name"><span>Plushie / Amigurumi</span><span class="badge">4 GB card</span></div><div class="said">Typed: “A tiny crocheted bear sitting on a wooden shelf”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-12">Try this style free →</a></figcaption></figure>
+<figure class="tile" data-g="images"><img class="media" src="media/gallery/tpl-17.jpg" alt="YouTube Thumbnail Booster: A shocked hiker turning to see a giant wave rising behind a beach" loading="lazy"><figcaption><div class="name"><span>YouTube Thumbnail Booster</span><span class="badge">4 GB card</span></div><div class="said">Typed: “A shocked hiker turning to see a giant wave rising behind a beach”</div><a class="go" href="trial.html?utm_source=site&amp;utm_campaign=gallery-tpl-17">Try this style free →</a></figcaption></figure>
+    </div>
+
+    <section class="g-end">
+      <h2>Make your own</h2>
+      <p>Windows PC with an NVIDIA card. Images and narrated shorts run on 4 GB; video needs 12 GB. Pay once, no credits.</p>
+      <a class="btn" href="trial.html?utm_source=site&amp;utm_campaign=gallery-bottom">Try it free for 7 days →</a>
+      <p class="ai-note">Every picture and video on this page was made with MoneyForge (AI-generated). People shown are not real.</p>
+    </section>
+  </div>
+</main>
+
+<script>
+  document.documentElement.setAttribute('data-theme',
+    localStorage.getItem('mf-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+<script>
+  // Filters + play videos only while on screen (and never with reduced motion).
+  (function(){
+    var chips=[].slice.call(document.querySelectorAll('.chips button')),tiles=[].slice.call(document.querySelectorAll('.grid.tiles .tile'));
+    var notes=[].slice.call(document.querySelectorAll('[data-for]'));
+    chips.forEach(function(c){c.addEventListener('click',function(){var g=c.dataset.g;
+      chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false');});
+      tiles.forEach(function(t){t.hidden=g==='all'?!!t.dataset.more:t.dataset.g!==g;});
+      notes.forEach(function(n){n.hidden=!(n.dataset.for===g||(g==='all'&&n.dataset.for!=='video-only'));});});});
+    var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var vids=[].slice.call(document.querySelectorAll('video.media'));
+    if(still||!('IntersectionObserver' in window))return;
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
+      if(e.isIntersecting){if(v.preload==='none')v.preload='auto';var p=v.play();if(p&&p.catch)p.catch(function(){});}else{v.pause();}});},{threshold:0.35});
+    vids.forEach(function(v){io.observe(v);});
+  })();
+</script>
+</body>
+</html>

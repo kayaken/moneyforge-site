@@ -1,0 +1,418 @@
+{
+ "style-1": {
+  "id": "style-1",
+  "group": "styles",
+  "label": "Cinematic realism",
+  "gpu": "4gb",
+  "typed": "an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk",
+  "kind": "image",
+  "src": "media/gallery/style-1.jpg"
+ },
+ "style-2": {
+  "id": "style-2",
+  "group": "styles",
+  "label": "Anime / manga",
+  "gpu": "4gb",
+  "typed": "an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk",
+  "kind": "image",
+  "src": "media/gallery/style-2.jpg"
+ },
+ "style-3": {
+  "id": "style-3",
+  "group": "styles",
+  "label": "Pixar 3D render",
+  "gpu": "4gb",
+  "typed": "an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk",
+  "kind": "image",
+  "src": "media/gallery/style-3.jpg"
+ },
+ "style-4": {
+  "id": "style-4",
+  "group": "styles",
+  "label": "Hand-drawn cartoon",
+  "gpu": "4gb",
+  "typed": "an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk",
+  "kind": "image",
+  "src": "media/gallery/style-4.jpg"
+ },
+ "style-5": {
+  "id": "style-5",
+  "group": "styles",
+  "label": "Dark fantasy",
+  "gpu": "4gb",
+  "typed": "an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk",
+  "kind": "image",
+  "src": "media/gallery/style-5.jpg"
+ },
+ "style-6": {
+  "id": "style-6",
+  "group": "styles",
+  "label": "Product photography",
+  "gpu": "4gb",
+  "typed": "an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk",
+  "kind": "image",
+  "src": "media/gallery/style-6.jpg"
+ },
+ "style-7": {
+  "id": "style-7",
+  "group": "styles",
+  "label": "Comic book",
+  "gpu": "4gb",
+  "typed": "an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk",
+  "kind": "image",
+  "src": "media/gallery/style-7.jpg"
+ },
+ "style-8": {
+  "id": "style-8",
+  "group": "styles",
+  "label": "Watercolor illustration",
+  "gpu": "4gb",
+  "typed": "an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk",
+  "kind": "image",
+  "src": "media/gallery/style-8.jpg"
+ },
+ "style-16": {
+  "id": "style-16",
+  "group": "styles",
+  "label": "Webtoon poetic wash",
+  "gpu": "4gb",
+  "typed": "an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk",
+  "kind": "image",
+  "src": "media/gallery/style-16.jpg"
+ },
+ "style-17": {
+  "id": "style-17",
+  "group": "styles",
+  "label": "Flat allegorical ink",
+  "gpu": "4gb",
+  "typed": "an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk",
+  "kind": "image",
+  "src": "media/gallery/style-17.jpg"
+ },
+ "style-18": {
+  "id": "style-18",
+  "group": "styles",
+  "label": "Storybook Painterly Realism",
+  "gpu": "4gb",
+  "typed": "an old lighthouse keeper holding a lantern at the door of his lighthouse at dusk",
+  "kind": "image",
+  "src": "media/gallery/style-18.jpg"
+ },
+ "tpl-1": {
+  "id": "tpl-1",
+  "group": "images",
+  "label": "Cinematic Portrait",
+  "gpu": "4gb",
+  "typed": "A woman standing in golden hour light, city street behind her",
+  "kind": "image",
+  "src": "media/gallery/tpl-1.jpg"
+ },
+ "tpl-2": {
+  "id": "tpl-2",
+  "group": "images",
+  "label": "Anime / Chibi",
+  "gpu": "4gb",
+  "typed": "A young warrior with silver hair and glowing eyes",
+  "kind": "image",
+  "src": "media/gallery/tpl-2.jpg"
+ },
+ "tpl-3": {
+  "id": "tpl-3",
+  "group": "images",
+  "label": "3D Pixar Character",
+  "gpu": "4gb",
+  "typed": "A friendly chef with a big smile holding a wooden spoon",
+  "kind": "image",
+  "src": "media/gallery/tpl-3.jpg"
+ },
+ "tpl-4": {
+  "id": "tpl-4",
+  "group": "images",
+  "label": "Neon Cyberpunk",
+  "gpu": "4gb",
+  "typed": "A lone figure in a rain-soaked futuristic city at night",
+  "kind": "image",
+  "src": "media/gallery/tpl-4.jpg"
+ },
+ "tpl-5": {
+  "id": "tpl-5",
+  "group": "images",
+  "label": "Professional Headshot",
+  "gpu": "4gb",
+  "typed": "A confident business professional in a navy suit",
+  "kind": "image",
+  "src": "media/gallery/tpl-5.jpg"
+ },
+ "tpl-6": {
+  "id": "tpl-6",
+  "group": "images",
+  "label": "Watercolor Portrait",
+  "gpu": "4gb",
+  "typed": "A serene woman surrounded by flowers and soft light",
+  "kind": "image",
+  "src": "media/gallery/tpl-6.jpg"
+ },
+ "tpl-7": {
+  "id": "tpl-7",
+  "group": "images",
+  "label": "Comic Book Hero",
+  "gpu": "4gb",
+  "typed": "An original masked heroine in a green and silver suit leaping between rooftops at dusk",
+  "kind": "image",
+  "src": "media/gallery/tpl-7.jpg"
+ },
+ "tpl-8": {
+  "id": "tpl-8",
+  "group": "images",
+  "label": "Fantasy Landscape",
+  "gpu": "4gb",
+  "typed": "A dragon soaring over ancient mountain ruins at sunset",
+  "kind": "image",
+  "src": "media/gallery/tpl-8.jpg"
+ },
+ "tpl-9": {
+  "id": "tpl-9",
+  "group": "images",
+  "label": "Die-Cut Sticker",
+  "gpu": "4gb",
+  "typed": "A cute kawaii cat holding a tiny coffee cup",
+  "kind": "image",
+  "src": "media/gallery/tpl-9.jpg"
+ },
+ "tpl-10": {
+  "id": "tpl-10",
+  "group": "images",
+  "label": "Cosmetic Flatlay",
+  "gpu": "4gb",
+  "typed": "A minimalist skincare collection on a marble surface",
+  "kind": "image",
+  "src": "media/gallery/tpl-10.jpg"
+ },
+ "tpl-11": {
+  "id": "tpl-11",
+  "group": "images",
+  "label": "Retro 16-Bit Sprite",
+  "gpu": "4gb",
+  "typed": "A pixel art knight with a glowing sword",
+  "kind": "image",
+  "src": "media/gallery/tpl-11.jpg"
+ },
+ "tpl-12": {
+  "id": "tpl-12",
+  "group": "images",
+  "label": "Plushie / Amigurumi",
+  "gpu": "4gb",
+  "typed": "A tiny crocheted bear sitting on a wooden shelf",
+  "kind": "image",
+  "src": "media/gallery/tpl-12.jpg"
+ },
+ "tpl-17": {
+  "id": "tpl-17",
+  "group": "images",
+  "label": "YouTube Thumbnail Booster",
+  "gpu": "4gb",
+  "typed": "A shocked hiker turning to see a giant wave rising behind a beach",
+  "kind": "image",
+  "src": "media/gallery/tpl-17.jpg"
+ },
+ "niche-scary": {
+  "id": "niche-scary",
+  "group": "shorts",
+  "label": "Scary story",
+  "gpu": "4gb",
+  "typed": "The lighthouse had been empty for forty years. So who kept writing in the logbook? Last night, the light came back on.",
+  "kind": "video",
+  "src": "media/gallery/niche-scary.mp4",
+  "poster": "media/gallery/niche-scary.jpg"
+ },
+ "niche-history": {
+  "id": "niche-history",
+  "group": "shorts",
+  "label": "History",
+  "gpu": "4gb",
+  "typed": "The Great Pyramid was the tallest building on Earth for almost four thousand years. Nothing built by people stood taller until the 1300s.",
+  "kind": "video",
+  "src": "media/gallery/niche-history.mp4",
+  "poster": "media/gallery/niche-history.jpg"
+ },
+ "niche-motivation": {
+  "id": "niche-motivation",
+  "group": "shorts",
+  "label": "Motivation",
+  "gpu": "4gb",
+  "typed": "Nobody sees the mornings you show up. They only see the day it pays off. Show up anyway.",
+  "kind": "video",
+  "src": "media/gallery/niche-motivation.mp4",
+  "poster": "media/gallery/niche-motivation.jpg"
+ },
+ "niche-mythology": {
+  "id": "niche-mythology",
+  "group": "shorts",
+  "label": "Mythology",
+  "gpu": "4gb",
+  "typed": "Icarus was told: not too low, not too high. He flew toward the sun anyway. The sea kept only his feathers.",
+  "kind": "video",
+  "src": "media/gallery/niche-mythology.mp4",
+  "poster": "media/gallery/niche-mythology.jpg"
+ },
+ "niche-trivia": {
+  "id": "niche-trivia",
+  "group": "shorts",
+  "label": "Trivia",
+  "gpu": "4gb",
+  "typed": "An octopus has three hearts. And its blood is blue. Follow for one strange fact a day.",
+  "kind": "video",
+  "src": "media/gallery/niche-trivia.mp4",
+  "poster": "media/gallery/niche-trivia.jpg"
+ },
+ "niche-fable": {
+  "id": "niche-fable",
+  "group": "shorts",
+  "label": "Fable",
+  "gpu": "4gb",
+  "typed": "The hare laughed at the slow tortoise. Halfway there, the hare took a nap. Slow and steady still wins.",
+  "kind": "video",
+  "src": "media/gallery/niche-fable.mp4",
+  "poster": "media/gallery/niche-fable.jpg"
+ },
+ "caption-1": {
+  "id": "caption-1",
+  "group": "captions",
+  "label": "Minimal White",
+  "gpu": "4gb",
+  "typed": "Some stories are made for rainy nights. This one starts with a single line.",
+  "kind": "video",
+  "src": "media/gallery/caption-1.mp4",
+  "poster": "media/gallery/caption-1.jpg"
+ },
+ "caption-2": {
+  "id": "caption-2",
+  "group": "captions",
+  "label": "Bold Yellow",
+  "gpu": "4gb",
+  "typed": "Some stories are made for rainy nights. This one starts with a single line.",
+  "kind": "video",
+  "src": "media/gallery/caption-2.mp4",
+  "poster": "media/gallery/caption-2.jpg"
+ },
+ "caption-3": {
+  "id": "caption-3",
+  "group": "captions",
+  "label": "MrBeast Caps",
+  "gpu": "4gb",
+  "typed": "Some stories are made for rainy nights. This one starts with a single line.",
+  "kind": "video",
+  "src": "media/gallery/caption-3.mp4",
+  "poster": "media/gallery/caption-3.jpg"
+ },
+ "caption-4": {
+  "id": "caption-4",
+  "group": "captions",
+  "label": "Neon Glow",
+  "gpu": "4gb",
+  "typed": "Some stories are made for rainy nights. This one starts with a single line.",
+  "kind": "video",
+  "src": "media/gallery/caption-4.mp4",
+  "poster": "media/gallery/caption-4.jpg"
+ },
+ "caption-5": {
+  "id": "caption-5",
+  "group": "captions",
+  "label": "Lower Third Clean",
+  "gpu": "4gb",
+  "typed": "Some stories are made for rainy nights. This one starts with a single line.",
+  "kind": "video",
+  "src": "media/gallery/caption-5.mp4",
+  "poster": "media/gallery/caption-5.jpg"
+ },
+ "caption-6": {
+  "id": "caption-6",
+  "group": "captions",
+  "label": "Poetic Serif",
+  "gpu": "4gb",
+  "typed": "Some stories are made for rainy nights. This one starts with a single line.",
+  "kind": "video",
+  "src": "media/gallery/caption-6.mp4",
+  "poster": "media/gallery/caption-6.jpg"
+ },
+ "caption-7": {
+  "id": "caption-7",
+  "group": "captions",
+  "label": "Keyword Pop-in",
+  "gpu": "4gb",
+  "typed": "Some stories are made for rainy nights. This one starts with a single line.",
+  "kind": "video",
+  "src": "media/gallery/caption-7.mp4",
+  "poster": "media/gallery/caption-7.jpg"
+ },
+ "lang-en": {
+  "id": "lang-en",
+  "group": "languages",
+  "label": "English",
+  "gpu": "4gb",
+  "typed": "Type one idea. MoneyForge writes it, draws it and reads it aloud. In your language, on your own PC.",
+  "kind": "video",
+  "src": "media/gallery/lang-en.mp4",
+  "poster": "media/gallery/lang-en.jpg"
+ },
+ "lang-es": {
+  "id": "lang-es",
+  "group": "languages",
+  "label": "Español",
+  "gpu": "4gb",
+  "typed": "Escribe una idea. MoneyForge la escribe, la ilustra y la narra. En tu idioma, en tu propio PC.",
+  "kind": "video",
+  "src": "media/gallery/lang-es.mp4",
+  "poster": "media/gallery/lang-es.jpg"
+ },
+ "lang-pt": {
+  "id": "lang-pt",
+  "group": "languages",
+  "label": "Português",
+  "gpu": "4gb",
+  "typed": "Digite uma ideia. O MoneyForge escreve, ilustra e narra. No seu idioma, no seu próprio PC.",
+  "kind": "video",
+  "src": "media/gallery/lang-pt.mp4",
+  "poster": "media/gallery/lang-pt.jpg"
+ },
+ "lang-fr": {
+  "id": "lang-fr",
+  "group": "languages",
+  "label": "Français",
+  "gpu": "4gb",
+  "typed": "Tapez une idée. MoneyForge l'écrit, l'illustre et la raconte. Dans votre langue, sur votre propre PC.",
+  "kind": "video",
+  "src": "media/gallery/lang-fr.mp4",
+  "poster": "media/gallery/lang-fr.jpg"
+ },
+ "lang-de": {
+  "id": "lang-de",
+  "group": "languages",
+  "label": "Deutsch",
+  "gpu": "4gb",
+  "typed": "Tippe eine Idee ein. Die App schreibt, illustriert und erzählt sie. In deiner Sprache, auf deinem eigenen PC.",
+  "kind": "video",
+  "src": "media/gallery/lang-de.mp4",
+  "poster": "media/gallery/lang-de.jpg"
+ },
+ "lang-ja": {
+  "id": "lang-ja",
+  "group": "languages",
+  "label": "日本語",
+  "gpu": "4gb",
+  "typed": "アイデアをひとつ入力。 MoneyForgeが書いて、描いて、読み上げます。 あなたの言語で、あなたのPCで。",
+  "kind": "video",
+  "src": "media/gallery/lang-ja.mp4",
+  "poster": "media/gallery/lang-ja.jpg"
+ },
+ "lang-ko": {
+  "id": "lang-ko",
+  "group": "languages",
+  "label": "한국어",
+  "gpu": "4gb",
+  "typed": "아이디어 하나를 입력하세요. MoneyForge가 쓰고, 그리고, 읽어 줍니다. 당신의 언어로, 당신의 PC에서.",
+  "kind": "video",
+  "src": "media/gallery/lang-ko.mp4",
+  "poster": "media/gallery/lang-ko.jpg"
+ }
+}
