@@ -71,6 +71,15 @@
     padding: 13px 24px; text-decoration: none;
   }
   .btn:hover { filter: brightness(1.08); }
+  .trial-row { display: flex; gap: 24px; align-items: flex-start; }
+  .trial-row .plate { flex: 1 1 auto; min-width: 0; }
+  .made-with { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex: 0 0 300px; }
+  @media (max-width: 720px) { .trial-row { flex-direction: column-reverse; } .made-with { flex-basis: auto; width: 100%; max-width: 420px; } }
+  .made-with figure { margin: 0; }
+  .made-with video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: var(--surface); border: 1px solid var(--border); }
+  .made-with figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; line-height: 1.4; }
+  .phone-note { display: none; }
+  @media (max-width: 720px), (pointer: coarse) { .phone-note { display: block; margin-top: 10px; } }
   .cta-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-top: 18px; }
 
   ul.checks { padding-left: 20px; margin: 8px 0 0; }
@@ -104,18 +113,32 @@
     <h1>免费试用 MoneyForge 7 天</h1>
     <p class="lede">在你自己的 Windows 电脑上使用完整版：图片、视频、短片、音乐 MV 和配音短视频，还能一键发布到 YouTube。无需绑卡，没有点数，也不用取消订阅。</p>
 
-    <div class="plate">
-      <div class="bl"></div><div class="br"></div>
-      <strong>试用包含</strong>
-      <ul class="checks">
-        <li>个人版全部功能：图片、角色一致性、视频、多场景短片、音乐 MV、配音短视频、长视频剪成短视频</li>
-        <li>一键发布到你自己的 YouTube 频道。Facebook、Instagram、Threads 和 TikTok 即将推出；在此之前，请下载视频，再到对应的 App 上传。</li>
-        <li>全部在你的显卡上运行，文件不会离开你的电脑。</li>
-        <li>喜欢的话，购买授权码粘贴进去即可。你的角色、项目和视频都会保留。</li>
-      </ul>
-      <div class="cta-row">
-        <a class="btn" id="trialDownload" href="https://kaya855.gumroad.com/l/moneyforge-trial">获取免费试用 →</a>
-        <span class="small">下一页价格填 0，输入邮箱，下载链接会发到你的邮箱。（页面为英文）</span>
+
+    <div class="trial-row">
+      <div class="plate">
+        <div class="bl"></div><div class="br"></div>
+        <strong>试用包含</strong>
+        <ul class="checks">
+          <li>个人版全部功能：图片、角色一致性、视频、多场景短片、音乐 MV、配音短视频、长视频剪成短视频</li>
+          <li>一键发布到你自己的 YouTube 频道。Facebook、Instagram、Threads 和 TikTok 即将推出；在此之前，请下载视频，再到对应的 App 上传。</li>
+          <li>全部在你的显卡上运行，文件不会离开你的电脑。</li>
+          <li>喜欢的话，购买授权码粘贴进去即可。你的角色、项目和视频都会保留。</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn" id="trialDownload" href="https://kaya855.gumroad.com/l/moneyforge-trial">获取免费试用 →</a>
+          <span class="small">下一页价格填 0，输入邮箱，下载链接会发到你的邮箱。（页面为英文）</span>
+        </div>
+        <p class="small phone-note">正在用手机？现在就领取：下载链接会留在你的邮箱里，回到 Windows 电脑再安装。</p>
+      </div>
+      <div class="made-with">
+        <figure>
+          <video src="../media/trial-reel.mp4" poster="../media/trial-reel.jpg" autoplay muted loop playsinline preload="metadata" aria-label="用 MoneyForge 制作的配音短视频"></video>
+          <figcaption>配音短视频，只输入一个主题。画面和字幕在一台 4GB 显卡笔记本上完成。</figcaption>
+        </figure>
+        <figure>
+          <video src="../media/trial-whiteboard.mp4" poster="../media/trial-whiteboard.jpg" autoplay muted loop playsinline preload="metadata" aria-label="用 MoneyForge 制作的白板风格短视频"></video>
+          <figcaption>白板风格：每一幕都用粗墨线画出。</figcaption>
+        </figure>
       </div>
     </div>
 

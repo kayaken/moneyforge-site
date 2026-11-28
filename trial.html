@@ -72,6 +72,15 @@
     padding: 13px 24px; text-decoration: none;
   }
   .btn:hover { filter: brightness(1.08); }
+  .trial-row { display: flex; gap: 24px; align-items: flex-start; }
+  .trial-row .plate { flex: 1 1 auto; min-width: 0; }
+  .made-with { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex: 0 0 300px; }
+  @media (max-width: 720px) { .trial-row { flex-direction: column-reverse; } .made-with { flex-basis: auto; width: 100%; max-width: 420px; } }
+  .made-with figure { margin: 0; }
+  .made-with video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: var(--surface); border: 1px solid var(--border); }
+  .made-with figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; line-height: 1.4; }
+  .phone-note { display: none; }
+  @media (max-width: 720px), (pointer: coarse) { .phone-note { display: block; margin-top: 10px; } }
   .cta-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-top: 18px; }
 
   ul.checks { padding-left: 20px; margin: 8px 0 0; }
@@ -99,18 +108,32 @@
     <h1>Try MoneyForge free for 7 days</h1>
     <p class="lede">The full app on your own Windows PC: images, video, movies, music videos and narrated shorts, plus one-click posting to YouTube. No card needed, no credits, nothing to cancel.</p>
 
-    <div class="plate">
-      <div class="bl"></div><div class="br"></div>
-      <strong>What the trial includes</strong>
-      <ul class="checks">
-        <li>Every Personal feature: images, consistent characters, video, multi-scene movies, music videos, narrated reels, long-video-to-clips</li>
-        <li>One-click posting to your own YouTube channel. Facebook, Instagram, Threads and TikTok are coming soon; until then, download the video and upload it in that app.</li>
-        <li>Everything runs on your GPU. Your files never leave your PC.</li>
-        <li>Like it? Buy a key and paste it in. Your characters, projects and videos stay where they are.</li>
-      </ul>
-      <div class="cta-row">
-        <a class="btn" id="trialDownload" href="https://kaya855.gumroad.com/l/moneyforge-trial">Get the free trial →</a>
-        <span class="small">Enter your email on the next page and the download link is sent to you.</span>
+
+    <div class="trial-row">
+      <div class="plate">
+        <div class="bl"></div><div class="br"></div>
+        <strong>What the trial includes</strong>
+        <ul class="checks">
+          <li>Every Personal feature: images, consistent characters, video, multi-scene movies, music videos, narrated reels, long-video-to-clips</li>
+          <li>One-click posting to your own YouTube channel. Facebook, Instagram, Threads and TikTok are coming soon; until then, download the video and upload it in that app.</li>
+          <li>Everything runs on your GPU. Your files never leave your PC.</li>
+          <li>Like it? Buy a key and paste it in. Your characters, projects and videos stay where they are.</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn" id="trialDownload" href="https://kaya855.gumroad.com/l/moneyforge-trial">Get the free trial →</a>
+          <span class="small">Enter your email on the next page and the download link is sent to you.</span>
+        </div>
+        <p class="small phone-note">On your phone? Claim it now: the link waits in your inbox for your Windows PC.</p>
+      </div>
+      <div class="made-with">
+        <figure>
+          <video src="media/trial-reel.mp4" poster="media/trial-reel.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A narrated short made with MoneyForge"></video>
+          <figcaption>Narrated short, typed as one topic. Pictures and captions made on a 4 GB laptop.</figcaption>
+        </figure>
+        <figure>
+          <video src="media/trial-whiteboard.mp4" poster="media/trial-whiteboard.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A whiteboard-style short made with MoneyForge"></video>
+          <figcaption>Whiteboard style: every scene drawn in bold ink.</figcaption>
+        </figure>
       </div>
     </div>
 

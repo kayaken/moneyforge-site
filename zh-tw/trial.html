@@ -71,6 +71,15 @@
     padding: 13px 24px; text-decoration: none;
   }
   .btn:hover { filter: brightness(1.08); }
+  .trial-row { display: flex; gap: 24px; align-items: flex-start; }
+  .trial-row .plate { flex: 1 1 auto; min-width: 0; }
+  .made-with { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex: 0 0 300px; }
+  @media (max-width: 720px) { .trial-row { flex-direction: column-reverse; } .made-with { flex-basis: auto; width: 100%; max-width: 420px; } }
+  .made-with figure { margin: 0; }
+  .made-with video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: var(--surface); border: 1px solid var(--border); }
+  .made-with figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; line-height: 1.4; }
+  .phone-note { display: none; }
+  @media (max-width: 720px), (pointer: coarse) { .phone-note { display: block; margin-top: 10px; } }
   .cta-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-top: 18px; }
 
   ul.checks { padding-left: 20px; margin: 8px 0 0; }
@@ -104,18 +113,32 @@
     <h1>免費試用 MoneyForge 7 天</h1>
     <p class="lede">在你自己的 Windows 電腦上使用完整版：圖片、影片、短片、音樂 MV 和配音短影片，還能一鍵發布到 YouTube。不需綁定信用卡，沒有點數，也不用取消訂閱。</p>
 
-    <div class="plate">
-      <div class="bl"></div><div class="br"></div>
-      <strong>試用包含</strong>
-      <ul class="checks">
-        <li>個人版全部功能：圖片、角色一致性、影片、多場景短片、音樂 MV、配音短影片、長影片剪成短影片</li>
-        <li>一鍵發布到你自己的 YouTube 頻道。Facebook、Instagram、Threads 和 TikTok 即將推出；在此之前，請下載影片，再到對應的 App 上傳。</li>
-        <li>全部在你的顯示卡上執行，檔案不會離開你的電腦。</li>
-        <li>喜歡的話，購買授權碼並貼上即可。你的角色、專案和影片都會保留。</li>
-      </ul>
-      <div class="cta-row">
-        <a class="btn" id="trialDownload" href="https://kaya855.gumroad.com/l/moneyforge-trial">取得免費試用 →</a>
-        <span class="small">下一頁價格填 0，輸入 Email，下載連結會寄到你的信箱。（頁面為英文）</span>
+
+    <div class="trial-row">
+      <div class="plate">
+        <div class="bl"></div><div class="br"></div>
+        <strong>試用包含</strong>
+        <ul class="checks">
+          <li>個人版全部功能：圖片、角色一致性、影片、多場景短片、音樂 MV、配音短影片、長影片剪成短影片</li>
+          <li>一鍵發布到你自己的 YouTube 頻道。Facebook、Instagram、Threads 和 TikTok 即將推出；在此之前，請下載影片，再到對應的 App 上傳。</li>
+          <li>全部在你的顯示卡上執行，檔案不會離開你的電腦。</li>
+          <li>喜歡的話，購買授權碼並貼上即可。你的角色、專案和影片都會保留。</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn" id="trialDownload" href="https://kaya855.gumroad.com/l/moneyforge-trial">取得免費試用 →</a>
+          <span class="small">下一頁價格填 0，輸入 Email，下載連結會寄到你的信箱。（頁面為英文）</span>
+        </div>
+        <p class="small phone-note">正在用手機？現在就領取：下載連結會留在你的信箱裡，回到 Windows 電腦再安裝。</p>
+      </div>
+      <div class="made-with">
+        <figure>
+          <video src="../media/trial-reel.mp4" poster="../media/trial-reel.jpg" autoplay muted loop playsinline preload="metadata" aria-label="用 MoneyForge 製作的配音短影片"></video>
+          <figcaption>配音短影片，只輸入一個主題。畫面和字幕在一台 4GB 顯示卡筆電上完成。</figcaption>
+        </figure>
+        <figure>
+          <video src="../media/trial-whiteboard.mp4" poster="../media/trial-whiteboard.jpg" autoplay muted loop playsinline preload="metadata" aria-label="用 MoneyForge 製作的白板風格短影片"></video>
+          <figcaption>白板風格：每一幕都用粗墨線畫出。</figcaption>
+        </figure>
       </div>
     </div>
 
