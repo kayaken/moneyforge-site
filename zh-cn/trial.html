@@ -161,6 +161,7 @@
   (function(){try{var q=new URLSearchParams(location.search),u=new URLSearchParams();
     q.forEach(function(v,k){if(/^utm_(source|medium|campaign|content|term)$/.test(k))u.set(k,v.slice(0,100));});
     if(!u.has('utm_source'))return;if(!u.has('utm_medium'))u.set('utm_medium','social');
+    u.set('mf',(u.get('utm_source')+'.'+(u.get('utm_campaign')||'none')).slice(0,80));
     var a=document.getElementById('trialDownload');if(a)a.href=a.href.split('?')[0]+'?'+u.toString();
   }catch(e){}})();
 </script>
