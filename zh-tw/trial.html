@@ -154,5 +154,15 @@
     localStorage.getItem('mf-theme') ||
     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
 </script>
+<script>
+  // Per-post attribution (2026-11-28): promo posts link here with
+  // ?utm_source=<platform>&utm_campaign=<post>; pass them on to Gumroad,
+  // which counts trial claims per UTM link (Analytics > Links).
+  (function(){try{var q=new URLSearchParams(location.search),u=new URLSearchParams();
+    q.forEach(function(v,k){if(/^utm_(source|medium|campaign|content|term)$/.test(k))u.set(k,v.slice(0,100));});
+    if(!u.has('utm_source'))return;if(!u.has('utm_medium'))u.set('utm_medium','social');
+    var a=document.getElementById('trialDownload');if(a)a.href=a.href.split('?')[0]+'?'+u.toString();
+  }catch(e){}})();
+</script>
 </body>
 </html>

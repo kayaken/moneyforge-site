@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){try{if(localStorage.getItem('mf-lang')||/[?&]lang=en/.test(location.search))return;var l=(navigator.languages&&navigator.languages[0])||navigator.language||'';if(/^zh-(tw|hk|mo)|^zh-hant/i.test(l))location.replace('zh-tw/trial.html'+location.hash);else if(/^zh/i.test(l))location.replace('zh-cn/trial.html'+location.hash);}catch(e){}})();</script>
+<script>(function(){try{if(localStorage.getItem('mf-lang')||/[?&]lang=en/.test(location.search))return;var l=(navigator.languages&&navigator.languages[0])||navigator.language||'';if(/^zh-(tw|hk|mo)|^zh-hant/i.test(l))location.replace('zh-tw/trial.html'+location.search+location.hash);else if(/^zh/i.test(l))location.replace('zh-cn/trial.html'+location.search+location.hash);}catch(e){}})();</script>
 <title>Free 7-day trial — MoneyForge</title>
 <meta name="description" content="Try MoneyForge free for 7 days on your own Windows PC. Images, video, movies, music videos and narrated shorts on your own GPU. No card needed.">
 <link rel="canonical" href="https://moneyforgestudio.com/trial.html">
@@ -148,6 +148,16 @@
   document.documentElement.setAttribute('data-theme',
     localStorage.getItem('mf-theme') ||
     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+</script>
+<script>
+  // Per-post attribution (2026-11-28): promo posts link here with
+  // ?utm_source=<platform>&utm_campaign=<post>; pass them on to Gumroad,
+  // which counts trial claims per UTM link (Analytics > Links).
+  (function(){try{var q=new URLSearchParams(location.search),u=new URLSearchParams();
+    q.forEach(function(v,k){if(/^utm_(source|medium|campaign|content|term)$/.test(k))u.set(k,v.slice(0,100));});
+    if(!u.has('utm_source'))return;if(!u.has('utm_medium'))u.set('utm_medium','social');
+    var a=document.getElementById('trialDownload');if(a)a.href=a.href.split('?')[0]+'?'+u.toString();
+  }catch(e){}})();
 </script>
 </body>
 </html>
