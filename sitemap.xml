@@ -336,4 +336,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url><loc>https://moneyforgestudio.com/styles.html</loc></url>
+  <url><loc>https://moneyforgestudio.com/zh-cn/styles.html</loc></url>
+  <url><loc>https://moneyforgestudio.com/zh-tw/styles.html</loc></url>
 </urlset>
