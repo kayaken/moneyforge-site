@@ -78,10 +78,14 @@
   .showcase .frame::before, .showcase .frame::after { content: ""; position: absolute; width: 14px; height: 14px; }
   .showcase .frame::before { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
   .showcase .frame::after { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
-  .showcase video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: var(--bg); }
-  .show-tabs { display: flex; gap: 16px; margin-top: 10px; }
-  .show-tabs button { background: none; border: 0; border-bottom: 2px solid transparent; padding: 2px 0; font: inherit; font-size: 13px; color: var(--text-faint); cursor: pointer; }
-  .show-tabs button[aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent); }
+  .showcase .frame .slide { position: absolute; inset: 8px; width: calc(100% - 16px); height: calc(100% - 16px); object-fit: cover; background: var(--bg); opacity: 0; transition: opacity .6s ease; }
+  .showcase .frame .slide.on { opacity: 1; }
+  .showcase .frame { aspect-ratio: 9 / 16; }
+  .show-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+  .show-label { font-size: 13px; color: var(--text); border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
+  .show-dots { display: inline-flex; gap: 6px; }
+  .show-dots button { width: 8px; height: 8px; padding: 0; border: 1px solid var(--text-faint); background: transparent; cursor: pointer; }
+  .show-dots button[aria-current="true"] { background: var(--accent); border-color: var(--accent); }
   .showcase figcaption { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
   @media (max-width: 720px) { .hero { grid-template-columns: 1fr; gap: 24px; } .showcase { max-width: 240px; } }
   .phone-note { display: none; }
@@ -126,13 +130,23 @@
         </div>
         <p class="small phone-note">正在用手機？現在就領取：下載連結會留在你的信箱裡，回到 Windows 電腦再安裝。</p>
       </div>
-      <figure class="showcase">
+      <figure class="showcase" aria-label="用 MoneyForge 製作的示例">
         <div class="frame">
-          <video id="showcaseVideo" src="../media/trial-reel.mp4" poster="../media/trial-reel.jpg" autoplay muted loop playsinline preload="metadata" aria-label="用 MoneyForge 製作的配音短影片"></video>
+          <video class="slide on" src="../media/trial-reel.mp4" poster="../media/trial-reel.jpg" autoplay muted loop playsinline preload="auto" data-label="配音短影片" data-cap="畫面和字幕在一台 4GB 顯示卡筆電上完成。" aria-label="配音短影片"></video>
+          <video class="slide" src="../media/trial-whiteboard.mp4" poster="../media/trial-whiteboard.jpg" muted loop playsinline preload="none" data-label="白板風格" data-cap="每一幕都用粗墨線畫出。" aria-label="白板風格"></video>
+          <video class="slide" src="../media/trial-story.mp4" poster="../media/trial-story.jpg" muted loop playsinline preload="none" data-label="故事短影片" data-cap="旁白、音樂和字幕，一幕接一幕。" aria-label="故事短影片"></video>
+          <video class="slide" src="../media/trial-aivideo.mp4" poster="../media/trial-aivideo.jpg" muted loop playsinline preload="none" data-label="AI 影片" data-cap="一句提示詞生成真實動態畫面。需要 12GB 顯示卡。" aria-label="AI 影片"></video>
+          <video class="slide" src="../media/trial-movie.mp4" poster="../media/trial-movie.jpg" muted loop playsinline preload="none" data-label="AI 短片" data-cap="多個鏡頭接成一個場景。需要 12GB 顯示卡。" aria-label="AI 短片"></video>
         </div>
-        <div class="show-tabs" role="tablist" aria-label="示例">
-          <button type="button" role="tab" aria-selected="true" data-src="../media/trial-reel.mp4" data-poster="../media/trial-reel.jpg" data-cap="畫面和字幕在一台 4GB 顯示卡筆電上完成。">配音短影片</button>
-          <button type="button" role="tab" aria-selected="false" data-src="../media/trial-whiteboard.mp4" data-poster="../media/trial-whiteboard.jpg" data-cap="每一幕都用粗墨線畫出。">白板風格</button>
+        <div class="show-meta">
+          <span class="show-label" id="showLabel">配音短影片</span>
+          <span class="show-dots" id="showDots">
+          <button type="button" aria-label="配音短影片" aria-current="true"></button>
+          <button type="button" aria-label="白板風格"></button>
+          <button type="button" aria-label="故事短影片"></button>
+          <button type="button" aria-label="AI 影片"></button>
+          <button type="button" aria-label="AI 短片"></button>
+          </span>
         </div>
         <figcaption id="showcaseCap">畫面和字幕在一台 4GB 顯示卡筆電上完成。</figcaption>
       </figure>
@@ -185,11 +199,24 @@
     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
 </script>
 <script>
-  // Example tabs on the trial hero: swap the showcase clip.
-  (function(){var v=document.getElementById('showcaseVideo'),c=document.getElementById('showcaseCap');
-    if(!v)return;document.querySelectorAll('.show-tabs button').forEach(function(b){b.addEventListener('click',function(){
-      document.querySelectorAll('.show-tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false');});
-      v.poster=b.dataset.poster;v.src=b.dataset.src;v.setAttribute('aria-label',b.textContent);c.textContent=b.dataset.cap;var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});});});})();
+  // Trial hero showcase: each style plays ~5 s, then the next fades in.
+  // Pauses on hover/focus; no auto-rotation with reduced motion.
+  (function(){var vs=[].slice.call(document.querySelectorAll('.showcase .slide'));if(!vs.length)return;
+    var dots=[].slice.call(document.querySelectorAll('#showDots button')),lab=document.getElementById('showLabel'),
+        cap=document.getElementById('showcaseCap'),i=0,timer=null,held=false,
+        still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function show(n){vs[i].classList.remove('on');vs[i].pause();dots[i].removeAttribute('aria-current');
+      i=(n+vs.length)%vs.length;var v=vs[i];if(v.preload!=='auto'){v.preload='auto';}
+      v.currentTime=0;var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});v.classList.add('on');
+      dots[i].setAttribute('aria-current','true');lab.textContent=v.dataset.label;cap.textContent=v.dataset.cap;
+      var nx=vs[(i+1)%vs.length];if(nx.preload==='none')nx.preload='metadata';}
+    function tick(){if(!held&&!document.hidden)show(i+1);}
+    function start(){if(!still&&!timer)timer=setInterval(tick,5000);}
+    dots.forEach(function(d,n){d.addEventListener('click',function(){show(n);clearInterval(timer);timer=null;start();});});
+    var f=document.querySelector('.showcase');
+    f.addEventListener('mouseenter',function(){held=true;});f.addEventListener('mouseleave',function(){held=false;});
+    f.addEventListener('focusin',function(){held=true;});f.addEventListener('focusout',function(){held=false;});
+    vs[1].preload='metadata';start();})();
 </script>
 <script>
   // Per-post attribution (2026-11-28): promo posts link here with
